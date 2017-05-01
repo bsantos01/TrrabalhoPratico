@@ -21,7 +21,7 @@ public class Game {
     
 
     
-    public Game() throws IOException{
+    public Game(){
     
         gamedata = new Dugeon();
         state = new IBeginning(gamedata);

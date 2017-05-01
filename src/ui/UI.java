@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import trabalhopratico.Game;
+import trabalhopratico.IEstates.*;
 
 /**
  *
@@ -18,8 +19,8 @@ public class UI {
     private Game game;
     private Scanner s;
    
-    void UI() throws IOException{
-        this.game= new Game();
+    public UI(){
+        game= new Game();
         s = new Scanner(System.in);
     }
     
@@ -30,9 +31,11 @@ public class UI {
     
     public void setupbeginning(){
         int dif, area;
+        s = new Scanner(System.in);
         System.out.println("Dificuldade?");
         System.out.println("0-Easy"); //blablabla
-        dif=s.nextInt();
+        
+            dif=s.nextInt();
         System.out.print("area?");
         area=s.nextInt();
         game.setDificulty(dif, area);
@@ -43,11 +46,11 @@ public class UI {
     }
     
     public void run(){    
-        
-        //while(!(game.getState() instanceof IGameOver)){
-        System.out.println("teste "+ game.rolldice());
+            
+        while(!(game.getState() instanceof IGameOver)){
+   
 
-            /*if(game.getState() instanceof IBeginning)
+            if(game.getState() instanceof IBeginning)
             {   
                 setupbeginning();
             }
@@ -64,9 +67,9 @@ public class UI {
             if(game.getState() instanceof IMerchAwait){
                 game.getState().merchBuy(chooseMerch());
             }
-            */
+            
         }
-    //}
+    }
     
     
 }
