@@ -8,6 +8,7 @@ package trabalhopratico.cards;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
 import trabalhopratico.IEstates.ICombat;
+import trabalhopratico.IEstates.IMerchAwait;
 import trabalhopratico.IEstates.IStates;
 
 /**
@@ -16,6 +17,11 @@ import trabalhopratico.IEstates.IStates;
  */
 public class Event extends Card{
     
+        @Override
+    public IStates inicia(Dugeon act){
+        
+        return new IAwaitAction(act);
+    }
      @Override
      public IStates accao(int opt, Dugeon act)
      {

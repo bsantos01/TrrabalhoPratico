@@ -23,8 +23,8 @@ public class Area {
         index=-1;
         Card [] temp= {new Event(), new Monster(gamedata, false), new Merchant(), new Resting(), new Treasure()};
         area= new ArrayList<Card>(Arrays.asList(temp));
-        long seed=System.nanoTime();
-        Collections.shuffle(area, new Random(seed));
+        //long seed=System.nanoTime();
+        //Collections.shuffle(area, new Random(seed));
     }
     
     public Card GetCard(int i){

@@ -21,6 +21,12 @@ public class Merchant extends Card {
     }
     
     @Override
+    public IStates inicia(Dugeon act){
+        
+        return new IMerchAwait(act);
+    }
+    
+    @Override
     public IStates accao(int opt, Dugeon act){
       
         switch(opt){

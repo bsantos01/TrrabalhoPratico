@@ -41,6 +41,10 @@ public class StateAdapter implements IStates {
         return this;
     };
     @Override
+    public IStates inicia(){
+        return this;
+    };
+    @Override
     public IStates merchBuy(int opt){
         return this;
     };

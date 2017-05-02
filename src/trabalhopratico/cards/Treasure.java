@@ -15,6 +15,11 @@ import trabalhopratico.IEstates.IStates;
  */
 public class Treasure extends Card{
     
+    
+    @Override   
+    public IStates inicia(Dugeon act){    
+        return new IAwaitAction(act);
+    }
      @Override
      public IStates accao(int opt, Dugeon act)
      {
