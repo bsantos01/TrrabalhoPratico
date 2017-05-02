@@ -43,6 +43,10 @@ public class Game {
         state= new IAwaitAction(gamedata);
     }
     
+    public void setState(IStates s){
+        state = s;
+    }
+    
     public int rolldice(){
         Random randomGenerator= new Random();
         int v= randomGenerator.nextInt(6)+1;       

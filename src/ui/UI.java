@@ -103,7 +103,7 @@ public class UI {
                     if(game.getIndex()==1 ||game.getIndex()==4)game.addIndex(2);
                     else game.addIndex(1);
                 }
-                game.getState().start();
+                game.setState(game.getState().start());
             }
             if(game.getState() instanceof IMerchAwait){
                 game.getState().merchBuy(chooseMerch());
