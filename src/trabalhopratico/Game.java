@@ -52,4 +52,8 @@ public class Game {
     public String getNameCard(int i) {
         return gamedata.getNameCard(i);
     }
+
+    public String getDataPlayer() {
+        return gamedata.getDataPlayer();
+    }
 }

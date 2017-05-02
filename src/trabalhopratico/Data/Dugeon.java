@@ -133,5 +133,9 @@ public class Dugeon {
     public String getNameCard(int i) {
         return cards.getNameCard(i);
     }
+
+    public String getDataPlayer() {
+        return player.getData();
+    }
     
 }

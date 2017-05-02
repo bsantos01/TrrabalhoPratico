@@ -80,7 +80,9 @@ public class UI {
                
         }
     }
-    
+    public void printDataPlayer(){
+        System.out.println("\nDados Player:\n" + game.getDataPlayer());
+    }
     public void run(){    
             
         while(!(game.getState() instanceof IGameOver)){
@@ -92,18 +94,8 @@ public class UI {
             }
             if(game.getState() instanceof IAwaitAction)
             {   
-                System.out.println("\n\n\n");
-                System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
-                System.out.println("\t\t\t|"+game.getNameCard(1)+"|\t\t\t\t|"+game.getNameCard(4)+"|");
-                System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
-                System.out.println("-----------------\t|\t\t|\t-----------------\t|\t\t|");
-                System.out.println("|" + game.getNameCard(0)+"|\t-----------------\t|" + game.getNameCard(3)+"|\t-----------------");
-                System.out.println("|\t\t|\t\t\t\t|\t\t|");
-                System.out.println("|\t\t|\t-----------------\t|\t\t|\t-----------------");
-                System.out.println("----------------\t|"+game.getNameCard(2)+"|\t-----------------\t|"+game.getNameCard(5)+"|");
-                System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
-                System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
-                System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
+                printArena();
+                printDataPlayer();
                 if(game.getIndex()==0 ||game.getIndex()==3)
                 {
                     game.addIndex(chooseCard());

@@ -184,4 +184,8 @@ public class Player {
         }
         return false;
     }
+
+    String getData() {
+        return "HP: " +hp+ "\t\tArmor: "+armor+ "\tFood: "+food +"\t\tGold: " + gold;
+    }
 }
