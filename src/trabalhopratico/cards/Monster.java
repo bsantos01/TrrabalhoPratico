@@ -49,4 +49,9 @@ public class Monster extends Card{
              return new IAwaitAction(act);
      } 
     
+     @Override
+     public IStates inicia(Dugeon act)
+     {
+             return accao(0,act);
+     } 
 }

@@ -7,6 +7,7 @@ package trabalhopratico.cards;
 import trabalhopratico.IEstates.IStates;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
+import trabalhopratico.IEstates.IRestAwait;
 
 
 
@@ -41,4 +42,10 @@ public class Resting extends Card {
         }
         return new IAwaitAction(act); 
     }
+    
+    @Override
+     public IStates inicia(Dugeon act)
+     {
+             return new IRestAwait(act);
+     } 
 }

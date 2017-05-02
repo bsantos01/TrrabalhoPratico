@@ -22,11 +22,9 @@ public class IAwaitAction extends StateAdapter{
     @Override
     public IStates start(){
         
-      
-            //this.getDataGame().GetActualCard().inicia();
+        System.out.println("Aqui estou eu XDFFFFF");
         
-        
-        return this;
+        return this.getDataGame().GetActualCard().inicia(this.getDataGame());
     
     };
 }

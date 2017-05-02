@@ -16,6 +16,8 @@ public abstract class Card {
     
     abstract public IStates accao(int opt, Dugeon act);
     
+    abstract public IStates inicia(Dugeon act);
+    
 }
 
 

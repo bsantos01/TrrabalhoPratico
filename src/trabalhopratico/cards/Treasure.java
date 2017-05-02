@@ -41,9 +41,14 @@ public class Treasure extends Card{
              case 6:
                  //add spell healing
                  break;
-         
-         }
-             return new IAwaitAction(act);
+            }
+        return new IAwaitAction(act);
+     }
+     
+     @Override
+     public IStates inicia(Dugeon act)
+     {
+             return accao(0, act);
      }
     
 }
