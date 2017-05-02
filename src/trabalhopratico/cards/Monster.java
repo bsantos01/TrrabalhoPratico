@@ -7,6 +7,7 @@ package trabalhopratico.cards;
 
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
+import trabalhopratico.IEstates.ICombat;
 import trabalhopratico.IEstates.IStates;
 
 /**
@@ -48,5 +49,11 @@ public class Monster extends Card{
           dmg = act.getlvl()*2;
              return new IAwaitAction(act);
      } 
+     
+         @Override
+     public IStates inicia(Dugeon act){
+        
+        return new ICombat(act, false);
+    }
     
 }

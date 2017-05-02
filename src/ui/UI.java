@@ -55,7 +55,7 @@ public class UI {
                 setupbeginning();
             }
             if(game.getState() instanceof IAwaitAction)
-            {   
+            {   System.out.println("action ;)");
                 if(game.getIndex()==0 ||game.getIndex()==3)
                 {
                     game.addIndex(chooseCard(game.getIndex()));
@@ -66,6 +66,7 @@ public class UI {
             }
             if(game.getState() instanceof IMerchAwait){
                 game.getState().merchBuy(chooseMerch());
+                System.out.println("MERCH ;)");
             }
             
         }
