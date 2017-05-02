@@ -48,4 +48,8 @@ public class Game {
         int v= randomGenerator.nextInt(6)+1;       
         return v;
     };
+
+    public String getNameCard(int i) {
+        return gamedata.getNameCard(i);
+    }
 }

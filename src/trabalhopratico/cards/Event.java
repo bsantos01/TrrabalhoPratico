@@ -48,4 +48,10 @@ public class Event extends Card{
      {
         return accao(0,act);
      }
+     
+     
+     @Override
+     public String getname(){
+         return "Event\t\t";
+     }
 }

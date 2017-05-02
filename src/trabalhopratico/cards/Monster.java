@@ -55,4 +55,10 @@ public class Monster extends Card{
         
         return new ICombat(act, false);
     }
+    
+     
+     @Override
+     public String getname(){
+         return "Monster \t";
+     }
 }

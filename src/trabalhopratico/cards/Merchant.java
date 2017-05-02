@@ -64,4 +64,9 @@ public class Merchant extends Card {
         return new IMerchAwait(act);
     }
     
+    
+     @Override
+    public String getname(){
+         return "Merchant \t";
+     }
 }

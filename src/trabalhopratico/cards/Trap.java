@@ -7,53 +7,53 @@ package trabalhopratico.cards;
 
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
+import trabalhopratico.IEstates.ICombat;
+import trabalhopratico.IEstates.IMerchAwait;
 import trabalhopratico.IEstates.IStates;
 
 /**
  *
  * @author Bruno Santos
  */
-public class Treasure extends Card{
+public class Trap extends Card{
     
      @Override
      public IStates accao(int opt, Dugeon act)
      {
-         if(act.getMkill())
-            act.addGold(2);
-         else
-             act.addGold(1);
-         switch(act.rolldice()){
+         int v= act.rolldice();
+         switch (v){
              case 1:
-                 act.addArmor(1);
-                 break;
+                 act.rmfood();
+             break;
              case 2:
-                 act.addxp(2);
-                 break;
+                 act.rmGold(1);
+             break;
              case 3:
-                 //add spell fireball
-                 break;
+                 act.rmArmor(1);
+             break;
              case 4:
-                 //add spell icespell
-                 break;
+                 act.rmHP(1);
+             break;
              case 5:
-                 //add spell poison
-                 break;
+                 act.rmXP(1);
+             break;
              case 6:
-                 //add spell healing
-                 break;
-            }
-        return new IAwaitAction(act);
+                act.rmHP(2);
+                //--->fazer o recuo de area
+                return new IAwaitAction(act);
+         }
+             return new IAwaitAction(act);
      }
      
      @Override
      public IStates inicia(Dugeon act)
      {
-             return accao(0, act);
+        return accao(0,act);
      }
+     
      
      @Override
      public String getname(){
-         return "Treasure\t";
+         return "Trap\t\t";
      }
-    
 }

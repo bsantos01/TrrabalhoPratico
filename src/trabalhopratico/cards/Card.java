@@ -16,6 +16,7 @@ public abstract class Card {
     
     abstract public IStates accao(int opt, Dugeon act);
     abstract public IStates inicia(Dugeon act);
+    abstract public String getname();
     
     public String GetDesc(){return descricao;}
     

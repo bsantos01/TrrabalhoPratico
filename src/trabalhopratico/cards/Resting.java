@@ -48,4 +48,10 @@ public class Resting extends Card {
      {
              return new IRestAwait(act);
      } 
+     
+     
+     @Override
+     public String getname(){
+         return "Resting \t";
+     }
 }

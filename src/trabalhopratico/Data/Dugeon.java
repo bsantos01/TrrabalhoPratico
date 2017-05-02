@@ -129,5 +129,9 @@ public class Dugeon {
         player.setMkill(op);
     }
 // FIM ADDS AND REMOVES
+
+    public String getNameCard(int i) {
+        return cards.getNameCard(i);
+    }
     
 }

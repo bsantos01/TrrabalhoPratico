@@ -21,10 +21,11 @@ public class Area {
     
     public Area(Dugeon gamedata){
         index=-1;
-        Card [] temp= {new Event(), new Monster(gamedata, false), new Merchant(), new Resting(), new Treasure()};
+        Card [] temp= {new Event(), new Monster(gamedata, false), new Merchant(), new Resting(), new Treasure(), new Trap()};
         area= new ArrayList<Card>(Arrays.asList(temp));
-        //long seed=System.nanoTime();
-        //Collections.shuffle(area, new Random(seed));
+                
+        long seed=System.nanoTime();
+        Collections.shuffle(area, new Random(seed));
     }
     
     public Card GetCard(int i){
@@ -38,5 +39,29 @@ public class Area {
     };
     public void addIndex(int i){
        this.index+=i;
+    }
+
+    public String getNameCard(int i) {
+        if(index<0)
+            if(i==0)
+                return area.get(i).getname();
+            else
+                return "\t\t";
+        if(index==0)
+            if(i<3)
+                return area.get(i).getname();
+            else
+                return "\t\t";
+       if(index==2 || index==1)
+            if(i<4)
+                return area.get(i).getname();
+            else
+                return "\t\t";
+       if(index==3)
+            if(i<6)
+                return area.get(i).getname();
+            else
+                return "\t\t";
+       return "\t\t";
     }
 }

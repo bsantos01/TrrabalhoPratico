@@ -23,6 +23,7 @@ public class UI {
         game= new Game();
         s = new Scanner(System.in);
     }
+   
     
     public int chooseMerch(){
      System.out.println("MERCHANT");
@@ -40,9 +41,44 @@ public class UI {
         area=s.nextInt();
         game.setDificulty(dif, area);
     }
-    public int chooseCard(int i){
+    public int chooseCard(){
         System.out.println("Which card? 1-UP or 2-DOWN?");
         return s.nextInt();
+    }
+    
+    public void printArena(){
+        //Se for arena final
+        if(false){
+            System.out.println("\n\n\n");
+            System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
+            System.out.println("\t\t\t|"+game.getNameCard(1)+"|\t\t\t\t|"+game.getNameCard(4)+"|");
+            System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+            System.out.println("-----------------\t|\t\t|\t-----------------\t|\t\t|\t-----------------");
+            System.out.println("|" + game.getNameCard(0)+"|\t-----------------\t|" + game.getNameCard(3)+"|\t-----------------\t|" + game.getNameCard(6)+"|");
+            System.out.println("|\t\t|\t\t\t\t|\t\t|\t|\t\t|");
+            System.out.println("|\t\t|\t-----------------\t|\t\t|\t-----------------\t|\t\t|");
+            System.out.println("----------------\t|"+game.getNameCard(2)+"|\t-----------------\t|"+game.getNameCard(5)+"|\t-----------------");
+            System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+            System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+            System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
+                   
+        }
+        //Senão
+        else{
+            System.out.println("\n\n\n");
+            System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
+            System.out.println("\t\t\t|"+game.getNameCard(1)+"|\t\t\t\t|"+game.getNameCard(4)+"|");
+            System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+            System.out.println("-----------------\t|\t\t|\t-----------------\t|\t\t|");
+            System.out.println("|" + game.getNameCard(0)+"|\t-----------------\t|" + game.getNameCard(3)+"|\t-----------------");
+            System.out.println("|\t\t|\t\t\t\t|\t\t|");
+            System.out.println("|\t\t|\t-----------------\t|\t\t|\t-----------------");
+            System.out.println("----------------\t|"+game.getNameCard(2)+"|\t-----------------\t|"+game.getNameCard(5)+"|");
+            System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+            System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+            System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
+               
+        }
     }
     
     public void run(){    
@@ -55,12 +91,25 @@ public class UI {
                 setupbeginning();
             }
             if(game.getState() instanceof IAwaitAction)
-            {   System.out.println("action ;)");
+            {   
+                System.out.println("\n\n\n");
+                System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
+                System.out.println("\t\t\t|"+game.getNameCard(1)+"|\t\t\t\t|"+game.getNameCard(4)+"|");
+                System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+                System.out.println("-----------------\t|\t\t|\t-----------------\t|\t\t|");
+                System.out.println("|" + game.getNameCard(0)+"|\t-----------------\t|" + game.getNameCard(3)+"|\t-----------------");
+                System.out.println("|\t\t|\t\t\t\t|\t\t|");
+                System.out.println("|\t\t|\t-----------------\t|\t\t|\t-----------------");
+                System.out.println("----------------\t|"+game.getNameCard(2)+"|\t-----------------\t|"+game.getNameCard(5)+"|");
+                System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+                System.out.println("\t\t\t|\t\t|\t\t\t\t|\t\t|");
+                System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
                 if(game.getIndex()==0 ||game.getIndex()==3)
                 {
-                    game.addIndex(chooseCard(game.getIndex()));
+                    game.addIndex(chooseCard());
                 }else{
-                    game.addIndex(1);                   
+                    if(game.getIndex()==1 ||game.getIndex()==4)game.addIndex(2);
+                    else game.addIndex(1);
                 }
                 game.getState().start();
             }
