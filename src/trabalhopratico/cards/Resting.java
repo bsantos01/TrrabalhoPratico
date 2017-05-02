@@ -42,18 +42,10 @@ public class Resting extends Card {
         }
         return new IAwaitAction(act); 
     }
-<<<<<<< HEAD
-    
+
     @Override
      public IStates inicia(Dugeon act)
      {
              return new IRestAwait(act);
      } 
-=======
-    @Override   
-    public IStates inicia(Dugeon act){    
-        return new IAwaitAction(act);
-    }
-    
->>>>>>> origin/master
 }

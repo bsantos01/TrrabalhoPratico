@@ -19,8 +19,6 @@ public abstract class Card {
     
     public String GetDesc(){return descricao;}
     
-    abstract public IStates inicia(Dugeon act);
-    
 }
 
 

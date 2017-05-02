@@ -64,9 +64,4 @@ public class Merchant extends Card {
         return new IMerchAwait(act);
     }
     
-    @Override
-     public IStates inicia(Dugeon act)
-     {
-        return new IMerchAwait(act);
-     }
 }
