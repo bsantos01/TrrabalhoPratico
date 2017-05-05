@@ -26,8 +26,31 @@ public class UI {
    
     
     public int chooseMerch(){
-     System.out.println("MERCHANT");
-        return s.nextInt();
+        int v;
+        System.out.println("MERCHANT");
+        System.out.println("1: -1G Ration: +1 Food");
+        System.out.println("2: -1G Health Potion: +1 HP");
+        System.out.println("3: -3G Big Health Potion: +4 HP");
+        System.out.println("4: -6G Armor Piece: +1 Armor");
+        System.out.println("5: +8G Any Spell");
+        System.out.println("6: +3G Sell 1 Armor Piece");
+        System.out.println("7: +4G Sell Any Spell");
+        System.out.println("8: Skip");
+        do
+            v=s.nextInt();
+        while (v<1||v>8);
+        return v;
+    };
+    public int chooseRest(){
+        int v;
+        System.out.println("RESTING");
+        System.out.println("1: Reinforce Weapon: +1 XP");
+        System.out.println("2: Search for Ration: +1 HP");
+        System.out.println("3: Health: +2 HP");
+        do
+            v=s.nextInt();
+        while (v<1||v>3);
+        return v;
     };
     
     public void setupbeginning(){
@@ -41,6 +64,7 @@ public class UI {
         area=s.nextInt();
         game.setDificulty(dif, area);
     }
+    
     public int chooseCard(){
         System.out.println("Which card? 1-UP or 2-DOWN?");
         return s.nextInt();
@@ -48,7 +72,7 @@ public class UI {
     
     public void printArena(){
         //Se for arena final
-        if(false){
+        if(game.haveBoss()){
             System.out.println("\n\n\n");
             System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
             System.out.println("\t\t\t|"+game.getNameCard(1)+"|\t\t\t\t|"+game.getNameCard(4)+"|");
@@ -82,6 +106,7 @@ public class UI {
     }
     public void printDataPlayer(){
         System.out.println("\nDados Player:\n" + game.getDataPlayer());
+        System.out.println("\nArea:\n" + game.getArea());
     }
     public void run(){    
             
@@ -103,13 +128,19 @@ public class UI {
                     if(game.getIndex()==1 ||game.getIndex()==4)game.addIndex(2);
                     else game.addIndex(1);
                 }
+                System.out.println("Vai o Start");
                 game.setState(game.getState().start());
+                System.out.println("Fim IAwaitAction");
             }
             if(game.getState() instanceof IMerchAwait){
-                game.getState().merchBuy(chooseMerch());
-                System.out.println("MERCH ;)");
+               game.setState(game.getState().merchBuy(chooseMerch()));
             }
-            
+            if(game.getState() instanceof IRestAwait){
+               game.setState(game.getState().RestOpt(chooseRest()));
+            }            
+            if(game.getState() instanceof ICombat){
+               game.setState(game.getState().RestOpt(chooseRest()));
+            }  
         }
     }
     

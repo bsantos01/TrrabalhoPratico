@@ -20,14 +20,20 @@ public class Area {
     ArrayList<Card> area;
     
     public Area(Dugeon gamedata){
-        index=-1;
+        System.out.println("Criar Area");
+        index = -1;
         Card [] temp= {new Event(), new Monster(gamedata, false), new Merchant(), new Resting(), new Treasure(), new Trap()};
         area= new ArrayList<Card>(Arrays.asList(temp));
                 
         long seed=System.nanoTime();
         Collections.shuffle(area, new Random(seed));
+        if(gamedata.haveBoss())area.add(6, new Monster(gamedata, false));
     }
-    
+    public boolean isEnd(){
+        if(area.size()<index+1)
+            return true;
+        return false;
+    }
     public Card GetCard(int i){
         return area.get(i);
     }
@@ -37,6 +43,7 @@ public class Area {
     public int getIndex(){
         return index;
     };
+    
     public void addIndex(int i){
        this.index+=i;
     }
@@ -59,6 +66,11 @@ public class Area {
                 return "\t\t";
        if(index==3)
             if(i<6)
+                return area.get(i).getname();
+            else
+                return "\t\t";
+        if(index==4||index==5)
+            if(i<=6)
                 return area.get(i).getname();
             else
                 return "\t\t";

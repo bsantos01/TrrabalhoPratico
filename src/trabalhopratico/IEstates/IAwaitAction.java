@@ -21,7 +21,13 @@ public class IAwaitAction extends StateAdapter{
     
     @Override
     public IStates start(){
-        return this.getDataGame().GetActualCard().inicia(this.getDataGame());
+
+       this.getDataGame().update();
+       System.out.println("Index Game:" + this.getDataGame().getIndex());
+        if(this.getDataGame().getIndex()<0)
+           return new IAwaitAction(this.getDataGame());
+
+       return this.getDataGame().GetActualCard().inicia(this.getDataGame());
     };
 }
 

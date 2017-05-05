@@ -16,6 +16,7 @@ public interface IStates
     IStates start();
     IStates run();
     IStates merchBuy(int opt);
+    IStates RestOpt(int opt);
     IStates inicia();
     
 }

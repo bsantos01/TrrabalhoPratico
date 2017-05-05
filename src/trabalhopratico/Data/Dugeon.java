@@ -24,19 +24,41 @@ public class Dugeon {
     private int lvl;
     private Player player;
     private Area cards;
-    
+    private int[] dices;
     
     
 
     public Dugeon() {
         area=1;
         lvl=1;
+        
         player = new Player();
-        cards = new Area(this);
+       
     }
 
 // FIM CONSTRUTORES */
-
+    public void update(){
+        this.checkNextRank();
+        if(cards.isEnd()){
+        cards = new Area(this); 
+        area++;
+        }
+    }
+    
+    public int[] getRDices(){
+        this.dices = new int[this.player.getRank()];        
+        for (int i=0; i<=this.player.getRank(); i++)
+            dices[i]= this.rolldice();        
+        return dices;
+    }
+    public int[] getDices(){      
+        return dices;
+    }
+    
+    public boolean haveBoss(){
+        if(area==2 || area==4 || area ==7 || area == 10 || area==14)return true;
+        return false;
+    }
     public void setup(int difficulty, int area) {
         this.area=area;
         this.player.Difficulty(difficulty);

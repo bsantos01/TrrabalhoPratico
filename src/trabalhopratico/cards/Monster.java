@@ -52,8 +52,8 @@ public class Monster extends Card{
      
          @Override
      public IStates inicia(Dugeon act){
-        
-        return new ICombat(act, false);
+       
+       return new ICombat(act, false);
     }
     
      

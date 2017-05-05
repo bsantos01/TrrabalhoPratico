@@ -23,6 +23,7 @@ public class Player {
     private int rank;
     private boolean mKill;
     ArrayList <Spell> spells;
+
     
     
     public void Difficulty(int difficulty) {

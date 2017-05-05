@@ -22,4 +22,9 @@ public class IRestAwait extends StateAdapter {
         return super.start(); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public IStates RestOpt(int opt){
+            this.getDataGame().GetActualCard().accao(opt, this.getDataGame());
+            return new IAwaitAction(this.getDataGame()); 
+    }
 }

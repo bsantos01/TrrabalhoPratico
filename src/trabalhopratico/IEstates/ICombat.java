@@ -26,4 +26,6 @@ public class ICombat extends StateAdapter{
         return super.start(); //To change body of generated methods, choose Tools | Templates.
     }
     
+    
+    
 }

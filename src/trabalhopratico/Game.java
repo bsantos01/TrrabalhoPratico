@@ -27,12 +27,19 @@ public class Game {
         state = new IBeginning(gamedata);
     }
     
+    public boolean haveBoss(){
+        return gamedata.haveBoss();
+    }
+    
     public IStates getState(){
         return state;
     }
     
     public int getIndex(){
         return gamedata.getIndex();
+    }
+    public int getArea(){
+        return gamedata.getarea();
     }
     public void addIndex(int i){
         gamedata.addIndex(i);
