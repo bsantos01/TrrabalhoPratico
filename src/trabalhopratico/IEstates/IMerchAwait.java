@@ -23,7 +23,7 @@ public class IMerchAwait extends StateAdapter {
     }
     
     @Override
-    public IStates merchBuy(int opt){
+    public IStates comitOpt(int opt){
         if(opt!=8){
             this.getDataGame().GetActualCard().accao(opt, this.getDataGame());
             return new IMerchAwait(this.getDataGame());

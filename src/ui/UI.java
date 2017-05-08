@@ -133,13 +133,13 @@ public class UI {
                 System.out.println("Fim IAwaitAction");
             }
             if(game.getState() instanceof IMerchAwait){
-               game.setState(game.getState().merchBuy(chooseMerch()));
+               game.setState(game.getState().comitOpt(chooseMerch()));
             }
             if(game.getState() instanceof IRestAwait){
-               game.setState(game.getState().RestOpt(chooseRest()));
+               game.setState(game.getState().comitOpt(chooseRest()));
             }            
             if(game.getState() instanceof ICombat){
-               game.setState(game.getState().RestOpt(chooseRest()));
+               game.setState(game.getState().comitOpt(chooseRest()));
             }  
         }
     }

@@ -15,8 +15,7 @@ public interface IStates
     //todas as funções que retornam um estado
     IStates start();
     IStates run();
-    IStates merchBuy(int opt);
-    IStates RestOpt(int opt);
+    IStates comitOpt(int opt);
     IStates inicia();
     
 }

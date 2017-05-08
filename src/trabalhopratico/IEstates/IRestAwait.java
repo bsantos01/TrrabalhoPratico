@@ -23,7 +23,7 @@ public class IRestAwait extends StateAdapter {
     }
     
     @Override
-    public IStates RestOpt(int opt){
+    public IStates comitOpt(int opt){
             this.getDataGame().GetActualCard().accao(opt, this.getDataGame());
             return new IAwaitAction(this.getDataGame()); 
     }

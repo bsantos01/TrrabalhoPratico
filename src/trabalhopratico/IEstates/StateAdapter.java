@@ -45,12 +45,9 @@ public class StateAdapter implements IStates {
         return this;
     };
     @Override
-    public IStates merchBuy(int opt){
+    public IStates comitOpt(int opt){
         return this;
     };
-    @Override
-    public IStates RestOpt(int opt){
-        return this;
-    };
+
     
 }
