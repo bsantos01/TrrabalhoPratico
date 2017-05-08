@@ -9,6 +9,8 @@ package trabalhopratico.Spells;
  *
  * @author Bruno Santos
  */
-public class Healing implements Spell{
-    
+public class Healing extends Spell{
+        public Healing(){
+        nome="Heal";
+    }
 }

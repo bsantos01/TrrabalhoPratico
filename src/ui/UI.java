@@ -24,6 +24,45 @@ public class UI {
         s = new Scanner(System.in);
     }
    
+    public void getdiceopt(){
+       
+        int []dices=game.getRDices();
+        printDice();
+        
+        for (int i=0;i<dices.length; i++)
+            if(dices[i]==6)
+            Critical(i);
+        
+    }
+    public void Critical(int i){    
+            int opt;
+                System.out.println("Critical damage on dice "+ (i+1) +". Want to re-roll? 1-YES 2-NO");
+                opt=s.nextInt();
+                if (opt==1)
+                    game.rerollCrit(i);
+                printDice();
+    }
+    
+    public void printDice(){
+        int []dices=game.getDices();
+        for (int i=0; i<dices.length; i++)
+            System.out.println("Dice " + (i+1) +": "+ dices[i]);  
+    }
+    public void doFeat(){
+        int opt;
+        int []dices=game.getDices();
+        System.out.println("Do Feat");
+        if (game.GetPlayerHP()<=2){
+            System.out.println("Insuficient HP to perform Feats.");
+        }else{
+            System.out.println("Wich dice?");
+            opt=s.nextInt();
+            game.getState().comitOpt(opt-1);
+            printDice();
+            //if(dices[opt-1]==6)
+            Critical(opt-1);
+        }
+    }
     
     public int chooseMerch(){
         int v;
@@ -106,7 +145,7 @@ public class UI {
     }
     public void printDataPlayer(){
         System.out.println("\nDados Player:\n" + game.getDataPlayer());
-        System.out.println("\nArea:\n" + game.getArea());
+        System.out.println("\nArea: " + game.getArea());
     }
     public void run(){    
             
@@ -128,9 +167,9 @@ public class UI {
                     if(game.getIndex()==1 ||game.getIndex()==4)game.addIndex(2);
                     else game.addIndex(1);
                 }
-                System.out.println("Vai o Start");
+              
                 game.setState(game.getState().start());
-                System.out.println("Fim IAwaitAction");
+                
             }
             if(game.getState() instanceof IMerchAwait){
                game.setState(game.getState().comitOpt(chooseMerch()));
@@ -139,8 +178,29 @@ public class UI {
                game.setState(game.getState().comitOpt(chooseRest()));
             }            
             if(game.getState() instanceof ICombat){
-               game.setState(game.getState().comitOpt(chooseRest()));
-            }  
+                getdiceopt();//ROLL inicial e verificação de criticals, actualizando os dados no gamedata
+               
+                System.out.println("Satisfied? You can still use Feats. 1-YES 2-NO");
+                if (s.nextInt()==1)
+                    game.setState(new IAwaitFeat(game.getDataGame())); //passa para os feats
+                else
+                    game.setState(new IAwaitSpells(game.getDataGame())); //senao pretender feats vai para os spells
+            }
+            if(game.getState() instanceof IAwaitFeat){
+                printDice();
+                doFeat();
+                game.setState(new IAwaitSpells(game.getDataGame()));
+            }
+            if(game.getState() instanceof IAwaitSpells){
+                if(game.SpellToString()!=null){
+                    System.out.println("You have the following Spells: "+ game.SpellToString());
+                    System.out.println("Which one do you want to choose?");
+                        s.nextInt();
+                        //FAZ QQ COISA
+                }else
+                   System.out.println("You have no spells available.");
+            }
+            
         }
     }
     

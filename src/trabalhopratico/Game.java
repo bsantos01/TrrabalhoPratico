@@ -27,6 +27,28 @@ public class Game {
         state = new IBeginning(gamedata);
     }
     
+    public int[] getRDices(){
+        return gamedata.getRDices();
+    }
+    public String SpellToString(){
+        return gamedata.SpellToString();
+    }
+    public int[] getDices(){
+        return gamedata.getDices();
+    }
+    public void rerollCrit(int i){
+        gamedata.rerollCrit(i);
+    }
+    public void rerollSingle(int i){
+        gamedata.rerollSingle(i);
+    }
+    public int GetPlayerHP(){
+        return gamedata.getPlayerHP();
+    }
+    public int GetRankPlayer(){
+        return gamedata.GetRank();
+    }
+   
     public boolean haveBoss(){
         return gamedata.haveBoss();
     }
@@ -66,5 +88,8 @@ public class Game {
 
     public String getDataPlayer() {
         return gamedata.getDataPlayer();
+    }
+    public Dugeon getDataGame(){
+        return gamedata;
     }
 }

@@ -9,5 +9,10 @@ package trabalhopratico.Spells;
  *
  * @author Bruno Santos
  */
-public interface Spell {
-        }
+public class Spell {
+        String nome;
+    
+        public String GetNome(){
+            return nome;
+        } 
+}

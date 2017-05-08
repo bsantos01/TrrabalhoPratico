@@ -21,8 +21,10 @@ public class ICombat extends StateAdapter{
         npc= new Monster(dataGame, event);
     }
 
+    
     @Override
     public IStates start() {
+        
         return super.start(); //To change body of generated methods, choose Tools | Templates.
     }
     

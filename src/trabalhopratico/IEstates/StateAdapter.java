@@ -49,5 +49,4 @@ public class StateAdapter implements IStates {
         return this;
     };
 
-    
 }

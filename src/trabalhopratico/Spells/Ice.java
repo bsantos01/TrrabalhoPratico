@@ -9,6 +9,8 @@ package trabalhopratico.Spells;
  *
  * @author Bruno Santos
  */
-public class Ice implements Spell{
-    
+public class Ice extends Spell{
+        public Ice(){
+        nome="Ice";
+    }
 }

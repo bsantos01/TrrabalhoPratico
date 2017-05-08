@@ -47,14 +47,27 @@ public class Dugeon {
     
     public int[] getRDices(){
         this.dices = new int[this.player.getRank()];        
-        for (int i=0; i<=this.player.getRank(); i++)
+        for (int i=0; i<this.player.getRank(); i++)
             dices[i]= this.rolldice();        
         return dices;
     }
     public int[] getDices(){      
         return dices;
     }
-    
+    public String SpellToString(){return player.SpellToString();}
+    public void rerollCrit(int i){
+        int temp=this.rolldice();
+        if (temp!=1)
+            dices[i]+=temp;
+        else
+            dices[i]=temp;
+    }
+    public int GetRank(){
+        return player.getRank();
+    }
+    public void rerollSingle(int i){
+        dices[i]=this.rolldice();
+    }
     public boolean haveBoss(){
         if(area==2 || area==4 || area ==7 || area == 10 || area==14)return true;
         return false;
@@ -99,7 +112,9 @@ public class Dugeon {
     public void addIndex(int i){
        cards.addIndex(i);
     }
-    
+    public int getPlayerHP(){
+        return player.getHp();
+    }
     
 //FIM GETTERS / SETTERS
     public void checkNextRank(){

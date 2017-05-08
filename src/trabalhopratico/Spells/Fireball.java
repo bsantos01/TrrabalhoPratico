@@ -9,6 +9,8 @@ package trabalhopratico.Spells;
  *
  * @author Bruno Santos
  */
-public class Fireball implements Spell{
-        
+public class Fireball extends Spell{
+    public Fireball(){
+        nome="Fireball";
+    }
 }

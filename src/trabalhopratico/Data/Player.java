@@ -6,6 +6,8 @@
 package trabalhopratico.Data;
 
 import java.util.ArrayList;
+import trabalhopratico.Spells.Fireball;
+import trabalhopratico.Spells.Ice;
 import trabalhopratico.Spells.Spell;
 
 /**
@@ -30,7 +32,13 @@ public class Player {
          this.xp = 0;
         this.rank = 1;
         this.mKill=false;
-        
+        //TESTE APENAS
+        spells=new ArrayList<>();
+        Spell e = new Fireball();
+        spells.add(e);
+        e = new Ice();
+        spells.add(e);
+        //FIM TESTE
         switch (difficulty){
             case 0:
                 this.hp = 5;
@@ -63,7 +71,19 @@ public class Player {
     public int getXp() {
         return xp;
     }
-
+    
+    public String SpellToString(){
+       if (spells == null)
+                return null;
+       StringBuilder s = new StringBuilder();
+       
+       for(int i=0;i<spells.size();i++){
+        s.append("\n"+(i+1) + ": "+ spells.get(i).GetNome());
+       }
+        
+        return s.toString();
+    }
+    
     public void setXp(int xp) {
         this.xp = xp;
     }

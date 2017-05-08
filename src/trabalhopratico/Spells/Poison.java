@@ -9,6 +9,9 @@ package trabalhopratico.Spells;
  *
  * @author Bruno Santos
  */
-public class Poison implements Spell{
+public class Poison extends Spell{
     
+    public Poison(){
+        nome="Poison";
+    }
 }
