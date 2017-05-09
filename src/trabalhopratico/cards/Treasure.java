@@ -22,6 +22,7 @@ public class Treasure extends Card{
             act.addGold(2);
          else
              act.addGold(1);
+         
          switch(act.rolldice()){
              case 1:
                  act.addArmor(1);

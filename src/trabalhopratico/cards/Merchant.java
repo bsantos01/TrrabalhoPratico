@@ -6,7 +6,6 @@
 package trabalhopratico.cards;
 
 import trabalhopratico.Data.Dugeon;
-import trabalhopratico.IEstates.IAwaitAction;
 import trabalhopratico.IEstates.IMerchAwait;
 import trabalhopratico.IEstates.IStates;
 

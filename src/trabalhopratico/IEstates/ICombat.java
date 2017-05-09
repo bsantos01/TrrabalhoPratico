@@ -14,13 +14,16 @@ import trabalhopratico.cards.Monster;
  */
 public class ICombat extends StateAdapter{
 
-    Monster npc;   
+      Monster npc;
 
-    public ICombat(Dugeon dataGame, boolean event) {
+    public ICombat(Dugeon dataGame, Monster m) {
         super(dataGame);
-        npc= new Monster(dataGame, event);
+        npc=m;
     }
-
+    @Override
+    public Monster GetMonster(){
+        return npc;
+    };
     
     @Override
     public IStates start() {

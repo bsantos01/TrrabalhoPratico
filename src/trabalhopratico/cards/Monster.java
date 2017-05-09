@@ -19,14 +19,34 @@ public class Monster extends Card{
     int dmg;
     int hp;
     int reward;
+    boolean ice;
+    boolean poison;
     
-    public Monster(Dugeon act, boolean event){
-    
-        hp=act.getarea()+act.rolldice();
+    public int getDmg() {
+        return dmg;
+    }
 
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int damage) {
+        this.hp -= damage;
+        if (poison==true)
+            this.hp-=5;
+    }
+
+    public int getReward() {
+        return reward;
+    }
+
+    public Monster(Dugeon act, boolean event){
+        dmg = act.getlvl()*2;
+        hp=act.getarea()+act.rolldice();
+     
         if(event)
             reward=2;
-        else
+        else{
             switch(act.getlvl()){
                 case 1:
                 case 2:
@@ -40,25 +60,42 @@ public class Monster extends Card{
                     reward=3;
                     break;
             }
-       
-        
-    }
-     @Override
-     public IStates accao(int opt, Dugeon act)
-     {
-          dmg = act.getlvl()*2;
-             return new IAwaitAction(act);
-     } 
-     
-         @Override
-     public IStates inicia(Dugeon act){
-       
-       return new ICombat(act, false);
+        }
+            
+       ice=false;
+       poison=false;
     }
     
-     
+
+    public void setPoison(){
+        poison=true;
+    }
+    public void setIce(){
+        ice=true;
+    }
+ 
+     @Override
+     public IStates inicia(Dugeon act){
+
+       return new ICombat(act, this);
+    }
+
      @Override
      public String getname(){
          return "Monster \t";
      }
+
+    @Override
+    public IStates accao(int opt, Dugeon act) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean tradeIce() {
+        if(ice){
+            ice=false;
+            return true;
+        }
+        else return false;
+    }
+
 }

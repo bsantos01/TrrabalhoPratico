@@ -5,10 +5,10 @@
  */
 package trabalhopratico;
 
-import java.io.IOException;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.*;
 import java.util.Random;
+import trabalhopratico.cards.Monster;
 
 /**
  *
@@ -26,7 +26,12 @@ public class Game {
         gamedata = new Dugeon();
         state = new IBeginning(gamedata);
     }
-    
+    public int getDamage(){ 
+        return gamedata.getDamage();
+    }
+    public Monster GetMonster(){
+        return state.GetMonster();
+    }
     public int[] getRDices(){
         return gamedata.getRDices();
     }

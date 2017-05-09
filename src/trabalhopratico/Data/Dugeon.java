@@ -7,6 +7,8 @@ package trabalhopratico.Data;
 
 
 import java.util.Random;
+import trabalhopratico.Spells.*;
+import trabalhopratico.Spells.Spell;
 import trabalhopratico.cards.Area;
 import trabalhopratico.cards.Card;
 
@@ -40,11 +42,51 @@ public class Dugeon {
     public void update(){
         this.checkNextRank();
         if(cards.isEnd()){
-        cards = new Area(this); 
-        area++;
+            if (this.haveBoss())
+                lvl++;
+            area++;
+            cards = new Area(this);
         }
     }
+    public void BossReward(){
+        switch(lvl){
+            case 1:
+            case 2:
+                player.addGold(2);
+                break;
+            case 3:
+            case 4:
+                player.addGold(3);
+                break;
+        }        
+    }
     
+    public void WinRandSpell(){
+        Spell temp=new Spell();
+        Random ran = new Random();
+        int x = ran.nextInt(4)+1;
+        switch(x){
+            case 1:
+                temp=new Fireball();
+                break;
+            case 2:
+                temp=new Ice();
+                break;
+            case 3:
+                temp=new Poison();
+                break;
+            case 4:
+                temp=new Healing();
+                break;
+        }
+        this.LoseRandSpell();
+        player.addSpell(temp);
+    }
+    public void LoseRandSpell(){
+        Random ran = new Random();
+        int x = ran.nextInt(2);
+        player.rmSpell(x);
+    }
     public int[] getRDices(){
         this.dices = new int[this.player.getRank()];        
         for (int i=0; i<this.player.getRank(); i++)
@@ -54,7 +96,23 @@ public class Dugeon {
     public int[] getDices(){      
         return dices;
     }
-    public String SpellToString(){return player.SpellToString();}
+    public int getDamage(){      
+        int dmg=0;
+        for (int i=0; i<dices.length; i++)
+            if (dices[i]!=1)
+                dmg+=dices[i];        
+        return dmg;
+    }
+    public String SpellToString(){
+        return player.SpellToString();
+    }
+    public Spell GetSpell(int i){
+     return player.GetSpell(i);
+    }
+    public void rmSpell(int i){
+        player.rmSpell(i);
+    }
+
     public void rerollCrit(int i){
         int temp=this.rolldice();
         if (temp!=1)
@@ -173,6 +231,10 @@ public class Dugeon {
 
     public String getDataPlayer() {
         return player.getData();
+    }
+
+    public void setMkill() {
+        player.setMkill(true);
     }
     
 }

@@ -41,7 +41,7 @@ public class Player {
         //FIM TESTE
         switch (difficulty){
             case 0:
-                this.hp = 5;
+                this.hp = 100;
                 this.armor = 1;
                 this.food = 6;
                 this.gold = 5;
@@ -73,7 +73,7 @@ public class Player {
     }
     
     public String SpellToString(){
-       if (spells == null)
+       if (spells.isEmpty())
                 return null;
        StringBuilder s = new StringBuilder();
        
@@ -83,7 +83,15 @@ public class Player {
         
         return s.toString();
     }
-    
+    public void rmSpell(int i){
+        spells.remove(i);
+    }
+    public Spell GetSpell(int i){
+        return spells.get(i);
+    }
+    public void addSpell(Spell e){
+        spells.add(e);
+    }
     public void setXp(int xp) {
         this.xp = xp;
     }
@@ -154,7 +162,7 @@ public class Player {
         if (rank!=4)
             xp+=v;
         else
-            this.hp+=1;
+            this.xp+=1;
         this.checkNextRank();
     }
     
@@ -193,7 +201,7 @@ public class Player {
     }
     
     public void addGold(int v){
-        this.food+=v;
+        this.gold+=v;
     }
     public void addArmor(int v){
         this.armor+=v;
@@ -207,6 +215,6 @@ public class Player {
     }
 
     String getData() {
-        return "HP: " +hp+ "\t\tArmor: "+armor+ "\tFood: "+food +"\t\tGold: " + gold;
+        return "HP: " +hp+ "\t\tArmor: "+armor+ "\tFood: "+food +"\t\tGold: " + gold + "\t\tXP: " + xp;
     }
 }

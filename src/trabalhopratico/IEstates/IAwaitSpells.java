@@ -6,20 +6,66 @@
 package trabalhopratico.IEstates;
 
 import trabalhopratico.Data.Dugeon;
+import trabalhopratico.Spells.*;
+import trabalhopratico.cards.BossMonster;
+import trabalhopratico.cards.Monster;
 
 /**
  *
  * @author Bruno Santos
  */
 public class IAwaitSpells extends StateAdapter{
-
-    public IAwaitSpells(Dugeon dataGame) {
+    
+     Monster npc;
+    
+    public IAwaitSpells(Dugeon dataGame, Monster m) {
         super(dataGame);
+        npc=m;
     }
-
+    @Override
+    public Monster GetMonster(){
+        return npc;
+    }
     @Override
     public IStates start() {
         return this;
+    }
+    @Override
+    public IStates comitOpt(int opt){
+       Spell temp;        
+       int damage=this.getDataGame().getDamage();
+       if(opt!=(-1)){
+        temp=this.getDataGame().GetSpell(opt);
+        
+        if (temp instanceof Fireball)
+           damage+=8;
+        if (temp instanceof Ice)
+           this.GetMonster().setIce();
+        if (temp instanceof Poison)
+           this.GetMonster().setPoison();
+        if (temp instanceof Healing)
+           this.getDataGame().addHP(8);
+
+        this.getDataGame().rmSpell(opt);
+
+       }
+       npc.setHp(damage);
+       if(npc.getHp()<=0){ //Monstro morto
+           if (npc instanceof BossMonster){
+               this.getDataGame().BossReward();
+               this.getDataGame().WinRandSpell();
+            }
+           this.getDataGame().addxp(npc.getReward());   
+           this.getDataGame().setMkill();//define para true a variavel do user ja ter morto um monstro
+           return new IAwaitAction(this.getDataGame());
+       }
+       if(npc.tradeIce()){
+           return new ICombat(this.getDataGame(), this.npc);
+       }
+        this.getDataGame().rmHP(npc.getDmg());
+        if(this.getDataGame().getPlayerHP()<=0)
+            return new IGameOver(this.getDataGame());
+        return new ICombat(this.getDataGame(), this.npc);
     }
     
 }

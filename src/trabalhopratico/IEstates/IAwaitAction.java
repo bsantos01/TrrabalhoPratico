@@ -6,7 +6,6 @@
 package trabalhopratico.IEstates;
 
 import trabalhopratico.Data.Dugeon;
-import trabalhopratico.cards.Treasure;
 
 /**
  *
@@ -23,7 +22,8 @@ public class IAwaitAction extends StateAdapter{
     public IStates start(){
 
        this.getDataGame().update();
-
+        if (this.getDataGame().getPlayerHP()<=0)
+            return new IGameOver(this.getDataGame());
         if(this.getDataGame().getIndex()<0)
            return new IAwaitAction(this.getDataGame());
 

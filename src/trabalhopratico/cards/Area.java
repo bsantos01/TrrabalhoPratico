@@ -27,7 +27,7 @@ public class Area {
                 
         long seed=System.nanoTime();
         Collections.shuffle(area, new Random(seed));
-        if(gamedata.haveBoss())area.add(6, new Monster(gamedata, false));
+        if(gamedata.haveBoss())area.add(new BossMonster(gamedata, false));
     }
     public boolean isEnd(){
         if(area.size()<index+1)

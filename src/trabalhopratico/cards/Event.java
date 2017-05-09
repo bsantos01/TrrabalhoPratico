@@ -8,7 +8,6 @@ package trabalhopratico.cards;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
 import trabalhopratico.IEstates.ICombat;
-import trabalhopratico.IEstates.IMerchAwait;
 import trabalhopratico.IEstates.IStates;
 
 /**
@@ -38,7 +37,8 @@ public class Event extends Card{
                  act.addArmor(1);
              break;
              case 6:
-                 return new ICombat(act, true);
+                 Monster m= new Monster(act, true);
+                 return new ICombat(act, m);
          }
              return new IAwaitAction(act);
      }

@@ -6,6 +6,7 @@
 package trabalhopratico.IEstates;
 
 import trabalhopratico.Data.Dugeon;
+import trabalhopratico.cards.Monster;
 
 /**
  *
@@ -37,16 +38,12 @@ public class StateAdapter implements IStates {
         return this;
     };
     @Override
-    public IStates run(){
-        return this;
-    };
-    @Override
-    public IStates inicia(){
-        return this;
-    };
-    @Override
     public IStates comitOpt(int opt){
         return this;
+    };
+    @Override
+    public Monster GetMonster(){
+        return null;
     };
 
 }

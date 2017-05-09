@@ -56,14 +56,32 @@ public class UI {
             System.out.println("Insuficient HP to perform Feats.");
         }else{
             System.out.println("Wich dice?");
-            opt=s.nextInt();
+            do{
+                opt=s.nextInt();
+            }while (opt<=0 || opt>dices.length);
             game.getState().comitOpt(opt-1);
-            printDice();
-            //if(dices[opt-1]==6)
-            Critical(opt-1);
+           
+            if(dices[opt-1]==6)
+                Critical(opt-1);      
         }
     }
-    
+    public int doSpells(){
+        printDice();
+        System.out.println("Damage: "+ game.getDamage());
+        int opt;
+        if(game.SpellToString()!=null){
+            System.out.println("You have the following Spells: "+ game.SpellToString());
+            System.out.println("Which one do you want to choose? 3-SKIP");
+            do
+                opt=s.nextInt();
+            while(opt<=0 || opt>3);
+            if(opt==3)
+                return -1;
+            return (opt-1);
+        }
+            System.out.println("You have no spells available.");
+            return -1;
+    }
     public int chooseMerch(){
         int v;
         System.out.println("MERCHANT");
@@ -178,27 +196,28 @@ public class UI {
                game.setState(game.getState().comitOpt(chooseRest()));
             }            
             if(game.getState() instanceof ICombat){
+                
+                System.out.println("\nA WILD MONSTER APPEARS!!! OH MY GOD!!!\n");
+                System.out.println("Monster HP: " + game.GetMonster().getHp()+ "\tPlayer HP: "+ game.GetPlayerHP());
                 getdiceopt();//ROLL inicial e verificação de criticals, actualizando os dados no gamedata
                
                 System.out.println("Satisfied? You can still use Feats. 1-YES 2-NO");
                 if (s.nextInt()==1)
-                    game.setState(new IAwaitFeat(game.getDataGame())); //passa para os feats
+                    game.setState(new IAwaitFeat(game.getDataGame(), game.GetMonster())); //passa para os feats
                 else
-                    game.setState(new IAwaitSpells(game.getDataGame())); //senao pretender feats vai para os spells
+                    game.setState(new IAwaitSpells(game.getDataGame(), game.GetMonster())); //senao pretender feats vai para os spells
             }
             if(game.getState() instanceof IAwaitFeat){
                 printDice();
                 doFeat();
-                game.setState(new IAwaitSpells(game.getDataGame()));
+                game.setState(new IAwaitSpells(game.getDataGame(), game.GetMonster()));
             }
             if(game.getState() instanceof IAwaitSpells){
-                if(game.SpellToString()!=null){
-                    System.out.println("You have the following Spells: "+ game.SpellToString());
-                    System.out.println("Which one do you want to choose?");
-                        s.nextInt();
-                        //FAZ QQ COISA
-                }else
-                   System.out.println("You have no spells available.");
+                game.setState(game.getState().comitOpt(doSpells()));
+            }
+            if(game.getState() instanceof IGameOver){
+            
+                System.out.println("JA FOSTE CABRÃO!!!!");
             }
             
         }

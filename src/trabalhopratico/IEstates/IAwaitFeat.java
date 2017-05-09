@@ -6,6 +6,7 @@
 package trabalhopratico.IEstates;
 
 import trabalhopratico.Data.Dugeon;
+import trabalhopratico.cards.Monster;
 
 /**
  *
@@ -13,8 +14,11 @@ import trabalhopratico.Data.Dugeon;
  */
 public class IAwaitFeat extends StateAdapter{
 
-    public IAwaitFeat(Dugeon dataGame) {
+    Monster npc;
+     
+    public IAwaitFeat(Dugeon dataGame, Monster m) {
         super(dataGame);
+        npc=m;
     }
     
     @Override
@@ -23,9 +27,12 @@ public class IAwaitFeat extends StateAdapter{
         this.getDataGame().rerollSingle(opt);
         this.getDataGame().rmXP(1);
         this.getDataGame().rmHP(2);
-        return new IAwaitFeat(this.getDataGame());
+        return new IAwaitFeat(this.getDataGame(),npc);
     }
-    
+    @Override
+    public Monster GetMonster(){
+        return npc;
+    }
     @Override
     public IStates start(){
         return this;
