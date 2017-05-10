@@ -159,10 +159,13 @@ public class Player {
     }
     
     public void addxp(int v){
+        System.out.println("\nAdicionar XP!!! \n : "+ v);
         if (rank!=4)
             xp+=v;
         else
-            this.xp+=1;
+            this.food+=1;
+        
+        System.out.println("\nXP FINAL: " +xp);
         this.checkNextRank();
     }
     
@@ -215,6 +218,6 @@ public class Player {
     }
 
     String getData() {
-        return "HP: " +hp+ "\t\tArmor: "+armor+ "\tFood: "+food +"\t\tGold: " + gold + "\t\tXP: " + xp;
+        return "HP: " +hp+ "\t\tArmor: "+armor+ "\tFood: "+food +"\t\tGold: " + gold +"\t\tRank: "+rank +"\t\tXP: " + xp;
     }
 }

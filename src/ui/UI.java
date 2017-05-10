@@ -35,12 +35,16 @@ public class UI {
         
     }
     public void Critical(int i){    
-            int opt;
+            int opt; boolean flag;
+            do{
                 System.out.println("Critical damage on dice "+ (i+1) +". Want to re-roll? 1-YES 2-NO");
                 opt=s.nextInt();
                 if (opt==1)
-                    game.rerollCrit(i);
+                    flag=game.rerollCrit(i);
+                else
+                    flag=false;
                 printDice();
+            }while(flag==true);
     }
     
     public void printDice(){
@@ -49,20 +53,25 @@ public class UI {
             System.out.println("Dice " + (i+1) +": "+ dices[i]);  
     }
     public void doFeat(){
-        int opt;
+       
         int []dices=game.getDices();
         System.out.println("Do Feat");
-        if (game.GetPlayerHP()<=2){
+      
+            for(int i=0; i<dices.length; i++){
+                
+                if(game.GetPlayerHP()<=2)
+                    break;
+                System.out.println("Dice "+(i+1)+": " + dices[i]);
+                System.out.println("Want to feat this dice? 1-YES 2-NO");
+                if(s.nextInt()==1){
+                    game.getState().comitOpt(i);
+                    if(dices[i]==6)
+                       Critical(i);       
+                }               
+            }
+            if (game.GetPlayerHP()<=2){
             System.out.println("Insuficient HP to perform Feats.");
-        }else{
-            System.out.println("Wich dice?");
-            do{
-                opt=s.nextInt();
-            }while (opt<=0 || opt>dices.length);
-            game.getState().comitOpt(opt-1);
            
-            if(dices[opt-1]==6)
-                Critical(opt-1);      
         }
     }
     public int doSpells(){
@@ -102,7 +111,7 @@ public class UI {
         int v;
         System.out.println("RESTING");
         System.out.println("1: Reinforce Weapon: +1 XP");
-        System.out.println("2: Search for Ration: +1 HP");
+        System.out.println("2: Search for Ration: +1 Food");
         System.out.println("3: Health: +2 HP");
         do
             v=s.nextInt();
@@ -163,7 +172,7 @@ public class UI {
     }
     public void printDataPlayer(){
         System.out.println("\nDados Player:\n" + game.getDataPlayer());
-        System.out.println("\nArea: " + game.getArea());
+        System.out.println("\nArea: " + game.getArea() +"\tLevel: "+ game.getLvl());
     }
     public void run(){    
             
@@ -199,6 +208,7 @@ public class UI {
                 
                 System.out.println("\nA WILD MONSTER APPEARS!!! OH MY GOD!!!\n");
                 System.out.println("Monster HP: " + game.GetMonster().getHp()+ "\tPlayer HP: "+ game.GetPlayerHP());
+                System.out.println("Monster Reward: " + game.GetMonster().getReward());
                 getdiceopt();//ROLL inicial e verificação de criticals, actualizando os dados no gamedata
                
                 System.out.println("Satisfied? You can still use Feats. 1-YES 2-NO");
@@ -208,7 +218,7 @@ public class UI {
                     game.setState(new IAwaitSpells(game.getDataGame(), game.GetMonster())); //senao pretender feats vai para os spells
             }
             if(game.getState() instanceof IAwaitFeat){
-                printDice();
+               
                 doFeat();
                 game.setState(new IAwaitSpells(game.getDataGame(), game.GetMonster()));
             }
@@ -217,7 +227,12 @@ public class UI {
             }
             if(game.getState() instanceof IGameOver){
             
-                System.out.println("JA FOSTE CABRÃO!!!!");
+               if (game.GetPlayerHP()<=0)
+               {
+                   System.out.println("YOU LOSER!!! 0-LoadGame 1-Try again 2-Give up");
+                   if(s.nextInt()==1)
+                       game=new Game();    
+               }
             }
             
         }

@@ -29,6 +29,9 @@ public class Area {
         Collections.shuffle(area, new Random(seed));
         if(gamedata.haveBoss())area.add(new BossMonster(gamedata, false));
     }
+    public void rmBoss(){
+        area.remove(6);
+    }
     public boolean isEnd(){
         if(area.size()<index+1)
             return true;

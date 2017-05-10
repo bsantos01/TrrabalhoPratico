@@ -36,8 +36,6 @@ public class Resting extends Card {
             case 3:
                 act.addHP(2);
             break;
-            case 4:
-                break;
         }
         return new IAwaitAction(act); 
     }

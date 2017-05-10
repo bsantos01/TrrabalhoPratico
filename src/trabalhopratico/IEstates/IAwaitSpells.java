@@ -62,7 +62,7 @@ public class IAwaitSpells extends StateAdapter{
        if(npc.tradeIce()){
            return new ICombat(this.getDataGame(), this.npc);
        }
-        this.getDataGame().rmHP(npc.getDmg());
+        this.getDataGame().rmHP(npc.getDmg()-this.getDataGame().getArmor()); //damage do monstro menos a armor do player
         if(this.getDataGame().getPlayerHP()<=0)
             return new IGameOver(this.getDataGame());
         return new ICombat(this.getDataGame(), this.npc);

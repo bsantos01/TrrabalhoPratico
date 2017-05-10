@@ -14,6 +14,7 @@
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/cards/Trap.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/ui/UI.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/cards/Monster.java</file>
+            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/cards/Card.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/cards/Area.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/Spells/Healing.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/IEstates/IAwaitFeat.java</file>
@@ -21,6 +22,8 @@
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/IEstates/IMerchAwait.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/IEstates/StateAdapter.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/Spells/Poison.java</file>
+            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/cards/Treasure.java</file>
+            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/cards/BossMonster.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/IEstates/IGameOver.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/IEstates/IRestAwait.java</file>
             <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/Game.java</file>

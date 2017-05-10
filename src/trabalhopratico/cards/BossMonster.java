@@ -6,6 +6,7 @@
 package trabalhopratico.cards;
 
 import trabalhopratico.Data.Dugeon;
+import trabalhopratico.IEstates.ICombat;
 
 import trabalhopratico.IEstates.IStates;
 
@@ -18,11 +19,18 @@ public class BossMonster extends Monster {
     public BossMonster(Dugeon act, boolean event) {
         super(act, false);
 
-            switch(act.getlvl()){
+            
+      
+    }
+    
+    @Override
+     public IStates inicia(Dugeon act){
+       switch(act.getlvl()){ //apenas quando é chamado é atribuido os dados, na medida que se cair num pit no nivel 2, passa para nivel 1 e terá que ter o monstro nivel 1
                 case 1:
                     hp=10;
                     dmg=3;
                     reward=2;
+                    break;
                 case 2:
                     hp=15;
                     dmg=5;
@@ -32,6 +40,7 @@ public class BossMonster extends Monster {
                     hp=20;
                     dmg=7;
                     reward=4;
+                    break;
                 case 4:
                     hp=25;
                     dmg=9;
@@ -42,8 +51,7 @@ public class BossMonster extends Monster {
                     dmg=12;
                     break;
             }
-       ice=false;
-       poison=false;
+       return new ICombat(act, this);
     }
     
      @Override

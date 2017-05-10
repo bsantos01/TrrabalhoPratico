@@ -49,15 +49,15 @@ public class Merchant extends Card {
          
             case 5:
                 if(act.rmGold(8))
-                    //act.addSpell();
+                    act.WinRandSpell();
             break;
             case 7:
-                if(act.rmArmor(1))
+                if(act.LoseRandSpell())
                     act.addGold(3);   
             break;
             case 6:
-                //if()
-                    //act.rmSpell();
+                if(act.LoseRandSpell())
+                    act.addGold(4);
             break;
         }
         return new IMerchAwait(act);

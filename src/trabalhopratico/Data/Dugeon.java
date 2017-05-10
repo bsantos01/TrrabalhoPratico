@@ -39,6 +39,38 @@ public class Dugeon {
     }
 
 // FIM CONSTRUTORES */
+    public void trapPit(){
+        switch(area){
+            case 1:
+            case 2:
+                //apenas perde o HP;
+                break;
+            case 3:    
+            case 4:    
+            case 5:    
+            case 6:
+                area-=2;
+                lvl--;
+                break;
+            case 7:
+                area=4;
+                lvl--;
+                break;
+            case 8:    
+            case 9:    
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+                area-=3;
+                lvl--;
+                break;
+            case 14:
+                area=10;
+                lvl--;
+                break;               
+        }
+    }
     public void update(){
         this.checkNextRank();
         if(cards.isEnd()){
@@ -79,13 +111,41 @@ public class Dugeon {
                 temp=new Healing();
                 break;
         }
-        this.LoseRandSpell();
+        if(player.spells.size()==2)
+            this.LoseRandSpell();
         player.addSpell(temp);
     }
-    public void LoseRandSpell(){
+    public void WinSpell(int opt){
+        Spell temp=new Spell();
+
+        switch(opt){
+            case 1:
+                temp=new Fireball();
+                break;
+            case 2:
+                temp=new Ice();
+                break;
+            case 3:
+                temp=new Poison();
+                break;
+            case 4:
+                temp=new Healing();
+                break;
+        }
+        if(player.spells.size()==2)
+            this.LoseRandSpell();
+        player.addSpell(temp);
+    }
+    public boolean LoseRandSpell(){
         Random ran = new Random();
         int x = ran.nextInt(2);
-        player.rmSpell(x);
+        if(player.spells.isEmpty())
+            return false; 
+        if(player.spells.size()==1)
+            player.rmSpell(0);
+        else
+            player.rmSpell(x);
+        return true;
     }
     public int[] getRDices(){
         this.dices = new int[this.player.getRank()];        
@@ -113,12 +173,17 @@ public class Dugeon {
         player.rmSpell(i);
     }
 
-    public void rerollCrit(int i){
+    public boolean rerollCrit(int i){
         int temp=this.rolldice();
-        if (temp!=1)
+        
+        if (temp!=1){
             dices[i]+=temp;
-        else
+            if (temp==6)
+                return true;
+        }else{
             dices[i]=temp;
+        }
+        return false;
     }
     public int GetRank(){
         return player.getRank();
@@ -215,6 +280,9 @@ public class Dugeon {
     }
     public boolean rmArmor(int v){
         return this.player.rmArmor(v);
+    }
+    public int getArmor(){
+        return this.player.getArmor();
     }
      public boolean getMkill() {
         return player.getMkill();

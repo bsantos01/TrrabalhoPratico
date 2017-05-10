@@ -41,8 +41,8 @@ public class Game {
     public int[] getDices(){
         return gamedata.getDices();
     }
-    public void rerollCrit(int i){
-        gamedata.rerollCrit(i);
+    public boolean rerollCrit(int i){
+        return gamedata.rerollCrit(i);
     }
     public void rerollSingle(int i){
         gamedata.rerollSingle(i);
@@ -53,7 +53,9 @@ public class Game {
     public int GetRankPlayer(){
         return gamedata.GetRank();
     }
-   
+    public int getLvl(){
+        return gamedata.getlvl();
+    }
     public boolean haveBoss(){
         return gamedata.haveBoss();
     }

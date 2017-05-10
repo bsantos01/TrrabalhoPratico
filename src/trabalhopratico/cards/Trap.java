@@ -7,8 +7,6 @@ package trabalhopratico.cards;
 
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
-import trabalhopratico.IEstates.ICombat;
-import trabalhopratico.IEstates.IMerchAwait;
 import trabalhopratico.IEstates.IStates;
 
 /**
@@ -20,7 +18,7 @@ public class Trap extends Card{
      @Override
      public IStates accao(int opt, Dugeon act)
      {
-         int v= act.rolldice();
+         int v=6; //act.rolldice();
          switch (v){
              case 1:
                  act.rmfood();
@@ -39,7 +37,7 @@ public class Trap extends Card{
              break;
              case 6:
                 act.rmHP(2);
-                //--->fazer o recuo de area
+                act.trapPit();//mediante area e nivel executa a queda
                 return new IAwaitAction(act);
          }
              return new IAwaitAction(act);

@@ -41,25 +41,13 @@ public class Monster extends Card{
     }
 
     public Monster(Dugeon act, boolean event){
-        dmg = act.getlvl()*2;
-        hp=act.getarea()+act.rolldice();
-     
+  
+       dmg = act.getlvl()*2;
+       hp=act.getarea()+act.rolldice();
         if(event)
             reward=2;
         else{
-            switch(act.getlvl()){
-                case 1:
-                case 2:
-                    reward=1;
-                    break;
-                case 3:
-                case 4:
-                    reward=2;
-                    break;
-                case 5:
-                    reward=3;
-                    break;
-            }
+            reward=0;
         }
             
        ice=false;
@@ -76,7 +64,22 @@ public class Monster extends Card{
  
      @Override
      public IStates inicia(Dugeon act){
-
+       dmg = act.getlvl()*2;
+       hp=act.getarea()+act.rolldice();
+       if (reward==0)
+            switch(act.getlvl()){
+                case 1:
+                case 2:
+                    reward=1;
+                    break;
+                case 3:
+                case 4:
+                    reward=2;
+                    break;
+                case 5:
+                    reward=3;
+                    break;
+            }
        return new ICombat(act, this);
     }
 

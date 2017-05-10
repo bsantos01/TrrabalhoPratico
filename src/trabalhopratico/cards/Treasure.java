@@ -31,16 +31,16 @@ public class Treasure extends Card{
                  act.addxp(2);
                  break;
              case 3:
-                 //add spell fireball
+                 act.WinSpell(1);
                  break;
              case 4:
-                 //add spell icespell
+                 act.WinSpell(2);
                  break;
              case 5:
-                 //add spell poison
+                 act.WinSpell(3);
                  break;
              case 6:
-                 //add spell healing
+                 act.WinSpell(4);
                  break;
             }
         return new IAwaitAction(act);
