@@ -5,6 +5,7 @@
  */
 package trabalhopratico.IEstates;
 
+import java.io.Serializable;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.cards.Monster;
 
@@ -12,7 +13,7 @@ import trabalhopratico.cards.Monster;
  *
  * @author Bruno Santos
  */
-public class StateAdapter implements IStates {
+public class StateAdapter implements IStates, Serializable {
     private Dugeon gamedata;
     
     //Contrutores, Getter and Setter

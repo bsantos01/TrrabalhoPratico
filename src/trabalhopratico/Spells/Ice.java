@@ -5,11 +5,13 @@
  */
 package trabalhopratico.Spells;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Bruno Santos
  */
-public class Ice extends Spell{
+public class Ice extends Spell implements Serializable{
         public Ice(){
         nome="Ice";
     }

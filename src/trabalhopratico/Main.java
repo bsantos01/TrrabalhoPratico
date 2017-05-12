@@ -5,6 +5,7 @@
  */
 package trabalhopratico;
 
+import java.io.IOException;
 import ui.UI;
 
 /**
@@ -14,7 +15,7 @@ import ui.UI;
 public class Main {
         
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
          UI ui= new UI();
          ui.run();
     }

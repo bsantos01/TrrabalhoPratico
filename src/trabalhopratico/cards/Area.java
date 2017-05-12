@@ -5,6 +5,7 @@
  */
 package trabalhopratico.cards;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,7 +16,7 @@ import trabalhopratico.Data.Dugeon;
  *
  * @author Bruno Santos
  */
-public class Area {
+public class Area implements Serializable{
     int index;
     ArrayList<Card> area;
     

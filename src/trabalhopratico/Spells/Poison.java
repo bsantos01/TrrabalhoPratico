@@ -5,11 +5,13 @@
  */
 package trabalhopratico.Spells;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Bruno Santos
  */
-public class Poison extends Spell{
+public class Poison extends Spell implements Serializable{
     
     public Poison(){
         nome="Poison";

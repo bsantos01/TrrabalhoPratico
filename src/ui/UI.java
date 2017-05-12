@@ -5,7 +5,10 @@
  */
 package ui;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import trabalhopratico.Data.*;
@@ -13,13 +16,13 @@ import trabalhopratico.IEstates.*;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class UI {
     private Game game;
     private Scanner s;
    
-    public UI(){
+    public UI() throws IOException{
         game= new Game();
         s = new Scanner(System.in);
     }
@@ -49,8 +52,6 @@ public class UI {
                 printDice();
             }while(flag==true);
     }
-    
-
     public void printDice(){
         int []dices=game.getDices();
         for (int i=0; i<dices.length; i++)
@@ -126,27 +127,87 @@ public class UI {
         return v;
     };
     
-    public void setupbeginning(){
-        int dif, area;
+    public boolean SaveGame(){
+        BufferedReader bin= new BufferedReader(new InputStreamReader(System.in));
+        String opt, name= "MiniRogue.txt";
+        System.out.println("Default file name: "+ name);
+        try{
+            opt=bin.readLine();
+            if(opt.length()>=1)
+                name=opt;
+        }catch(IOException e){
+            return false;
+        }
+        try{
+            game.saveGame(name);
+            System.out.println("Game Saved\n");
+            return true;
+        } catch(IOException e){
+            System.out.println("Error trying to save game in file: "+ name);
+            System.out.println(e);
+            return false;
+        }
+    }
+    public boolean LoadGame() throws FileNotFoundException, ClassNotFoundException{
+        BufferedReader bin= new BufferedReader(new InputStreamReader(System.in));
+        String opt, name= "MiniRogue.txt";
+        System.out.println("Default file name: "+ name);
+        try{
+            opt=bin.readLine();
+            if(opt.length()>=1){
+                if (!new java.io.File(name).exists()){
+                    System.out.println("File "+name+" does not exist.");
+                    return false;
+                }
+                    name=opt;
+            }
+        }catch(IOException e){
+            return false;
+        }
+        try{
+            game = Game.loadGame(name);
+            System.out.println("Load completed\n");
+            return true;
+        }catch(IOException e){
+            System.out.println("Error trying to load game from: "+ name);
+            System.out.println(e);
+            return false;
+        }
+    }
+    public void setupbeginning() throws FileNotFoundException, ClassNotFoundException{
+        int dif, area, opt;
         s = new Scanner(System.in);
-        System.out.println("DIFICULTY");
-        System.out.println("0-Easy 1-Normal 2-Hard 3-Impossible"); 
+        System.out.println("MiniRogue");
+        System.out.println("1-NewGame");
+        System.out.println("2-LoadGame");
         do
-            dif=s.nextInt();
-        while(dif<0 || dif>3);
-        System.out.print("Wich area to start?");
-        do
-            area=s.nextInt();
-        while(area<1 || area>14);
-        game.setDificulty(dif, area);
+            opt=s.nextInt();
+        while(opt<0 || opt>2);
+        if(opt==1){
+            System.out.println("DIFICULTY");
+            System.out.println("0-Easy 1-Normal 2-Hard 3-Impossible"); 
+            do
+             dif=s.nextInt();
+            while(dif<0 || dif>3);
+            System.out.print("Wich area to start?");
+            do
+                area=s.nextInt();
+            while(area<1 || area>14);
+            game.setDificulty(dif, area);
+        }else{
+            LoadGame();
+            
+        }
     }
     
     public int chooseCard(){
         int opt;
-        System.out.println("Which card? 1-UP or 2-DOWN?");
-        do
+        System.out.println("Which card? 1-UP or 2-DOWN? 3->SaveGame");
+        do{
             opt= s.nextInt();
-        while(opt<1 || opt>2);
+            if(opt==3)
+                this.SaveGame();
+        }while(opt<1 || opt>2);
         return opt;
     }
     public void resolvFeat(){
@@ -203,7 +264,7 @@ public class UI {
         System.out.println("\nDados Player:\n" + game.getDataPlayer());
         System.out.println("\nArea: " + game.getArea() +"\tLevel: "+ game.getLvl());
     }
-    public void run(){    
+    public void run() throws FileNotFoundException, FileNotFoundException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException{    
             
         while(!(game.getState() instanceof IGameOver)){
    
@@ -267,7 +328,9 @@ public class UI {
                 opt=s.nextInt();
                while(opt<1 || opt>3);
                if(opt==2)
-                       game=new Game();  
+                       game=new Game(); 
+               if(opt==1)
+                   LoadGame();
                cls();
                
             }

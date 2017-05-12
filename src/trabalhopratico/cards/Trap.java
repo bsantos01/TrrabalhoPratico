@@ -5,6 +5,7 @@
  */
 package trabalhopratico.cards;
 
+import java.io.Serializable;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
 import trabalhopratico.IEstates.IStates;
@@ -13,7 +14,7 @@ import trabalhopratico.IEstates.IStates;
  *
  * @author Bruno Santos
  */
-public class Trap extends Card{
+public class Trap extends Card implements Serializable{
     
      @Override
      public IStates accao(int opt, Dugeon act)

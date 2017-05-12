@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package trabalhopratico.cards;
+import java.io.Serializable;
 import trabalhopratico.IEstates.IStates;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
@@ -15,7 +16,7 @@ import trabalhopratico.IEstates.IRestAwait;
  *
  * @author Bruno Santos
  */
-public class Resting extends Card {
+public class Resting extends Card implements Serializable{
     
     public void Resting(){
 

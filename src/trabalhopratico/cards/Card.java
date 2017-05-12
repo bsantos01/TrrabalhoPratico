@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package trabalhopratico.cards;
+import java.io.Serializable;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IStates;
 /**
  *
  * @author Bruno Santos
  */
-public abstract class Card {
+public abstract class Card implements Serializable{
   
     protected String descricao;
     

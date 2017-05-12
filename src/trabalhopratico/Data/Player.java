@@ -5,16 +5,15 @@
  */
 package trabalhopratico.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import trabalhopratico.Spells.Fireball;
-import trabalhopratico.Spells.Ice;
 import trabalhopratico.Spells.Spell;
 
 /**
  *
  * @author Bruno Santos
  */
-public class Player {
+public class Player implements Serializable{
     
 //character
     private int xp;
@@ -29,7 +28,8 @@ public class Player {
     
     
     public void Difficulty(int difficulty) {
-         this.xp = 0;
+        spells=new ArrayList<>(); 
+        this.xp = 0;
         this.rank = 1;
         this.mKill=false;
         switch (difficulty){
@@ -199,7 +199,7 @@ public class Player {
         this.armor+=v;
     }
     public boolean rmArmor(int v){
-        if (this.armor>=0){
+        if (this.armor>0){
             this.armor-=v;
             return true;
         }

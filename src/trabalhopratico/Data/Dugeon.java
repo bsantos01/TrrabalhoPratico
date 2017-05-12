@@ -6,6 +6,7 @@
 package trabalhopratico.Data;
 
 
+import java.io.Serializable;
 import java.util.Random;
 import trabalhopratico.Spells.*;
 import trabalhopratico.Spells.Spell;
@@ -20,7 +21,7 @@ import trabalhopratico.cards.Card;
 
 
 
-public class Dugeon {
+public class Dugeon implements Serializable{
 //game
     private int area;
     private int lvl;

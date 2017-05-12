@@ -5,6 +5,7 @@
  */
 package trabalhopratico.cards;
 
+import java.io.Serializable;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IAwaitAction;
 import trabalhopratico.IEstates.ICombat;
@@ -14,7 +15,7 @@ import trabalhopratico.IEstates.IStates;
  *
  * @author Bruno Santos
  */
-public class Monster extends Card{
+public class Monster extends Card implements Serializable{
         
     int dmg;
     int hp;

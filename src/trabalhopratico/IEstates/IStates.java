@@ -12,7 +12,7 @@ import trabalhopratico.cards.Monster;
  *
  * @author Bruno Santos
  */
-public interface IStates 
+public interface IStates  
 {
     //todas as funções que retornam um estado
     IStates start();

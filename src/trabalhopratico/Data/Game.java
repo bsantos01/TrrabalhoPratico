@@ -5,6 +5,12 @@
  */
 package trabalhopratico.Data;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import trabalhopratico.IEstates.*;
 import java.util.Random;
@@ -98,5 +104,27 @@ public class Game implements Serializable{
     }
     public Dugeon getDataGame(){
         return gamedata;
+    }
+    public void saveGame(String name) throws FileNotFoundException, IOException{
+        ObjectOutputStream oout=null;
+        try{
+            oout= new ObjectOutputStream(new FileOutputStream(name));
+            oout.writeObject(this);
+        } finally{
+            if (oout!=null)
+                oout.close();
+        }
+    }
+    public static Game loadGame(String name) throws FileNotFoundException, IOException, ClassNotFoundException{
+        ObjectInputStream oin=null;
+        Game g;
+        try{
+            oin= new ObjectInputStream(new FileInputStream(name));
+            g = (Game)oin.readObject();
+            return g;
+        } finally{
+            if (oin!=null)
+                oin.close();
+        }
     }
 }

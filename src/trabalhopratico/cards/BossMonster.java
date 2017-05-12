@@ -5,6 +5,7 @@
  */
 package trabalhopratico.cards;
 
+import java.io.Serializable;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.ICombat;
 
@@ -14,7 +15,7 @@ import trabalhopratico.IEstates.IStates;
  *
  * @author Bruno Santos
  */
-public class BossMonster extends Monster {
+public class BossMonster extends Monster implements Serializable{
     
     public BossMonster(Dugeon act, boolean event) {
         super(act, false);

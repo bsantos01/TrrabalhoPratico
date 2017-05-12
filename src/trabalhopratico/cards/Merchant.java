@@ -5,6 +5,7 @@
  */
 package trabalhopratico.cards;
 
+import java.io.Serializable;
 import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IMerchAwait;
 import trabalhopratico.IEstates.IStates;
@@ -13,7 +14,7 @@ import trabalhopratico.IEstates.IStates;
  *
  * @author Bruno Santos
  */
-public class Merchant extends Card {
+public class Merchant extends Card implements Serializable {
     public void Merchant(){
        
         this.descricao="Merchant";
@@ -51,13 +52,15 @@ public class Merchant extends Card {
                 if(act.rmGold(8))
                     act.WinRandSpell();
             break;
-            case 7:
-                if(act.LoseRandSpell())
+            case 6:
+                if(act.rmArmor(1))
                     act.addGold(3);   
             break;
-            case 6:
-                if(act.LoseRandSpell())
+            case 7:
+                if(act.LoseRandSpell()){
                     act.addGold(4);
+                   
+                }
             break;
         }
         return new IMerchAwait(act);

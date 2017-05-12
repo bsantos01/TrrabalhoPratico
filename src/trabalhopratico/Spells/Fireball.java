@@ -5,11 +5,13 @@
  */
 package trabalhopratico.Spells;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Bruno Santos
  */
-public class Fireball extends Spell{
+public class Fireball extends Spell implements Serializable{
     public Fireball(){
         nome="Fireball";
     }

@@ -5,11 +5,13 @@
  */
 package trabalhopratico.Spells;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Bruno Santos
  */
-public class Spell {
+public class Spell implements Serializable{
         String nome;
     
         public String GetNome(){
