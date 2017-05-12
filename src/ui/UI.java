@@ -5,10 +5,10 @@
  */
 package ui;
 
-import java.io.IOException;
+import java.io.File;
 import java.util.Scanner;
 
-import trabalhopratico.Game;
+import trabalhopratico.Data.*;
 import trabalhopratico.IEstates.*;
 
 /**
@@ -29,6 +29,7 @@ public class UI {
         int []dices=game.getRDices();
         printDice();
         
+        
         for (int i=0;i<dices.length; i++)
             if(dices[i]==6)
             Critical(i);
@@ -38,7 +39,9 @@ public class UI {
             int opt; boolean flag;
             do{
                 System.out.println("Critical damage on dice "+ (i+1) +". Want to re-roll? 1-YES 2-NO");
-                opt=s.nextInt();
+                do
+                    opt=s.nextInt();
+                while(opt<1 || opt>2);
                 if (opt==1)
                     flag=game.rerollCrit(i);
                 else
@@ -47,13 +50,14 @@ public class UI {
             }while(flag==true);
     }
     
+
     public void printDice(){
         int []dices=game.getDices();
         for (int i=0; i<dices.length; i++)
             System.out.println("Dice " + (i+1) +": "+ dices[i]);  
     }
     public void doFeat(){
-       
+        int opt;
         int []dices=game.getDices();
         System.out.println("Do Feat");
       
@@ -63,7 +67,10 @@ public class UI {
                     break;
                 System.out.println("Dice "+(i+1)+": " + dices[i]);
                 System.out.println("Want to feat this dice? 1-YES 2-NO");
-                if(s.nextInt()==1){
+                do
+                    opt=s.nextInt();
+                while(opt<1 || opt>2);
+                if(opt==1){
                     game.getState().comitOpt(i);
                     if(dices[i]==6)
                        Critical(i);       
@@ -122,20 +129,38 @@ public class UI {
     public void setupbeginning(){
         int dif, area;
         s = new Scanner(System.in);
-        System.out.println("Dificuldade?");
-        System.out.println("0-Easy"); //blablabla
-        
+        System.out.println("DIFICULTY");
+        System.out.println("0-Easy 1-Normal 2-Hard 3-Impossible"); 
+        do
             dif=s.nextInt();
-        System.out.print("area?");
-        area=s.nextInt();
+        while(dif<0 || dif>3);
+        System.out.print("Wich area to start?");
+        do
+            area=s.nextInt();
+        while(area<1 || area>14);
         game.setDificulty(dif, area);
     }
     
     public int chooseCard(){
+        int opt;
         System.out.println("Which card? 1-UP or 2-DOWN?");
-        return s.nextInt();
+        do
+            opt= s.nextInt();
+        while(opt<1 || opt>2);
+        return opt;
     }
-    
+    public void resolvFeat(){
+        int opt;
+        System.out.println("Satisfied? You can still use Feats. 1-YES 2-NO");
+        do
+            opt=s.nextInt();
+        while(opt<1 || opt>2);
+        if (opt==1)
+            game.setState(new IAwaitFeat(game.getDataGame(), game.GetMonster())); //passa para os feats
+        else
+            game.setState(new IAwaitSpells(game.getDataGame(), game.GetMonster())); //senao pretender feats vai para os spells
+
+    }
     public void printArena(){
         //Se for arena final
         if(game.haveBoss()){
@@ -170,6 +195,10 @@ public class UI {
                
         }
     }
+    public void cls(){
+        for (int i = 0; i < 100; ++i)  
+           System.out.println(); 
+    }
     public void printDataPlayer(){
         System.out.println("\nDados Player:\n" + game.getDataPlayer());
         System.out.println("\nArea: " + game.getArea() +"\tLevel: "+ game.getLvl());
@@ -185,6 +214,7 @@ public class UI {
             }
             if(game.getState() instanceof IAwaitAction)
             {   
+                cls();
                 printArena();
                 printDataPlayer();
                 if(game.getIndex()==0 ||game.getIndex()==3)
@@ -194,7 +224,7 @@ public class UI {
                     if(game.getIndex()==1 ||game.getIndex()==4)game.addIndex(2);
                     else game.addIndex(1);
                 }
-              
+                s.nextLine();
                 game.setState(game.getState().start());
                 
             }
@@ -206,16 +236,14 @@ public class UI {
             }            
             if(game.getState() instanceof ICombat){
                 
-                System.out.println("\nA WILD MONSTER APPEARS!!! OH MY GOD!!!\n");
+                if(game.getIndex()!=6)
+                    System.out.println("\nA WILD MONSTER APPEARS!!! OH MY GOD!!!\n");
+                else
+                    System.out.println("\nOh! A BOSS MONSTER APPEARS!!! TO BATTLE!! \n");
                 System.out.println("Monster HP: " + game.GetMonster().getHp()+ "\tPlayer HP: "+ game.GetPlayerHP());
                 System.out.println("Monster Reward: " + game.GetMonster().getReward());
                 getdiceopt();//ROLL inicial e verificação de criticals, actualizando os dados no gamedata
-               
-                System.out.println("Satisfied? You can still use Feats. 1-YES 2-NO");
-                if (s.nextInt()==1)
-                    game.setState(new IAwaitFeat(game.getDataGame(), game.GetMonster())); //passa para os feats
-                else
-                    game.setState(new IAwaitSpells(game.getDataGame(), game.GetMonster())); //senao pretender feats vai para os spells
+                resolvFeat();
             }
             if(game.getState() instanceof IAwaitFeat){
                
@@ -227,12 +255,21 @@ public class UI {
             }
             if(game.getState() instanceof IGameOver){
             
-               if (game.GetPlayerHP()<=0)
-               {
-                   System.out.println("YOU LOSER!!! 0-LoadGame 1-Try again 2-Give up");
-                   if(s.nextInt()==1)
-                       game=new Game();    
+               if (game.GetPlayerHP()<=0){
+                   System.out.println("YOU LOSER!!!");
                }
+               if (game.GetPlayerHP()>0 || game.getArea()==14){
+                   System.out.println("Congratulations!! The Og's Blood is yours!!!");    
+               }
+               int opt;
+               System.out.println("1-LoadGame 2-Try again 3-Exit");
+               do   
+                opt=s.nextInt();
+               while(opt<1 || opt>3);
+               if(opt==2)
+                       game=new Game();  
+               cls();
+               
             }
             
         }

@@ -20,7 +20,7 @@ public class Area {
     ArrayList<Card> area;
     
     public Area(Dugeon gamedata){
-        System.out.println("Criar Area");
+
         index = -1;
         Card [] temp= {new Event(), new Monster(gamedata, false), new Merchant(), new Resting(), new Treasure(), new Trap()};
         area= new ArrayList<Card>(Arrays.asList(temp));

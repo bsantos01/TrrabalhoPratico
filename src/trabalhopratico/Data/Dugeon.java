@@ -78,6 +78,7 @@ public class Dugeon {
                 lvl++;
             area++;
             cards = new Area(this);
+            player.consumeFood();
         }
     }
     public void BossReward(){
@@ -197,6 +198,32 @@ public class Dugeon {
     }
     public void setup(int difficulty, int area) {
         this.area=area;
+        switch(area){
+            case 1:
+            case 2:
+                lvl=1;
+                break;
+            case 3:
+            case 4:
+                lvl=2;
+                break;     
+            case 5:
+            case 6:
+            case 7:
+                lvl=3;
+                break;
+            case 8:
+            case 9:
+            case 10:
+                lvl=4;
+                break;
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+                lvl=5;
+                break;
+        }
         this.player.Difficulty(difficulty);
         this.cards = new Area(this);
     }

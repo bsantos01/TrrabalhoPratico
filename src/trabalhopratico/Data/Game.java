@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabalhopratico;
+package trabalhopratico.Data;
 
-import trabalhopratico.Data.Dugeon;
+import java.io.Serializable;
 import trabalhopratico.IEstates.*;
 import java.util.Random;
 import trabalhopratico.cards.Monster;
@@ -14,7 +14,7 @@ import trabalhopratico.cards.Monster;
  *
  * @author Bruno Santos
  */
-public class Game {
+public class Game implements Serializable{
     
     private Dugeon gamedata;
     private IStates state;

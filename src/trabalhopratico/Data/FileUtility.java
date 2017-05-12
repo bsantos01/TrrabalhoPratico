@@ -1,5 +1,5 @@
 
-package files;
+package trabalhopratico.Data;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -32,13 +32,6 @@ public class Player {
          this.xp = 0;
         this.rank = 1;
         this.mKill=false;
-        //TESTE APENAS
-        spells=new ArrayList<>();
-        Spell e = new Fireball();
-        spells.add(e);
-        e = new Ice();
-        spells.add(e);
-        //FIM TESTE
         switch (difficulty){
             case 0:
                 this.hp = 100;
@@ -159,16 +152,12 @@ public class Player {
     }
     
     public void addxp(int v){
-        System.out.println("\nAdicionar XP!!! \n : "+ v);
         if (rank!=4)
             xp+=v;
         else
             this.food+=1;
-        
-        System.out.println("\nXP FINAL: " +xp);
-        this.checkNextRank();
-    }
-    
+                this.checkNextRank();
+    }  
     public void rmXP(int v){
         if(xp-v<=0){
             switch (rank) {
@@ -219,5 +208,12 @@ public class Player {
 
     String getData() {
         return "HP: " +hp+ "\t\tArmor: "+armor+ "\tFood: "+food +"\t\tGold: " + gold +"\t\tRank: "+rank +"\t\tXP: " + xp;
+    }
+
+    void consumeFood() {
+        
+        if(food<0)
+            hp-=2;
+        food--;
     }
 }

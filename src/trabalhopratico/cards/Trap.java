@@ -18,7 +18,7 @@ public class Trap extends Card{
      @Override
      public IStates accao(int opt, Dugeon act)
      {
-         int v=6; //act.rolldice();
+         int v=act.rolldice();
          switch (v){
              case 1:
                  act.rmfood();
