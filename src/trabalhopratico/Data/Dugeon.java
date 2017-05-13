@@ -25,21 +25,20 @@ public class Dugeon implements Serializable{
 //game
     private int area;
     private int lvl;
-    private Player player;
+    private final Player player;
     private Area cards;
     private int[] dices;
+    private String log;
     
-    
-
     public Dugeon() {
-        area=1;
-        lvl=1;
-        
-        player = new Player();
-       
+        this.area=1;
+        this.lvl=1;
+        this.player = new Player();
+        this.log = "";
     }
 
 // FIM CONSTRUTORES */
+
     public void trapPit(){
         switch(area){
             case 1:
@@ -87,10 +86,12 @@ public class Dugeon implements Serializable{
             case 1:
             case 2:
                 player.addGold(2);
+                this.log += "Ganhou 2 de gold!\n";
                 break;
             case 3:
             case 4:
                 player.addGold(3);
+                this.log += "Ganhou 3 de gold!\n";
                 break;
         }        
     }
@@ -102,19 +103,24 @@ public class Dugeon implements Serializable{
         switch(x){
             case 1:
                 temp=new Fireball();
+                this.log += "Adquiriu o Spell FireBall!\n";
                 break;
             case 2:
                 temp=new Ice();
+                this.log += "Adquiriu o Spell Ice!\n";
                 break;
             case 3:
                 temp=new Poison();
+                this.log += "Adquiriu o Spell Poison!\n";
                 break;
             case 4:
                 temp=new Healing();
+                this.log += "Adquiriu o Spell Healing!\n";
                 break;
         }
-        if(player.spells.size()==2)
+        if(player.spells.size()==2){
             this.LoseRandSpell();
+        }
         player.addSpell(temp);
     }
     public void WinSpell(int opt){
@@ -143,10 +149,14 @@ public class Dugeon implements Serializable{
         int x = ran.nextInt(2);
         if(player.spells.isEmpty())
             return false; 
-        if(player.spells.size()==1)
+        if(player.spells.size()==1){
+            this.log += "Perdeu o Spell "+ player.spells.get(0).GetNome() + "!\n";
             player.rmSpell(0);
-        else
+        }
+        else{
+            this.log += "Perdeu o Spell "+ player.spells.get(x).GetNome() + "!\n";
             player.rmSpell(x);
+        }
         return true;
     }
     public int[] getRDices(){
@@ -235,6 +245,18 @@ public class Dugeon implements Serializable{
         return v;
     };
     
+    public String getLog() {
+        return log;
+    }
+
+    public void setLog(String log) {
+        this.log += log;
+    }
+    
+    public void refreshLog() {
+        this.log = "";
+    }
+    
     public Card getACard(int i){
         return cards.GetCard(i);
     }
@@ -293,6 +315,7 @@ public class Dugeon implements Serializable{
     public void rmHP(int v){
         player.setHp(player.getHp()-v);
         if (this.player.getHp()<=0){
+            
             //DIEEEEEEEEE
         }
     }

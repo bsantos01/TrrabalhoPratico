@@ -5,6 +5,7 @@
  */
 package trabalhopratico;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import ui.UI;
 
@@ -15,7 +16,7 @@ import ui.UI;
 public class Main {
         
     
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
          UI ui= new UI();
          ui.run();
     }
