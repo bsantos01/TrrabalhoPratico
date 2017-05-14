@@ -10,7 +10,7 @@ import trabalhopratico.cards.Monster;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public interface IStates  
 {

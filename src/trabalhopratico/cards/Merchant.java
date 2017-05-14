@@ -12,7 +12,7 @@ import trabalhopratico.IEstates.IStates;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class Merchant extends Card implements Serializable {
     public void Merchant(){
@@ -41,8 +41,7 @@ public class Merchant extends Card implements Serializable {
             case 3:
                 if(act.rmGold(3))
                     act.addHP(4);
-            break;
-        
+            break;       
             case 4:
                 if(act.rmGold(6))
                     act.addArmor(1);
@@ -58,8 +57,7 @@ public class Merchant extends Card implements Serializable {
             break;
             case 7:
                 if(act.LoseRandSpell()){
-                    act.addGold(4);
-                   
+                    act.addGold(4);                   
                 }
             break;
         }

@@ -18,7 +18,7 @@ import trabalhopratico.cards.Monster;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class Game implements Serializable{
     

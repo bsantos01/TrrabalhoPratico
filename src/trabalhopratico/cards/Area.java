@@ -14,7 +14,7 @@ import trabalhopratico.Data.Dugeon;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class Area implements Serializable{
     int index;

@@ -16,7 +16,7 @@ import trabalhopratico.cards.Card;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 
 
@@ -79,6 +79,7 @@ public class Dugeon implements Serializable{
             area++;
             cards = new Area(this);
             player.consumeFood();
+            this.setLog("Passou para a area "+area + " de jogo! Muito bem!\n");
         }
     }
     public void BossReward(){
@@ -98,7 +99,16 @@ public class Dugeon implements Serializable{
         Spell temp=new Spell();
         Random ran = new Random();
         int x = ran.nextInt(4)+1;
-        switch(x){
+        WinSpell(x);
+        if(player.spells.size()==2){
+            this.LoseRandSpell();
+        }
+        player.addSpell(temp);
+    }
+    public void WinSpell(int opt){
+        Spell temp=new Spell();
+
+        switch(opt){
             case 1:
                 temp=new Fireball();
                 this.log += "Adquiriu o Spell FireBall!\n";
@@ -114,28 +124,6 @@ public class Dugeon implements Serializable{
             case 4:
                 temp=new Healing();
                 this.log += "Adquiriu o Spell Healing!\n";
-                break;
-        }
-        if(player.spells.size()==2){
-            this.LoseRandSpell();
-        }
-        player.addSpell(temp);
-    }
-    public void WinSpell(int opt){
-        Spell temp=new Spell();
-
-        switch(opt){
-            case 1:
-                temp=new Fireball();
-                break;
-            case 2:
-                temp=new Ice();
-                break;
-            case 3:
-                temp=new Poison();
-                break;
-            case 4:
-                temp=new Healing();
                 break;
         }
         if(player.spells.size()==2)

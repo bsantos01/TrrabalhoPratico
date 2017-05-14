@@ -12,7 +12,7 @@ import trabalhopratico.cards.Monster;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class IAwaitSpells extends StateAdapter{
     
@@ -56,6 +56,7 @@ public class IAwaitSpells extends StateAdapter{
                    return new IGameOver(this.getDataGame());
                this.getDataGame().BossReward();
                this.getDataGame().WinRandSpell();
+               this.getDataGame().setLog("Monster died! Keep going!");
             }
            this.getDataGame().addxp(npc.getReward());   
            this.getDataGame().setMkill();//define para true a variavel do user ja ter morto um monstro

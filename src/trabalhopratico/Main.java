@@ -11,7 +11,7 @@ import ui.UI;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class Main {
         

@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class Fireball extends Spell implements Serializable{
     public Fireball(){

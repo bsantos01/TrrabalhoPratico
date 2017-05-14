@@ -11,7 +11,7 @@ import trabalhopratico.cards.Monster;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class StateAdapter implements IStates, Serializable {
     private Dugeon gamedata;

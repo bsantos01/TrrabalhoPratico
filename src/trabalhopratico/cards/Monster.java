@@ -13,7 +13,7 @@ import trabalhopratico.IEstates.IStates;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class Monster extends Card implements Serializable{
         

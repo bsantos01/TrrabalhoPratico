@@ -11,7 +11,7 @@ import trabalhopratico.Spells.Spell;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class Player implements Serializable{
     

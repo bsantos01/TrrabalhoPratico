@@ -9,7 +9,7 @@ import trabalhopratico.Data.Dugeon;
 import trabalhopratico.IEstates.IStates;
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public abstract class Card implements Serializable{
   
