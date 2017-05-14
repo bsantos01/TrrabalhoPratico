@@ -255,6 +255,8 @@ public class UI {
             System.out.println("\t\t\t-----------------\t\t\t\t-----------------");
                
         }
+        System.out.println(game.getLog());
+        game.refreshLog();
     }
     public void cls(){
         for (int i = 0; i < 100; ++i)  
@@ -285,9 +287,9 @@ public class UI {
                     if(game.getIndex()==1 ||game.getIndex()==4)game.addIndex(2);
                     else game.addIndex(1);
                 }
-                s.nextLine();
-                game.setState(game.getState().start());
                 
+                game.setState(game.getState().start());
+                s.nextLine();
             }
             if(game.getState() instanceof IMerchAwait){
                game.setState(game.getState().comitOpt(chooseMerch()));

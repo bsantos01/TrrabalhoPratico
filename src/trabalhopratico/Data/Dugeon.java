@@ -86,12 +86,10 @@ public class Dugeon implements Serializable{
             case 1:
             case 2:
                 player.addGold(2);
-                this.log += "Ganhou 2 de gold!\n";
                 break;
             case 3:
             case 4:
                 player.addGold(3);
-                this.log += "Ganhou 3 de gold!\n";
                 break;
         }        
     }
@@ -269,6 +267,7 @@ public class Dugeon implements Serializable{
     }
 
     public void setarea(int area) {
+        this.log += "Passou para a area " + lvl + " !\n";
         this.area = area;
     }
     public int getlvl() {
@@ -276,6 +275,7 @@ public class Dugeon implements Serializable{
     }
 
     public void setlvl(int lvl) {
+        this.log += "Passou para o nível " + lvl + " !\n";
         this.lvl = lvl;
     }
     
@@ -296,23 +296,29 @@ public class Dugeon implements Serializable{
 
 //ADDS AND REMOVES    
     public void addxp(int v){
+        this.log += "Ganhou " + v + " de XP!\n";
         player.addxp(v);
     }
     
     public void rmXP(int v){
+        this.log += "Perdeu " + v + " de XP !\n";
         player.rmXP(v);
     }
     
     public void rmfood(){
+        this.log += "Perdeu 1 de XP !\n";
         player.setFood(player.getFood()-1);
     }
     public void addfood(){
+        this.log += "Ganhou 1 de Food !\n";
         player.setFood(player.getFood()+1);
     }
     public void addHP(int v){
+        this.log += "Ganhou " + v + " de HP !\n";
         player.setHp(player.getHp()+v);
     }
     public void rmHP(int v){
+        this.log += "Perdeu " + v + " de HP !\n";
         player.setHp(player.getHp()-v);
         if (this.player.getHp()<=0){
             
@@ -321,15 +327,19 @@ public class Dugeon implements Serializable{
     }
     
     public boolean rmGold(int v){
+        this.log += "Perdeu " + v + " de Gold !\n";
         return player.rmGold(v);
     }
     public void addGold(int v){
+        this.log += "Ganhou " + v + " de Gold !\n";
         this.player.addGold(v);
     }
     public void addArmor(int v){
+        this.log += "Ganhou " + v + " de Armor !\n";
         this.player.addArmor(v);
     }
     public boolean rmArmor(int v){
+        this.log += "Perdeu " + v + " de Armor !\n";
         return this.player.rmArmor(v);
     }
     public int getArmor(){

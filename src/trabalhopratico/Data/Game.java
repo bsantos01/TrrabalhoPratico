@@ -127,4 +127,12 @@ public class Game implements Serializable{
                 oin.close();
         }
     }
+
+    public String getLog() {
+        return gamedata.getLog();
+    }
+    
+    public void refreshLog() {
+        gamedata.refreshLog();
+    }
 }
