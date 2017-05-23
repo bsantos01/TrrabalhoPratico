@@ -6,6 +6,7 @@
 package trabalhopratico.IEstates;
 
 import trabalhopratico.Data.Dugeon;
+import trabalhopratico.cards.Area;
 
 /**
  *
@@ -18,9 +19,37 @@ public class IBeginning extends StateAdapter{
         }
         
         @Override
-        public IStates start(){
-            // Accao executada neste estado
-            return new IAwaitAction(getDataGame());
-        };
+        public IStates setupGame(int d, int a) {
+                    this.getDataGame().setarea(a); 
+        switch(a){
+            case 1:
+            case 2:
+                this.getDataGame().setlvl(1);
+                break;
+            case 3:
+            case 4:
+                this.getDataGame().setlvl(2);
+                break;     
+            case 5:
+            case 6:
+            case 7:
+                this.getDataGame().setlvl(3);
+                break;
+            case 8:
+            case 9:
+            case 10:
+                this.getDataGame().setlvl(4);
+                break;
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+                this.getDataGame().setlvl(5);
+                break;
+        }
+        this.getDataGame().setDifPlayer(d);//ACABAR
+        this.getDataGame().newArena();
+        return new IAwaitAction(this.getDataGame());
+        }
 
 }

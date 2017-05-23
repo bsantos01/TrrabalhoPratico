@@ -22,16 +22,18 @@ public class IAwaitFeat extends StateAdapter{
     }
     
     @Override
-    public IStates comitOpt(int opt){
-        
-        this.getDataGame().rerollSingle(opt);
-        this.getDataGame().rmXP(1);
-        this.getDataGame().rmHP(2);
-        return new IAwaitFeat(this.getDataGame(),npc);
+    public IStates doFeat(int []i)
+    {
+        this.getDataGame().setDices(i);
+        return new IAwaitSpells(this.getDataGame(), this.npc);
     }
     @Override
     public Monster GetMonster(){
         return npc;
+    }
+    @Override
+    public boolean rerollCrit(int i){
+        return this.getDataGame().rerollCrit(i);        
     }
     @Override
     public IStates start(){

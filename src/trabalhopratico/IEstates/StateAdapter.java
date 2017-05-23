@@ -47,4 +47,22 @@ public class StateAdapter implements IStates, Serializable {
         return null;
     };
 
+    @Override
+    public boolean rerollCrit(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public IStates doFeat(int []i){
+        return this;
+    }
+    @Override
+    public IStates Do() {
+        return this;
+    }
+
+    @Override
+    public IStates setupGame(int d, int a) {
+        return this;
+    }
+
 }

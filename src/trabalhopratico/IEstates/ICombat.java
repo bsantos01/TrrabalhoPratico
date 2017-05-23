@@ -18,6 +18,7 @@ public class ICombat extends StateAdapter{
 
     public ICombat(Dugeon dataGame, Monster m) {
         super(dataGame);
+        this.getDataGame().RDices();
         npc=m;
     }
     @Override
@@ -25,12 +26,18 @@ public class ICombat extends StateAdapter{
         return npc;
     };
     
-    @Override
-    public IStates start() {
-        
-        return super.start(); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
     
+    @Override
+    public IStates Do(){
+        return new IAwaitFeat(getDataGame(),this.npc);    
+     }
+    @Override
+    public boolean rerollCrit(int i){
+        return this.getDataGame().rerollCrit(i);        
+    }
+
+
     
     
 }

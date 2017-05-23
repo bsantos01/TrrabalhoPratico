@@ -32,14 +32,23 @@ public class Game implements Serializable{
         gamedata = new Dugeon();
         state = new IBeginning(gamedata);
     }
+    public IStates commitopt(int i){
+        return state.comitOpt(i);
+    }
+    public IStates Do(){
+        return state.Do();
+    }
+    public IStates DoFeat(int [] i){
+            return state.doFeat(i);
+    }
     public int getDamage(){ 
         return gamedata.getDamage();
     }
     public Monster GetMonster(){
         return state.GetMonster();
     }
-    public int[] getRDices(){
-        return gamedata.getRDices();
+    public void getRDices(){
+        gamedata.RDices();
     }
     public String SpellToString(){
         return gamedata.SpellToString();
@@ -48,7 +57,7 @@ public class Game implements Serializable{
         return gamedata.getDices();
     }
     public boolean rerollCrit(int i){
-        return gamedata.rerollCrit(i);
+        return state.rerollCrit(i);
     }
     public void rerollSingle(int i){
         gamedata.rerollSingle(i);
@@ -80,9 +89,8 @@ public class Game implements Serializable{
         gamedata.addIndex(i);
     }
     
-    public void setDificulty(int d, int a){
-        gamedata.setup(d, a);
-        state= new IAwaitAction(gamedata);
+    public IStates setupGame(int d, int a){
+        return state.setupGame(d, a);
     }
     
     public void setState(IStates s){

@@ -29,7 +29,7 @@ public class UI {
    
     public void getdiceopt(){
        
-        int []dices=game.getRDices();
+        int []dices=game.getDices();
         printDice();
         
         
@@ -57,7 +57,7 @@ public class UI {
         for (int i=0; i<dices.length; i++)
             System.out.println("Dice " + (i+1) +": "+ dices[i]);  
     }
-    public void doFeat(){
+    public int [] doFeat(){
         int opt;
         int []dices=game.getDices();
         System.out.println("Do Feat");
@@ -72,7 +72,7 @@ public class UI {
                     opt=s.nextInt();
                 while(opt<1 || opt>2);
                 if(opt==1){
-                    game.getState().comitOpt(i);
+                    dices[i]=game.rolldice();
                     if(dices[i]==6)
                        Critical(i);       
                 }               
@@ -81,6 +81,7 @@ public class UI {
             System.out.println("Insuficient HP to perform Feats.");
            
         }
+            return dices;
     }
     public int doSpells(){
         printDice();
@@ -193,9 +194,10 @@ public class UI {
             do
                 area=s.nextInt();
             while(area<1 || area>14);
-            game.setDificulty(dif, area);
+            game.setState(game.setupGame(dif, area));
         }else{
             LoadGame();
+            
             
         }
     }
@@ -276,28 +278,27 @@ public class UI {
             if(game.getState() instanceof IBeginning)
             {   
                 setupbeginning();
+                            
             }
+        
             if(game.getState() instanceof IAwaitAction)
             {   
                 cls();
                 printArena();
                 printDataPlayer();
+                s.nextLine();
                 if(game.getIndex()==0 ||game.getIndex()==3)
                 {
-                    game.addIndex(chooseCard());
+                    game.setState(game.commitopt(this.chooseCard()));
                 }else{
-                    if(game.getIndex()==1 ||game.getIndex()==4)game.addIndex(2);
-                    else game.addIndex(1);
+                    game.setState(game.commitopt(0));//0 porque não é utilizada a opção
                 }
-                s.nextLine();
-                game.setState(game.getState().start());
-                
             }
             if(game.getState() instanceof IMerchAwait){
-               game.setState(game.getState().comitOpt(chooseMerch()));
+               game.setState(game.commitopt(chooseMerch()));
             }
             if(game.getState() instanceof IRestAwait){
-               game.setState(game.getState().comitOpt(chooseRest()));
+               game.setState(game.commitopt(chooseRest()));
             }            
             if(game.getState() instanceof ICombat){
                 
@@ -307,16 +308,16 @@ public class UI {
                     System.out.println("\nOh! A BOSS MONSTER APPEARS!!! TO BATTLE!! \n");
                 System.out.println("Monster HP: " + game.GetMonster().getHp()+ "\tPlayer HP: "+ game.GetPlayerHP());
                 System.out.println("Monster Reward: " + game.GetMonster().getReward());
-                getdiceopt();//ROLL inicial e verificação de criticals, actualizando os dados no gamedata
-                resolvFeat();
+                getdiceopt();//e verificação de criticals
+                game.setState(game.Do());
             }
             if(game.getState() instanceof IAwaitFeat){
                
-                doFeat();
-                game.setState(new IAwaitSpells(game.getDataGame(), game.GetMonster()));
+                
+                game.setState(game.DoFeat(doFeat()));
             }
             if(game.getState() instanceof IAwaitSpells){
-                game.setState(game.getState().comitOpt(doSpells()));
+                game.setState(game.commitopt(doSpells()));
             }
             if(game.getState() instanceof IGameOver){
             
