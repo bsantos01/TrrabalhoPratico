@@ -145,11 +145,13 @@ public class Dugeon implements Serializable{
         }
         return true;
     }
-    public int[] getRDices(){
+    public void setDices(int []i){
+        this.dices=i;
+    }
+    public void RDices(){
         this.dices = new int[this.player.getRank()];        
         for (int i=0; i<this.player.getRank(); i++)
             dices[i]= this.rolldice();        
-        return dices;
     }
     public int[] getDices(){      
         return dices;
@@ -193,37 +195,7 @@ public class Dugeon implements Serializable{
         if(area==2 || area==4 || area ==7 || area == 10 || area==14)return true;
         return false;
     }
-    public void setup(int difficulty, int area) {
-        this.area=area;
-        switch(area){
-            case 1:
-            case 2:
-                lvl=1;
-                break;
-            case 3:
-            case 4:
-                lvl=2;
-                break;     
-            case 5:
-            case 6:
-            case 7:
-                lvl=3;
-                break;
-            case 8:
-            case 9:
-            case 10:
-                lvl=4;
-                break;
-            case 11:
-            case 12:
-            case 13:
-            case 14:
-                lvl=5;
-                break;
-        }
-        this.player.Difficulty(difficulty);
-        this.cards = new Area(this);
-    }
+
     
     public int rolldice(){
         Random randomGenerator= new Random();
@@ -253,7 +225,12 @@ public class Dugeon implements Serializable{
     public int getarea() {
         return area;
     }
-
+    public void setDifPlayer(int dif){
+        player.Difficulty(dif);
+    }
+    public void newArena() {
+        this.cards= new Area(this);
+    }
     public void setarea(int area) {
         this.log += "Passou para a area " + lvl + " !\n";
         this.area = area;

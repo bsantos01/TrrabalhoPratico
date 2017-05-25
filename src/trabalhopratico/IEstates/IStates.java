@@ -18,9 +18,14 @@ public interface IStates
     //todas as funções que retornam um estado
     IStates start();
     IStates comitOpt(int opt);
-    public Monster GetMonster();
+    Monster GetMonster();
 
     public Dugeon doFeat(int opt, int i);
+
+    boolean rerollCrit(int i);
+    IStates Do();
+    IStates doFeat(int []i);
+    IStates setupGame(int d, int a);
         
     
     
