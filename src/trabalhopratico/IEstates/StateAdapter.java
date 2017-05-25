@@ -52,7 +52,7 @@ public class StateAdapter implements IStates, Serializable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
-    public IStates doFeat(int []i){
+    public IStates doFeat(){
         return this;
     }
     @Override

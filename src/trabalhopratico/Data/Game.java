@@ -38,8 +38,8 @@ public class Game implements Serializable{
     public IStates Do(){
         return state.Do();
     }
-    public IStates DoFeat(int [] i){
-            return state.doFeat(i);
+    public IStates DoFeat(){
+            return state.doFeat();
     }
     public int getDamage(){ 
         return gamedata.getDamage();

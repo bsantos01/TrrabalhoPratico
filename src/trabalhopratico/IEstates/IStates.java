@@ -24,7 +24,7 @@ public interface IStates
 
     boolean rerollCrit(int i);
     IStates Do();
-    IStates doFeat(int []i);
+    IStates doFeat();
     IStates setupGame(int d, int a);
         
     

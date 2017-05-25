@@ -25,9 +25,14 @@ public class ICombat extends StateAdapter{
     public Monster GetMonster(){
         return npc;
     };
+    @Override
+    public IStates comitOpt(int opt){
+        if (opt==1)
+           return new IAwaitFeat(this.getDataGame(), this.npc);
+        else
+           return new IAwaitSpells(this.getDataGame(), this.npc);
     
- 
-    
+    }     
     @Override
     public IStates Do(){
         return new IAwaitFeat(getDataGame(),this.npc);    

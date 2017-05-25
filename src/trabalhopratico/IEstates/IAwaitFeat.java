@@ -22,9 +22,8 @@ public class IAwaitFeat extends StateAdapter{
     }
     
     @Override
-    public IStates doFeat(int []i)
+    public IStates doFeat()
     {
-        this.getDataGame().setDices(i);
         return new IAwaitSpells(this.getDataGame(), this.npc);
     }
     

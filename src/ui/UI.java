@@ -57,7 +57,7 @@ public class UI {
         for (int i=0; i<dices.length; i++)
             System.out.println("Dice " + (i+1) +": "+ dices[i]);  
     }
-    public int [] doFeat(){
+    public void doFeat(){
         int opt;
         int []dices=game.getDices();
         System.out.println("Do Feat");
@@ -78,7 +78,7 @@ public class UI {
                     do
                         opt2=s.nextInt();
                     while(opt2<1 || opt2>2);
-                    game.feat(opt, opt2);
+                    game.feat(opt2, i);
                     dices=game.getDices();
                     if(dices[i]==6)
                        Critical(i);       
@@ -88,7 +88,7 @@ public class UI {
             System.out.println("Insuficient HP to perform Feats.");
            
         }
-            return dices;
+            
     }
     public int doSpells(){
         printDice();
@@ -221,14 +221,12 @@ public class UI {
     }
     public void resolvFeat(){
         int opt;
-        System.out.println("Satisfied? You can still use Feats. 1-YES 2-NO");
+        System.out.println("You can still use Feats. 1-YES 2-NO");
         do
             opt=s.nextInt();
-        while(opt<1 || opt>2);
-        if (opt==1)
-            game.setState(new IAwaitFeat(game.getDataGame(), game.GetMonster())); //passa para os feats
-        else
-            game.setState(new IAwaitSpells(game.getDataGame(), game.GetMonster())); //senao pretender feats vai para os spells
+        while(opt<1 || opt>2); 
+            game.setState(game.commitopt(opt)); //passa para os feats ou spells
+
 
     }
     public void printArena(){
@@ -313,15 +311,17 @@ public class UI {
                     System.out.println("\nA WILD MONSTER APPEARS!!! OH MY GOD!!!\n");
                 else
                     System.out.println("\nOh! A BOSS MONSTER APPEARS!!! TO BATTLE!! \n");
+                s.nextLine();
                 System.out.println("Monster HP: " + game.GetMonster().getHp()+ "\tPlayer HP: "+ game.GetPlayerHP());
                 System.out.println("Monster Reward: " + game.GetMonster().getReward());
                 getdiceopt();//e verificação de criticals
                 game.setState(game.Do());
+                 
             }
             if(game.getState() instanceof IAwaitFeat){
                
-                
-                game.setState(game.DoFeat(doFeat()));
+                this.doFeat();
+               game.setState(game.DoFeat());
             }
             if(game.getState() instanceof IAwaitSpells){
                 game.setState(game.commitopt(doSpells()));
