@@ -143,4 +143,8 @@ public class Game implements Serializable{
     public void refreshLog() {
         gamedata.refreshLog();
     }
+
+    public void feat(int opt, int i) {
+        state.doFeat(opt, i);
+    }
 }
