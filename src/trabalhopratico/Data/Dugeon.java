@@ -353,5 +353,9 @@ public class Dugeon implements Serializable{
     public void setMkill() {
         player.setMkill(true);
     }
+
+    public void setDice(int i) {
+        this.dices[i]=rolldice();
+    }
     
 }

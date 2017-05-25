@@ -29,6 +29,16 @@ public class IAwaitFeat extends StateAdapter{
         this.getDataGame().rmHP(2);
         return new IAwaitFeat(this.getDataGame(),npc);
     }
+    
+    @Override
+    public int doFeat(int opt, int i){ 
+        if(opt==1){
+            this.getDataGame().rmXP(1);
+        }
+        else this.getDataGame().rmHP(2);
+        this.getDataGame().setDice(i);
+        return this.getDataGame().rolldice();
+    }
     @Override
     public Monster GetMonster(){
         return npc;

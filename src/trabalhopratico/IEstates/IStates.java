@@ -18,6 +18,8 @@ public interface IStates
     IStates start();
     IStates comitOpt(int opt);
     public Monster GetMonster();
+
+    public int doFeat(int opt, int i);
         
     
     
