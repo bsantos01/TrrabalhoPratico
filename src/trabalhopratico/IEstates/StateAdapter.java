@@ -48,7 +48,7 @@ public class StateAdapter implements IStates, Serializable {
     };
 
     @Override
-    public boolean rerollCrit(int i) {
+    public Dugeon doFeat(int opt, int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
@@ -63,6 +63,11 @@ public class StateAdapter implements IStates, Serializable {
     @Override
     public IStates setupGame(int d, int a) {
         return this;
+    }
+
+    @Override
+    public boolean rerollCrit(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

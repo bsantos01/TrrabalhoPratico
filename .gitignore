@@ -47,3 +47,4 @@ Temporary Items
 .apdisk
 build/classes/trabalhopratico/IEstates/IAwaitAction.class
 *.class
+build/classes/trabalhopratico/IEstates/IAwaitFeat.class

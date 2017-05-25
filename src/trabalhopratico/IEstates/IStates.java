@@ -1,5 +1,6 @@
 package trabalhopratico.IEstates;
 
+import trabalhopratico.Data.Dugeon;
 import trabalhopratico.cards.Monster;
 
 /*
@@ -18,6 +19,9 @@ public interface IStates
     IStates start();
     IStates comitOpt(int opt);
     Monster GetMonster();
+
+    public Dugeon doFeat(int opt, int i);
+
     boolean rerollCrit(int i);
     IStates Do();
     IStates doFeat(int []i);

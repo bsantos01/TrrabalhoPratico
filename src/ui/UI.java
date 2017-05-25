@@ -72,7 +72,14 @@ public class UI {
                     opt=s.nextInt();
                 while(opt<1 || opt>2);
                 if(opt==1){
-                    dices[i]=game.rolldice();
+
+                    int opt2 = 0;
+                    System.out.println("What to lose? 1-XP 2-HP");
+                    do
+                        opt2=s.nextInt();
+                    while(opt2<1 || opt2>2);
+                    game.feat(opt, opt2);
+                    dices=game.getDices();
                     if(dices[i]==6)
                        Critical(i);       
                 }               
