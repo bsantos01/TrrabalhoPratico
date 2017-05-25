@@ -44,6 +44,7 @@ public class Game implements Serializable{
     public String SpellToString(){
         return gamedata.SpellToString();
     }
+    
     public int[] getDices(){
         return gamedata.getDices();
     }
@@ -137,6 +138,6 @@ public class Game implements Serializable{
     }
 
     public void feat(int opt, int i) {
-        state.doFeat(opt, i);
+        gamedata=state.doFeat(opt, i);
     }
 }

@@ -31,13 +31,13 @@ public class IAwaitFeat extends StateAdapter{
     }
     
     @Override
-    public int doFeat(int opt, int i){ 
+    public Dugeon doFeat(int opt, int i){ 
         if(opt==1){
             this.getDataGame().rmXP(1);
         }
         else this.getDataGame().rmHP(2);
         this.getDataGame().setDice(i);
-        return this.getDataGame().rolldice();
+        return this.getDataGame();
     }
     @Override
     public Monster GetMonster(){

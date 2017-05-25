@@ -78,6 +78,7 @@ public class UI {
                         opt2=s.nextInt();
                     while(opt2<1 || opt2>2);
                     game.feat(opt, opt2);
+                    dices=game.getDices();
                     if(dices[i]==6)
                        Critical(i);       
                 }               

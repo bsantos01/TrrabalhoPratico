@@ -48,7 +48,7 @@ public class StateAdapter implements IStates, Serializable {
     };
 
     @Override
-    public int doFeat(int opt, int i) {
+    public Dugeon doFeat(int opt, int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
