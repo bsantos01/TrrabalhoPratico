@@ -45,5 +45,9 @@ public class ObservableGame extends Observable{
         setChanged();
         notifyObservers();
     }
+
+    public String getLog() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
 }

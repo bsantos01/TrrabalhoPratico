@@ -18,13 +18,20 @@ import trabalhopratico.IEstates.IBeginning;
 class GamePanel extends JPanel implements Observer{
     
     ObservableGame game;
+    CharPanel charP;
+    DugeonPanel DugP;
+    CardPanel cardP;
+    DicePanel diceP;
+    OptionsPanel optP;
+    LogPanel logP;
+    
 
     public GamePanel(ObservableGame game) {
         this.game=game;
         game.addObserver(this);
         
-        setupComponents();
-        setupLayout();
+        //setupComponents();
+        //setupLayout();
         setVisible(!(game.getState() instanceof IBeginning));
     }
 
