@@ -35,9 +35,13 @@ public class Starting extends JPanel implements Observer {
     JTextField setDif;
     JTextField setArea;
     String dif[] ={
-        "1","2","3"
+        "0","1","2","3"
     };
-    JComboBox cb;
+    JComboBox cbd;
+    String area[] ={
+        "1","2","3","4","5","6","7","8","9","10","11","12","13","14"
+    };
+    JComboBox cba;
     public Starting(ObservableGame game) {
         this.game = game;
 
@@ -53,7 +57,8 @@ public class Starting extends JPanel implements Observer {
 
 
     private void setupComponents() {
-        cb = new JComboBox(dif);
+        cbd = new JComboBox(dif);
+        cba = new JComboBox(area);
         Welcome = new JLabel("Mini Rogue");
         DifLabel = new JLabel("Difficulty:");
         AreaLabel = new JLabel("Area:");
@@ -73,8 +78,8 @@ public class Starting extends JPanel implements Observer {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-                int dif= Integer.parseInt(cb.getActionCommand());
-                int area= Integer.parseInt(setArea.getText());
+                int dif= Integer.parseInt(cbd.getSelectedItem().toString());
+                int area= Integer.parseInt(cba.getSelectedItem().toString());
                 game.start(dif, area);
             }
         });
@@ -106,10 +111,10 @@ public class Starting extends JPanel implements Observer {
             Box CenterBox = Box.createVerticalBox();
             CenterBox.add(Box.createVerticalGlue());
             CenterBox.add(this.AreaLabel);
-            CenterBox.add(this.cb);
+            CenterBox.add(this.cba);
             CenterBox.add(Box.createVerticalGlue());
             CenterBox.add(this.DifLabel, BorderLayout.CENTER);
-            CenterBox.add(this.setDif, BorderLayout.CENTER);
+            CenterBox.add(this.cbd);
             CenterBox.add(Box.createVerticalGlue(), BorderLayout.CENTER);
             CenterBox.add(this.start, BorderLayout.CENTER);
             CenterBox.add(Box.createVerticalGlue());
