@@ -80,13 +80,15 @@ class GamePanel extends JPanel implements Observer{
 
         pRight = new JPanel();
         pRight.setLayout(new BorderLayout());
+        pRight.setBackground(Color.RED);
+        
        /* pCenter.add(cardsInUsePanel, BorderLayout.NORTH);
 
         pCenter.add(middlePanel, BorderLayout.CENTER);*/
         
        
         pRight.add(logP, BorderLayout.SOUTH);
-        add(pRight, BorderLayout.CENTER);
+        add(pRight, BorderLayout.EAST);
 
         validate();
     }
