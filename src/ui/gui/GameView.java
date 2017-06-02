@@ -53,7 +53,9 @@ public class GameView extends JFrame implements Observer{
         
         cp.setLayout(new BorderLayout());
         cp.add(panel, BorderLayout.CENTER);
-        cp.add(start, BorderLayout.CENTER);
+        cp.add(start, BorderLayout.NORTH);
+        
+        
     }
     
     

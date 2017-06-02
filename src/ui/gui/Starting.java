@@ -5,20 +5,14 @@
  */
 package ui.gui;
 
-import com.sun.org.apache.xalan.internal.templates.Constants;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-import javax.annotation.Resources;
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import trabalhopratico.Data.ObservableGame;
 import trabalhopratico.IEstates.IBeginning;
 
@@ -34,11 +28,11 @@ public class Starting extends JPanel implements Observer {
     JLabel AreaLabel;
     JTextField setDif;
     JTextField setArea;
-    String dif[] ={
+    String sdif[] ={
         "0","1","2","3"
     };
     JComboBox cbd;
-    String area[] ={
+    String sarea[] ={
         "1","2","3","4","5","6","7","8","9","10","11","12","13","14"
     };
     JComboBox cba;
@@ -57,8 +51,8 @@ public class Starting extends JPanel implements Observer {
 
 
     private void setupComponents() {
-        cbd = new JComboBox(dif);
-        cba = new JComboBox(area);
+        cbd = new JComboBox(sdif);
+        cba = new JComboBox(sarea);
         Welcome = new JLabel("Mini Rogue");
         DifLabel = new JLabel("Difficulty:");
         AreaLabel = new JLabel("Area:");
@@ -95,38 +89,30 @@ public class Starting extends JPanel implements Observer {
 
         if (game.getState() instanceof IBeginning) {    
             
-            JPanel pNorth, pCenter;
-            Box TopBox = Box.createHorizontalBox();
-            TopBox.add(Box.createHorizontalGlue());
-            TopBox.add(this.Welcome);
-            TopBox.add(Box.createHorizontalGlue());
-            TopBox.setBorder(new LineBorder(Color.BLACK));
-            pNorth = new JPanel();
-            pNorth.setLayout(new BorderLayout());
-            pNorth.add(TopBox);
+            JPanel pNorth, pCenter, outerp;
+            outerp= new JPanel(new BorderLayout());
+            pNorth = new JPanel(new BorderLayout());
+            //pCenter = new JPanel(new BorderLayout());
+            
+            outerp.setPreferredSize(new Dimension(500,100));
+            pNorth.add(Welcome, BorderLayout.CENTER);
+            
+            Box right = Box.createVerticalBox();
+            right.add(Box.createHorizontalGlue());
+            right.add(AreaLabel, BorderLayout.CENTER);
+            right.add(Box.createVerticalGlue());
+            right.add(cba, BorderLayout.CENTER);
+             right.add(Box.createVerticalGlue());
+            
+            Box left = Box.createVerticalBox();
+            left.add(DifLabel, BorderLayout.CENTER);
+            left.add(cbd, BorderLayout.CENTER);
+            
+            outerp.add(right, BorderLayout.EAST);
+            outerp.add(left, BorderLayout.WEST);
             add(pNorth, BorderLayout.NORTH);
-            
-            
-            pCenter = new JPanel();
-            Box CenterBox = Box.createVerticalBox();
-            CenterBox.add(Box.createVerticalGlue());
-            CenterBox.add(this.AreaLabel);
-            CenterBox.add(this.cba);
-            CenterBox.add(Box.createVerticalGlue());
-            CenterBox.add(this.DifLabel, BorderLayout.CENTER);
-            CenterBox.add(this.cbd);
-            CenterBox.add(Box.createVerticalGlue(), BorderLayout.CENTER);
-            CenterBox.add(this.start, BorderLayout.CENTER);
-            CenterBox.add(Box.createVerticalGlue());
-            CenterBox.setBorder(new LineBorder(Color.BLACK));
-            
-            pCenter.setLayout(new BorderLayout());
-            pCenter.add(CenterBox, BorderLayout.CENTER);
-            add(pCenter, BorderLayout.CENTER);
-            //setLayout(new BorderLayout());
-            
-            //add(TopBox, BorderLayout.NORTH);
-            //add(CenterBox,BorderLayout.CENTER);
+            //outerp.add(pCenter, BorderLayout.CENTER);
+            add(outerp, BorderLayout.SOUTH);
         }
 
         

@@ -232,8 +232,8 @@ public class Dugeon implements Serializable{
         this.cards= new Area(this);
     }
     public void setarea(int area) {
-        this.log += "Passou para a area " + lvl + " !\n";
         this.area = area;
+        this.log += "Passou para a area " + lvl + " !\n";
     }
     public int getlvl() {
         return lvl;
