@@ -5,16 +5,42 @@
  */
 package ui.gui;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 
 /**
  *
  * @author Bruno Santos
  */
-class CharPanel {
-
-    CharPanel(ObservableGame game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+class CharPanel extends JPanel {
+    
+    
+    static private BufferedImage charstat= null;
+    
+    ObservableGame game;
+    public static BufferedImage getCharstats(){
+        return charstat;
     }
     
+    static{
+        try{
+            charstat=ImageIO.read(Resources.getResourceFile("Images/char.jpg"));
+        } catch(IOException e){
+            System.out.println("ERROR LOADING IMAGE");
+        }
+    }
+    
+    CharPanel(ObservableGame game) {
+        this.game=game;
+    }
+    
+    @Override
+    public void paintComponent(Graphics g){
+        g.drawImage(getCharstats(), 0, 0, 100,100, this);
+    
+    }
 }

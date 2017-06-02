@@ -53,8 +53,8 @@ class GamePanel extends JPanel implements Observer{
     }
 
     private void setupComponents() {
-        /*charP = new CharPanel(game);
-        dugP = new DugeonPanel(game);
+        charP = new CharPanel(game);
+        /*dugP = new DugeonPanel(game);
         cardP = new CardPanel(game);
         diceP = new DicePanel(game);
         optP = new OptionsPanel(game);*/
@@ -67,12 +67,11 @@ class GamePanel extends JPanel implements Observer{
         setLayout(new BorderLayout());
 
         pLeft = new JPanel();
-        pLeft.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        pLeft.setLayout(new BorderLayout());
         JLabel cenas= new JLabel("teste");
      
-        pLeft.add(cenas, BorderLayout.NORTH);
+        pLeft.add(charP, BorderLayout.NORTH);
         add(pLeft, BorderLayout.WEST);
-        
       
        // add(charP, BorderLayout.WEST);
         //add(dugP, BorderLayout.WEST);
