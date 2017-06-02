@@ -89,6 +89,7 @@ public class Starting extends JPanel implements Observer {
         //setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         if (game.getState() instanceof IBeginning) {    
+            
             JPanel pNorth, pCenter;
             Box TopBox = Box.createHorizontalBox();
             TopBox.add(Box.createHorizontalGlue());
