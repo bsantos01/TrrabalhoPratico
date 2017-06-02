@@ -30,7 +30,7 @@ class GamePanel extends JPanel implements Observer{
     DicePanel diceP;
     OptionsPanel optP;
     LogPanel logP;
-    JLabel cenas;
+    
 
     public GamePanel(ObservableGame game) {
         this.game=game;
@@ -67,11 +67,11 @@ class GamePanel extends JPanel implements Observer{
         setLayout(new BorderLayout());
 
         pLeft = new JPanel();
-        //pLeft.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        cenas= new JLabel("teste");
+        pLeft.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        JLabel cenas= new JLabel("teste");
      
-       // pLeft.add(cenas, BorderLayout.NORTH);
-       // add(pLeft, BorderLayout.WEST);
+        pLeft.add(cenas, BorderLayout.NORTH);
+        add(pLeft, BorderLayout.WEST);
         
       
        // add(charP, BorderLayout.WEST);
@@ -83,6 +83,7 @@ class GamePanel extends JPanel implements Observer{
 
         pCenter.add(middlePanel, BorderLayout.CENTER);*/
         
+       
         pRight.add(logP, BorderLayout.SOUTH);
         add(pRight, BorderLayout.CENTER);
 

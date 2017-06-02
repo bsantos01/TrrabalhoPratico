@@ -6,6 +6,7 @@
 package ui.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -51,7 +52,7 @@ public class Starting extends JPanel implements Observer {
     private void setupComponents() {
         cbd = new JComboBox(sdif);
         cba = new JComboBox(sarea);
-        Welcome = new JLabel("Mini Rogue",SwingConstants.CENTER);
+        Welcome = new JLabel("Mini Rogue");
         DifLabel = new JLabel("Difficulty:");
         AreaLabel = new JLabel("Area:");
         start = new JButton("START");
@@ -71,37 +72,41 @@ public class Starting extends JPanel implements Observer {
     }
     
     private void setupLayout() {
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         if (game.getState() instanceof IBeginning) {    
             
-            JPanel pNorth, outerp, pCenter;
-            outerp= new JPanel(new BorderLayout());
-            pNorth = new JPanel(new BorderLayout());
-            pCenter = new JPanel(new BorderLayout());
-            add(outerp);
-            outerp.add(pNorth, BorderLayout.NORTH);
-            outerp.add(pCenter);
-            //outerp.setPreferredSize(new Dimension(500,100));
-            pNorth.add(Welcome, BorderLayout.CENTER);
             
-            Box right = Box.createVerticalBox();
-            right.add(AreaLabel, BorderLayout.EAST);
-            right.add(cba, BorderLayout.EAST);
-            
-            Box left = Box.createVerticalBox();
-            left.add(DifLabel, BorderLayout.WEST);
-            left.add(cbd, BorderLayout.WEST);
-            
-            
-            pCenter.add(right, BorderLayout.CENTER);
-            pCenter.add(left, BorderLayout.EAST);
-            
-            //outerp.add(pCenter, BorderLayout.CENTER);
+        AreaLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        DifLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        AreaLabel.setAlignmentY(Component.CENTER_ALIGNMENT);
+        DifLabel.setAlignmentY(Component.CENTER_ALIGNMENT);
+        Welcome.setAlignmentX(Component.CENTER_ALIGNMENT); 
+        start.setAlignmentX(Component.CENTER_ALIGNMENT); 
+        
+        add(Box.createVerticalStrut(80));
+        add(Welcome);
+              
+      
+        cbd.setMaximumSize(new Dimension(120,20));
+        cba.setMaximumSize(new Dimension(120,20));
+
+        AreaLabel.setOpaque(false);
+        DifLabel.setOpaque(false);
+        
+        add(Box.createVerticalStrut(80));
+        add(AreaLabel);
+        add(cba);
+        add(Box.createVerticalStrut(100));
+        add(DifLabel);
+        add(cbd);
+        add(Box.createVerticalStrut(80));
+        add(start);
+        validate();
             
         }
 
         
-        validate();
+   
     }
 }
