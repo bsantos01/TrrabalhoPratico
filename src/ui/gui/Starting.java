@@ -73,7 +73,7 @@ public class Starting extends JPanel implements Observer {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-                int dif= Integer.parseInt(setDif.getText());
+                int dif= Integer.parseInt(cb.getActionCommand());
                 int area= Integer.parseInt(setArea.getText());
                 game.start(dif, area);
             }
