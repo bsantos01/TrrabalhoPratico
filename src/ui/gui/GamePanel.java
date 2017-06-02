@@ -30,7 +30,7 @@ class GamePanel extends JPanel implements Observer{
         this.game=game;
         game.addObserver(this);
         
-        //setupComponents();
+        setupComponents();
         //setupLayout();
         setVisible(!(game.getState() instanceof IBeginning));
     }
@@ -40,6 +40,10 @@ class GamePanel extends JPanel implements Observer{
     @Override
     public void update(Observable o, Object o1) {
         setVisible(!(game.getState() instanceof IBeginning));
+    }
+
+    private void setupComponents() {
+        
     }
     
 }

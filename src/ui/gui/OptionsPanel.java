@@ -48,11 +48,13 @@ class OptionsPanel extends JPanel implements Observer {
     }
 
     private void setupLayout() {    
+        /*
         add(merchP);
         add(restP);
         add(SpellP);
         add(FeatP);
         add(CcardP);
+        */
     }
     
 }
