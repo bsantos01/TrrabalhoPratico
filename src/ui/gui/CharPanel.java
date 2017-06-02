@@ -28,7 +28,7 @@ class CharPanel extends JPanel {
     
     static{
         try{
-            charstat=ImageIO.read(Resources.getResourceFile("Images/char.jpg"));
+            charstat=ImageIO.read(Resources.getResourceFile("Images/CHARSTATS.png"));
         } catch(IOException e){
             System.out.println("ERROR LOADING IMAGE");
         }
@@ -40,7 +40,7 @@ class CharPanel extends JPanel {
     
     @Override
     public void paintComponent(Graphics g){
-        g.drawImage(getCharstats(), 0, 0, 100,100, this);
+        g.drawImage(getCharstats(), 0, 0,200,600, this);
     
     }
 }

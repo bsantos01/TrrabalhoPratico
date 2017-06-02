@@ -69,7 +69,9 @@ class GamePanel extends JPanel implements Observer{
         pLeft = new JPanel();
         pLeft.setLayout(new BorderLayout());
         JLabel cenas= new JLabel("teste");
-     
+        pLeft.setPreferredSize(new Dimension(200,100));
+        charP.setPreferredSize(new Dimension(200,600));
+        pLeft.setBackground(Color.GREEN);
         pLeft.add(charP, BorderLayout.NORTH);
         add(pLeft, BorderLayout.WEST);
       
