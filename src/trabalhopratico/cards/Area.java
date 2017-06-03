@@ -80,4 +80,33 @@ public class Area implements Serializable{
                 return "\t\t";
        return "\t\t";
     }
+
+    public Card getCard(int i) {
+        if(index<0)
+            if(i==0)
+                return area.get(i);
+            else
+                return null;
+        if(index==0)
+            if(i<3)
+                return area.get(i);
+            else
+                return null;
+       if(index==2 || index==1)
+            if(i<4)
+                return area.get(i);
+            else
+                return null;
+       if(index==3)
+            if(i<6)
+                return area.get(i);
+            else
+                return null;
+        if(index==4||index==5)
+            if(i<=6)
+                return area.get(i);
+            else
+                return null;
+       return null;
+    }
 }

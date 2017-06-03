@@ -334,5 +334,9 @@ public class Dugeon implements Serializable{
     public void setDice(int i) {
         this.dices[i]=rolldice();
     }
+
+    public Card getCard(int i) {
+        return cards.getCard(i);
+    }
     
 }

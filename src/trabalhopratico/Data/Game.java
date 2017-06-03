@@ -14,6 +14,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import trabalhopratico.IEstates.*;
 import java.util.Random;
+import trabalhopratico.cards.Card;
 import trabalhopratico.cards.Monster;
 
 /**
@@ -101,6 +102,10 @@ public class Game implements Serializable{
 
     public String getNameCard(int i) {
         return gamedata.getNameCard(i);
+    }
+    
+    public Card getCard(int i){
+        return gamedata.getCard(i);
     }
 
     public String getDataPlayer() {
