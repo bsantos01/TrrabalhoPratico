@@ -7,6 +7,7 @@ package trabalhopratico.Data;
 
 import java.util.Observable;
 import trabalhopratico.IEstates.IStates;
+import trabalhopratico.cards.Card;
 
 /**
  *
@@ -18,6 +19,14 @@ public class ObservableGame extends Observable{
 
     public ObservableGame() {
         game= new Game();
+    }
+    
+    
+    public boolean haveBoss(){
+        return game.haveBoss();
+    }
+    public Card getCard(int i){
+        return game.getCard(i);
     }
     
     public Game getGame(){

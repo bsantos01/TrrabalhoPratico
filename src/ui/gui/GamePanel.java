@@ -52,9 +52,8 @@ class GamePanel extends JPanel implements Observer{
     private void setupComponents() {
         charP = new CharPanel(game);
         dugP = new DugeonPanel(game);
-        /*
         cardP = new CardPanel(game);
-        diceP = new DicePanel(game);*/
+        //diceP = new DicePanel(game);
         optP = new OptionsPanel(game);
         logP = new LogPanel(game);
     }
@@ -112,6 +111,7 @@ class GamePanel extends JPanel implements Observer{
         pRightNorth.setPreferredSize(new Dimension(800,600));
         //color
         pRightNorth.setBackground(Color.ORANGE);
+        pRightNorth.add(cardP);
         
         /* pCenter.add(cardsInUsePanel, BorderLayout.NORTH);
         pCenter.add(middlePanel, BorderLayout.CENTER);*/

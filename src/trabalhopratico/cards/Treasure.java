@@ -15,7 +15,11 @@ import trabalhopratico.IEstates.IStates;
  * @author Bruno Santos & Miguel Almeida
  */
 public class Treasure extends Card implements Serializable{
-    
+
+    public Treasure() {
+        this.descricao="Treasure";
+    }
+
      @Override
      public IStates accao(int opt, Dugeon act)
      {

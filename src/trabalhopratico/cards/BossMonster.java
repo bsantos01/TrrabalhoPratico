@@ -19,6 +19,7 @@ public class BossMonster extends Monster implements Serializable{
     
     public BossMonster(Dugeon act, boolean event) {
         super(act, false);
+        this.descricao="BossMonster";
 
             
       
@@ -57,7 +58,7 @@ public class BossMonster extends Monster implements Serializable{
     
      @Override
      public String getname(){
-         return "MonsterBoss \t";
+         return "BossMonster \t";
      }
 
     @Override
