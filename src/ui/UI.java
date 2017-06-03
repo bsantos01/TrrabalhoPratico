@@ -201,7 +201,7 @@ public class UI {
             do
                 area=s.nextInt();
             while(area<1 || area>14);
-            game.setState(game.setupGame(dif, area));
+                game.setupGame(dif, area);
         }else{
             LoadGame();
             
@@ -225,7 +225,7 @@ public class UI {
         do
             opt=s.nextInt();
         while(opt<1 || opt>2); 
-            game.setState(game.commitopt(opt)); //passa para os feats ou spells
+            game.commitopt(opt); //passa para os feats ou spells
 
 
     }
@@ -294,16 +294,16 @@ public class UI {
                 s.nextLine();
                 if(game.getIndex()==0 ||game.getIndex()==3)
                 {
-                    game.setState(game.commitopt(this.chooseCard()));
+                    game.commitopt(this.chooseCard());
                 }else{
-                    game.setState(game.commitopt(0));//0 porque não é utilizada a opção
+                    game.commitopt(0);//0 porque não é utilizada a opção
                 }
             }
             if(game.getState() instanceof IMerchAwait){
-               game.setState(game.commitopt(chooseMerch()));
+               game.commitopt(chooseMerch());
             }
             if(game.getState() instanceof IRestAwait){
-               game.setState(game.commitopt(chooseRest()));
+               game.commitopt(chooseRest());
             }            
             if(game.getState() instanceof ICombat){
                 
@@ -315,16 +315,16 @@ public class UI {
                 System.out.println("Monster HP: " + game.GetMonster().getHp()+ "\tPlayer HP: "+ game.GetPlayerHP());
                 System.out.println("Monster Reward: " + game.GetMonster().getReward());
                 getdiceopt();//e verificação de criticals
-                game.setState(game.Do());
+                game.Do();
                  
             }
             if(game.getState() instanceof IAwaitFeat){
                
                 this.doFeat();
-               game.setState(game.DoFeat());
+               game.DoFeat();
             }
             if(game.getState() instanceof IAwaitSpells){
-                game.setState(game.commitopt(doSpells()));
+                game.commitopt(doSpells());
             }
             if(game.getState() instanceof IGameOver){
             

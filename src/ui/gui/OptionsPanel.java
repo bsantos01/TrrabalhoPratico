@@ -41,16 +41,16 @@ class OptionsPanel extends JPanel implements Observer {
     private void setupComponents() {
         
         merchP = new MerchPanel(game);
-        restP = new RestPanel(game);
+/*        restP = new RestPanel(game);
         SpellP = new SpellPanel(game);
         FeatP = new FeatPanel(game);
-        CcardP = new ChoseCardPanel(game);
+        CcardP = new ChoseCardPanel(game);*/
     }
 
     private void setupLayout() {    
-        /*
+        
         add(merchP);
-        add(restP);
+        /*add(restP);
         add(SpellP);
         add(FeatP);
         add(CcardP);

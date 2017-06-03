@@ -12,7 +12,8 @@ import trabalhopratico.Data.ObservableGame;
  * @author Bruno Santos
  */
 class CardPanel {
-
+    
+    
     CardPanel(ObservableGame game) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

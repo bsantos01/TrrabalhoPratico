@@ -18,7 +18,7 @@ public class Main {
         
     
     public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
-       // UI ui= new UI();
+        //UI ui= new UI();
          //ui.run();
         
         GameView gamegrafics= new GameView();

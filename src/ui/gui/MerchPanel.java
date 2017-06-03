@@ -5,16 +5,41 @@
  */
 package ui.gui;
 
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
+import trabalhopratico.IEstates.IMerchAwait;
 
 /**
  *
  * @author Bruno Santos
  */
-class MerchPanel {
+class MerchPanel extends JPanel {
 
-    MerchPanel(ObservableGame game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ ObservableGame game;
+
+    public MerchPanel(ObservableGame game) {
+        this.game = game;
+        
+        setupComponents();
+        this.setVisible(game.getState() instanceof IMerchAwait);
+    }
+
+    private void setupComponents() {
+        JPanel p = new JPanel();
+
+        p.setLayout(new GridLayout(6, 2, 10, 10));
+
+        p.add(new OptMerch(game, 0, 0, "Ration", "-1G", " +1 Food", 1));
+        p.add(new OptMerch(game, 0, 1, "Health Potion", "-1G", "+1 HP", 2));
+        p.add(new OptMerch(game, 1, 0, "Big Health Potion", "-3G", " +4 HP", 3));
+        p.add(new OptMerch(game, 1, 1, "Armor Piece", "-6G", " +1 Armor", 4));
+        p.add(new OptMerch(game, 2, 0, "Any Spell", "-8G", " Buy a random spell", 5));
+        p.add(new OptMerch(game, 2, 1, "Sell Armor", "+3G", " Sell 1 Armor piece",6));
+        p.add(new OptMerch(game, 3, 0, "Sell Spell", "+4G", " Sell a random spell",7));
+        p.add(new OptMerch(game, 3, 1, "Skip", " ", " Skip card",8));
+
+        add(p);
     }
     
 }

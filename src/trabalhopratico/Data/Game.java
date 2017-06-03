@@ -32,14 +32,14 @@ public class Game implements Serializable{
         gamedata = new Dugeon();
         state = new IBeginning(gamedata);
     }
-    public IStates commitopt(int i){
-        return state.comitOpt(i);
+    public void commitopt(int i){
+        state=state.comitOpt(i);
     }
-    public IStates Do(){
-        return state.Do();
+    public void Do(){
+        state=state.Do();
     }
-    public IStates DoFeat(){
-            return state.doFeat();
+    public void DoFeat(){
+        state=state.doFeat();
     }
     public int getDamage(){ 
         return gamedata.getDamage();
@@ -86,17 +86,12 @@ public class Game implements Serializable{
     public int getArea(){
         return gamedata.getarea();
     }
-    public void addIndex(int i){
-        gamedata.addIndex(i);
+
+    
+    public void setupGame(int d, int a){
+            state=state.setupGame(d, a);
     }
     
-    public IStates setupGame(int d, int a){
-        return state.setupGame(d, a);
-    }
-    
-    public void setState(IStates s){
-        state = s;
-    }
     
     public int rolldice(){
         Random randomGenerator= new Random();

@@ -40,14 +40,18 @@ public class ObservableGame extends Observable{
     }
     
     public void start(int dif,int area){
-        game.setState(game.setupGame(dif, area));
+        game.setupGame(dif, area);
         
         setChanged();
         notifyObservers();
     }
 
+    public void commitopt(int i){
+       game.commitopt(i);
+    }
     public String getLog() {
         return game.getLog();
     }
+
         
 }
