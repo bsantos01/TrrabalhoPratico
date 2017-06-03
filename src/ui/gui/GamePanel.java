@@ -60,48 +60,67 @@ class GamePanel extends JPanel implements Observer{
     }
 
     private void setupLayout() {
-                JPanel pLeft, pRight,pRightCenter,pRightNorth, pRightNorthEast;
+        JPanel pLeft, pRight,pRightCenter,pRightNorth, pRightCenterEast;
 
         setLayout(new BorderLayout());
-
+        
+        //------->LEFT - CHARSTATS & DUGEONSTATS<-------
         pLeft = new JPanel();
         pLeft.setLayout(new BorderLayout());
         
+        //Sizes
         pLeft.setPreferredSize(new Dimension(230,650));
         charP.setPreferredSize(new Dimension(230,650));
         dugP.setPreferredSize(new Dimension(230,320));
+        
+        //color
         pLeft.setBackground(Color.GREEN);
+        
+        //add
         pLeft.add(charP, BorderLayout.NORTH);
         pLeft.add(dugP, BorderLayout.SOUTH);
         add(pLeft, BorderLayout.WEST);
-      
-       // add(charP, BorderLayout.WEST);
+        //add(charP, BorderLayout.WEST);
         //add(dugP, BorderLayout.WEST);
 
+        //------>Right - CARDS(TOP) OPTIONS(CENTER)+DICES(CENTER EAST) + LOG(SOUTH) <-------
         pRight = new JPanel();
         pRight.setLayout(new BorderLayout());
-        pRight.setBackground(Color.RED);
-            pRightCenter=new JPanel();
-            pRightCenter.setLayout(new BorderLayout());
-                pRightCenter.setPreferredSize(new Dimension(230,650));
-                pRightCenter.setBackground(Color.BLUE);
-                        pRightCenter.add(optP);
-                        pRightNorthEast=new JPanel();
-                        pRightNorthEast.setPreferredSize(new Dimension(350,230));
-                        pRightNorthEast.setBackground(Color.PINK);
-             pRightCenter.add(pRightNorthEast, BorderLayout.EAST);
-            pRightNorth=new JPanel();
-                    pRightNorth.setPreferredSize(new Dimension(800,600));
-                    pRightNorth.setBackground(Color.ORANGE);
-        pRight.add(pRightCenter, BorderLayout.CENTER);
-        pRight.add(pRightNorth, BorderLayout.NORTH);
         
-       /* pCenter.add(cardsInUsePanel, BorderLayout.NORTH);
-
+        //pRight.setBackground(Color.RED);
+        
+        //------>OPTIONS(CENTER)+DICES(CENTER EAST)
+        pRightCenter=new JPanel();
+        pRightCenter.setLayout(new BorderLayout());
+        pRightCenterEast=new JPanel();
+        
+        //size
+        pRightCenter.setPreferredSize(new Dimension(230,650));
+        pRightCenterEast.setPreferredSize(new Dimension(350,230));
+        
+        //color
+        pRightCenter.setBackground(Color.BLUE);
+        pRightCenterEast.setBackground(Color.PINK);
+        
+        //add
+        pRightCenter.add(optP);
+        pRightCenter.add(pRightCenterEast, BorderLayout.EAST);
+            
+        //------>CARDS(TOP)
+        pRightNorth=new JPanel();
+        //size
+        pRightNorth.setPreferredSize(new Dimension(800,600));
+        //color
+        pRightNorth.setBackground(Color.ORANGE);
+        
+        /* pCenter.add(cardsInUsePanel, BorderLayout.NORTH);
         pCenter.add(middlePanel, BorderLayout.CENTER);*/
         
-       
+        //------>LOG
+        //add
         pRight.add(logP, BorderLayout.SOUTH);
+        pRight.add(pRightCenter, BorderLayout.CENTER);
+        pRight.add(pRightNorth, BorderLayout.NORTH);
         add(pRight, BorderLayout.CENTER);
 
         validate();
