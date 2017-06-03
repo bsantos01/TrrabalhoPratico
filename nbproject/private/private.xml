@@ -3,32 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/DicePanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/MerchPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/Images/CHARSTATS.png</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/ChoseCardPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/OptMerch.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/trabalhopratico/Main.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/DugeonPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/trabalhopratico/IEstates/IStates.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/trabalhopratico/IEstates/StateAdapter.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/trabalhopratico/IEstates/IBeginning.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/Resources.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/SpellPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/trabalhopratico/IEstates/IAwaitFeat.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/trabalhopratico/Data/ObservableGame.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/RestPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/Starting.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/GameView.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/trabalhopratico/Data/Dugeon.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/CharPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/UI.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/FeatPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/LogPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/OptionsPanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/GamePanel.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/trabalhopratico/Data/Game.java</file>
-            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/TrrabalhoPratico/src/ui/gui/CardPanel.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/GamePanel.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/GameView.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/Starting.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/CharPanel.java</file>
         </group>
     </open-files>
 </project-private>

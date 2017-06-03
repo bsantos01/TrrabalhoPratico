@@ -46,21 +46,30 @@ class CardPanel extends JPanel implements Observer {
         Box CardBox5 = Box.createVerticalBox();
         
         MainBox.add(CardBox1);
+        MainBox.add(Box.createHorizontalGlue());
         MainBox.add(CardBox2);
+        MainBox.add(Box.createHorizontalGlue());
         MainBox.add(CardBox3);
+        MainBox.add(Box.createHorizontalGlue());
         MainBox.add(CardBox4);
+        MainBox.add(Box.createHorizontalGlue());
         MainBox.add(CardBox5);
         
         CardBox1.add(Box.createVerticalGlue());
         CardBox1.add(area.get(0));
         CardBox1.add(Box.createVerticalGlue());
         CardBox2.add(area.get(1));
+        CardBox2.add(Box.createVerticalGlue());
         CardBox2.add(area.get(2));
+        CardBox3.add(Box.createVerticalGlue());
         CardBox3.add(area.get(3));
+        CardBox3.add(Box.createVerticalGlue());
         CardBox4.add(area.get(4));
         CardBox4.add(area.get(5));
         if(game.haveBoss()){
+            CardBox5.add(Box.createVerticalGlue());
             CardBox5.add(area.get(6));     
+            CardBox5.add(Box.createVerticalGlue());
         }
         
        add(MainBox);

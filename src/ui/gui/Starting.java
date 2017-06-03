@@ -94,14 +94,39 @@ public class Starting extends JPanel implements Observer {
         AreaLabel.setOpaque(false);
         DifLabel.setOpaque(false);
         
-        add(Box.createVerticalStrut(80));
-        add(AreaLabel);
-        add(cba);
-        add(Box.createVerticalStrut(100));
-        add(DifLabel);
-        add(cbd);
-        add(Box.createVerticalStrut(80));
-        add(start);
+        Box box1 = Box.createVerticalBox();
+        Box box2 = Box.createHorizontalBox();
+        Box box3 = Box.createVerticalBox();
+        Box box4 = Box.createVerticalBox();
+        this.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        box1.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        box2.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        box3.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        box4.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        
+        box4.add(Box.createVerticalGlue());
+        box3.add(Box.createVerticalGlue());
+        box4.add(Box.createVerticalGlue());
+        box3.add(Box.createVerticalGlue());
+        box3.add(AreaLabel);
+        box3.add(Box.createVerticalGlue());
+        box4.add(cba);
+        box4.add(Box.createVerticalGlue());
+        box3.add(DifLabel);
+        box4.add(cbd);
+        box4.add(Box.createVerticalGlue());
+        box3.add(Box.createVerticalGlue());
+        box4.add(Box.createVerticalGlue());
+        box3.add(Box.createVerticalGlue());
+        
+        box2.add(box3);
+        box2.add(box4);
+        box1.add(box2);
+        box1.add(Box.createVerticalGlue());
+        box1.add(start);
+        box1.add(Box.createVerticalGlue());
+        
+        add(box1);
         validate();
             
         }

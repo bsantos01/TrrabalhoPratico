@@ -8,6 +8,7 @@ package ui.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Panel;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.BoxLayout;
@@ -106,13 +107,8 @@ class GamePanel extends JPanel implements Observer{
         pRightCenter.add(pRightCenterEast, BorderLayout.EAST);
             
         //------>CARDS(TOP)
-        pRightNorth=new JPanel();
-        //size
-        pRightNorth.setPreferredSize(new Dimension(800,600));
-        //color
-        pRightNorth.setBackground(Color.ORANGE);
-        pRightNorth.add(cardP);
-        
+        //cardP.setPreferredSize(new Dimension(pRight.getPreferredSize().width,500));
+        //cardP.setLayout(new BoxLayout(cardP, BoxLayout.Y_AXIS));
         /* pCenter.add(cardsInUsePanel, BorderLayout.NORTH);
         pCenter.add(middlePanel, BorderLayout.CENTER);*/
         
@@ -120,7 +116,7 @@ class GamePanel extends JPanel implements Observer{
         //add
         pRight.add(logP, BorderLayout.SOUTH);
         pRight.add(pRightCenter, BorderLayout.CENTER);
-        pRight.add(pRightNorth, BorderLayout.NORTH);
+        pRight.add(cardP, BorderLayout.NORTH);
         add(pRight, BorderLayout.CENTER);
 
         validate();
