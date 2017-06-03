@@ -5,16 +5,42 @@
  */
 package ui.gui;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 
 /**
  *
  * @author Bruno Santos
  */
-class DugeonPanel {
+class DugeonPanel extends JPanel{
 
+   static private BufferedImage dugeon= null;
+    
+    ObservableGame game;
+    public static BufferedImage getdugeon(){
+        return dugeon;
+    }
+    
+    static{
+        try{
+            dugeon=ImageIO.read(Resources.getResourceFile("Images/dugeon.png"));
+        } catch(IOException e){
+            System.out.println("ERROR LOADING IMAGE");
+        }
+    }
+    
     DugeonPanel(ObservableGame game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.game=game;
+    }
+    
+    @Override
+    public void paintComponent(Graphics g){
+        g.drawImage(getdugeon(), 0, 0,230,320, this);
+    
     }
     
 }

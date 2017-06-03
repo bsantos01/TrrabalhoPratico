@@ -40,7 +40,7 @@ class CharPanel extends JPanel {
     
     @Override
     public void paintComponent(Graphics g){
-        g.drawImage(getCharstats(), 0, 0,200,600, this);
+        g.drawImage(getCharstats(), 0, 0,230,649, this);
     
     }
 }

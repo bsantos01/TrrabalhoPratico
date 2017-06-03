@@ -233,7 +233,7 @@ public class Dugeon implements Serializable{
     }
     public void setarea(int area) {
         this.area = area;
-        this.log += "Passou para a area " + lvl + " !\n";
+        this.log += "Passou para a area " + area + " !\n";
     }
     public int getlvl() {
         return lvl;

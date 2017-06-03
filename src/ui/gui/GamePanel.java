@@ -45,34 +45,34 @@ class GamePanel extends JPanel implements Observer{
     
     @Override
     public void update(Observable o, Object o1) {
-        if (game.getState() instanceof IBeginning)
-            System.out.println("IBeginning");
-        else
-            System.out.println("imprime crl");
+       
         setVisible(!(game.getState() instanceof IBeginning));
     }
 
     private void setupComponents() {
         charP = new CharPanel(game);
-        /*dugP = new DugeonPanel(game);
+        dugP = new DugeonPanel(game);
+        /*
         cardP = new CardPanel(game);
-        diceP = new DicePanel(game);
-        optP = new OptionsPanel(game);*/
+        diceP = new DicePanel(game);*/
+        optP = new OptionsPanel(game);
         logP = new LogPanel(game);
     }
 
     private void setupLayout() {
-                JPanel pLeft, pRight;
+                JPanel pLeft, pRight,pRightCenter,pRightNorth, pRightNorthEast;
 
         setLayout(new BorderLayout());
 
         pLeft = new JPanel();
         pLeft.setLayout(new BorderLayout());
-        JLabel cenas= new JLabel("teste");
-        pLeft.setPreferredSize(new Dimension(200,100));
-        charP.setPreferredSize(new Dimension(200,600));
+        
+        pLeft.setPreferredSize(new Dimension(230,650));
+        charP.setPreferredSize(new Dimension(230,650));
+        dugP.setPreferredSize(new Dimension(230,320));
         pLeft.setBackground(Color.GREEN);
         pLeft.add(charP, BorderLayout.NORTH);
+        pLeft.add(dugP, BorderLayout.SOUTH);
         add(pLeft, BorderLayout.WEST);
       
        // add(charP, BorderLayout.WEST);
@@ -81,6 +81,20 @@ class GamePanel extends JPanel implements Observer{
         pRight = new JPanel();
         pRight.setLayout(new BorderLayout());
         pRight.setBackground(Color.RED);
+            pRightCenter=new JPanel();
+            pRightCenter.setLayout(new BorderLayout());
+                pRightCenter.setPreferredSize(new Dimension(230,650));
+                pRightCenter.setBackground(Color.BLUE);
+                        pRightCenter.add(optP);
+                        pRightNorthEast=new JPanel();
+                        pRightNorthEast.setPreferredSize(new Dimension(350,230));
+                        pRightNorthEast.setBackground(Color.PINK);
+             pRightCenter.add(pRightNorthEast, BorderLayout.EAST);
+            pRightNorth=new JPanel();
+                    pRightNorth.setPreferredSize(new Dimension(800,600));
+                    pRightNorth.setBackground(Color.ORANGE);
+        pRight.add(pRightCenter, BorderLayout.CENTER);
+        pRight.add(pRightNorth, BorderLayout.NORTH);
         
        /* pCenter.add(cardsInUsePanel, BorderLayout.NORTH);
 
@@ -88,7 +102,7 @@ class GamePanel extends JPanel implements Observer{
         
        
         pRight.add(logP, BorderLayout.SOUTH);
-        add(pRight, BorderLayout.EAST);
+        add(pRight, BorderLayout.CENTER);
 
         validate();
     }
