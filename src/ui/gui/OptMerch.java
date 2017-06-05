@@ -40,7 +40,7 @@ int row, col;
 
         setupComponents(name, cost, des, i);
         setupLayout();
-        setVisible(game.getState() instanceof IMerchAwait);
+        setVisible(true);
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent ev) {
@@ -80,7 +80,8 @@ int row, col;
 
     @Override
     public void update(Observable o, Object arg) {
-        setVisible(game.getState() instanceof IMerchAwait);
+     setVisible(game.getState() instanceof IMerchAwait);
+     repaint();
     }
     
 }

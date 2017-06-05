@@ -32,7 +32,7 @@ class LogPanel extends JPanel implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {  
-        log.setText("log: "+ game.GetDataGame().getLog());
+        log.setText("log: "+ game.getLog());
         repaint();
     }
 

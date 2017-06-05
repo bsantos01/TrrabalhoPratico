@@ -48,6 +48,7 @@ class GamePanel extends JPanel implements Observer{
     public void update(Observable o, Object o1) {
        
         setVisible(!(game.getState() instanceof IBeginning));
+        repaint();
     }
 
     private void setupComponents() {
@@ -104,6 +105,7 @@ class GamePanel extends JPanel implements Observer{
         
         //add
         pRightCenter.add(optP);
+        
         pRightCenter.add(pRightCenterEast, BorderLayout.EAST);
             
         //------>CARDS(TOP)

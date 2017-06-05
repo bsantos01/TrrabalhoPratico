@@ -45,6 +45,7 @@ public class GameView extends JFrame implements Observer{
     
     @Override
     public void update(Observable o, Object arg) {
+        repaint();
         
     }
 

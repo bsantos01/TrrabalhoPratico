@@ -22,7 +22,8 @@ class MerchPanel extends JPanel {
         this.game = game;
         
         setupComponents();
-        this.setVisible(game.getState() instanceof IMerchAwait);
+        this.setVisible(true);
+        repaint();
     }
 
     private void setupComponents() {

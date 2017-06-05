@@ -138,7 +138,10 @@ public class Game implements Serializable{
     }
 
     public String getLog() {
-        return gamedata.getLog();
+        String aux=gamedata.getLog();
+        refreshLog();
+        
+        return aux;
     }
     
     public void refreshLog() {
@@ -147,5 +150,9 @@ public class Game implements Serializable{
 
     public void feat(int opt, int i) {
         gamedata=state.doFeat(opt, i);
+    }
+
+    public boolean isClickable(int i) {
+        return gamedata.isClickable(i);
     }
 }

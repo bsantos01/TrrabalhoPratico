@@ -62,6 +62,7 @@ public class Starting extends JPanel implements Observer {
                 int dif= Integer.parseInt(cbd.getSelectedItem().toString());
                 int area= Integer.parseInt(cba.getSelectedItem().toString());
                 game.start(dif, area);
+                
             }
         });
     }

@@ -32,9 +32,11 @@ public class IAwaitSpells extends StateAdapter{
     }
     @Override
     public IStates comitOpt(int opt){
+        
        Spell temp;        
        int damage=this.getDataGame().getDamage();
-       if(opt!=(-1)){
+       
+       if(this.getDataGame().SpellToString()!=null){
         temp=this.getDataGame().GetSpell(opt);
         
         if (temp instanceof Fireball)
@@ -47,6 +49,7 @@ public class IAwaitSpells extends StateAdapter{
            this.getDataGame().addHP(8);
 
         this.getDataGame().rmSpell(opt);
+        
 
        }
        npc.setHp(damage);

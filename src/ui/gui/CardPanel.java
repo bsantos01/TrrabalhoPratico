@@ -16,6 +16,7 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import trabalhopratico.Data.ObservableGame;
+import trabalhopratico.IEstates.IAwaitAction;
 import trabalhopratico.IEstates.IBeginning;
 
 /**
@@ -95,6 +96,12 @@ class CardPanel extends JPanel implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         setVisible(!(game.getState() instanceof IBeginning));
+        if(game.getState() instanceof IAwaitAction)
+            if(this.game.GetDataGame().getIndex()!= 0 && this.game.GetDataGame().getIndex()!= 3){
+                
+                game.commitopt(0);
+            }
+        repaint();
     }
 
 }

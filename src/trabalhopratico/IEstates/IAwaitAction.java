@@ -22,8 +22,8 @@ public class IAwaitAction extends StateAdapter{
     public IStates comitOpt(int i){
 
         if(getDataGame().getIndex()==0 ||getDataGame().getIndex()==3)
-                {
-                    getDataGame().addIndex(i); 
+                {   
+                    getDataGame().addIndex(i);
                 }else{
                     if(getDataGame().getIndex()==1 ||getDataGame().getIndex()==4)getDataGame().addIndex(2);
                     else getDataGame().addIndex(1);

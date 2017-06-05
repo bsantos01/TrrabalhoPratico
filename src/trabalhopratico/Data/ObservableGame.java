@@ -57,10 +57,17 @@ public class ObservableGame extends Observable{
 
     public void commitopt(int i){
        game.commitopt(i);
+       
+        setChanged();
+        notifyObservers();
     }
     public String getLog() {
         return game.getLog();
     }
 
-        
+    public boolean isClickable(int i) {
+        return game.isClickable(i);
+    }
+
+           
 }

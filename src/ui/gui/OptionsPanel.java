@@ -31,11 +31,12 @@ class OptionsPanel extends JPanel implements Observer {
 
         setupComponents();
         setupLayout();
+        setVisible(true);
     }
 
     @Override
     public void update(Observable o, Object o1) {
-
+        repaint();
     }
 
     private void setupComponents() {

@@ -292,8 +292,11 @@ public class Dugeon implements Serializable{
     }
     
     public boolean rmGold(int v){
-        this.log += "Perdeu " + v + " de Gold !\n";
-        return player.rmGold(v);
+        if(player.rmGold(v)){
+            this.log += "Perdeu " + v + " de Gold !\n";
+            return true;
+        }
+        return false;
     }
     public void addGold(int v){
         this.log += "Ganhou " + v + " de Gold !\n";
@@ -337,6 +340,20 @@ public class Dugeon implements Serializable{
 
     public Card getCard(int i) {
         return cards.getCard(i);
+    }
+
+    public boolean isClickable(int i) {
+        if(cards.getIndex()==0){
+            if(i==1||i==2){
+                return true;
+            }
+        }
+        if(cards.getIndex() == 3){
+            if(i==4||i==5){
+                return true;
+            }
+        }
+       return false;
     }
     
 }
