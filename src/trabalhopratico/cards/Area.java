@@ -26,8 +26,8 @@ public class Area implements Serializable{
         Card [] temp= {new Event(), new Monster(gamedata, false), new Merchant(), new Resting(), new Treasure(), new Trap()};
         area= new ArrayList<Card>(Arrays.asList(temp));
                 
-        /*long seed=System.nanoTime();
-        Collections.shuffle(area, new Random(seed));*/
+        long seed=System.nanoTime();
+        Collections.shuffle(area, new Random(seed));
         if(gamedata.haveBoss())area.add(new BossMonster(gamedata, false));
     }
     public void rmBoss(){
