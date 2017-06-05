@@ -23,7 +23,7 @@ public class Area implements Serializable{
     public Area(Dugeon gamedata){
 
         index = -1;
-        Card [] temp= {new Merchant(), new Trap(), new Treasure(),new Event(),new Resting(),new Monster(gamedata, false) };
+        Card [] temp= {new Resting(),new Merchant(), new Trap(), new Treasure(),new Event(),new Monster(gamedata, false) };
         area= new ArrayList<Card>(Arrays.asList(temp));
                 
        /* long seed=System.nanoTime();

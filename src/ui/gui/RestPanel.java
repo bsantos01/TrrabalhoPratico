@@ -5,16 +5,36 @@
  */
 package ui.gui;
 
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 
 /**
  *
  * @author Bruno Santos
  */
-class RestPanel {
+class RestPanel extends JPanel{
 
-    RestPanel(ObservableGame game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ObservableGame game;
+
+    public RestPanel(ObservableGame game) {
+        this.game = game;
+        
+        setupComponents();
+        this.setVisible(true);
+        repaint();
+    }
+
+    private void setupComponents() {
+        JPanel p = new JPanel();
+
+        p.setLayout(new GridLayout(6, 2, 10, 10));
+
+        p.add(new OptRest(game, 0, 0, "Reinforce Weapon", " +1 XP", 1));
+        p.add(new OptRest(game, 0, 1, "Search for Ration", "+1 Food", 2));
+        p.add(new OptRest(game, 1, 0, "Health", "+2 HP", 3));
+
+        add(p);
     }
     
 }

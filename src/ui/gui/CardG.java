@@ -40,7 +40,7 @@ class CardG extends JPanel implements Observer{
         images.put("BossMonster", ImageIO.read(Resources.getResourceFile("Images/bossM.jpg")));
         images.put("Event", ImageIO.read(Resources.getResourceFile("Images/event.jpg")));
         images.put("Monster", ImageIO.read(Resources.getResourceFile("Images/Monster.jpg")));
-        images.put("Resting", ImageIO.read(Resources.getResourceFile("Images/event.jpg")));
+        images.put("Resting", ImageIO.read(Resources.getResourceFile("Images/rest.png")));
         images.put("Trap", ImageIO.read(Resources.getResourceFile("Images/Trap.jpg")));
         images.put("Treasure", ImageIO.read(Resources.getResourceFile("Images/treasure.jpg")));
         images.put("NULL", ImageIO.read(Resources.getResourceFile("Images/NULL.png")));
