@@ -15,55 +15,64 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 import trabalhopratico.IEstates.IAwaitFeat;
+import trabalhopratico.IEstates.ICombat;
 
 /**
  *
  * @author Bruno Santos
  */
-class FeatPanel extends JPanel implements Observer{
+class CombatPanel extends JPanel implements Observer{
 
 ObservableGame game;
-    JLabel dices;
-    JButton okButton;
+    JLabel Text;
+    JButton yesButton;
+    JButton noButton;
 
-    public FeatPanel(ObservableGame game) {
+    public CombatPanel(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
         setupComponents();
-        setVisible(game.getState() instanceof IAwaitFeat);
+        setVisible(false);
 
         repaint();
+        
     }
 
     private void setupComponents() {
         JPanel p = new JPanel();
-        okButton = new JButton("Skip");
-        
-        p.setLayout(new GridLayout(6, 2, 10, 10));
-        
-        p.add(new OptFeat(game, 0, 0, "FeatDice 1", 0));
-        p.add(new OptFeat(game, 0, 1, "FeatDice 2", 1));
-        p.add(new OptFeat(game, 0, 1, "FeatDice 2", 2));
-        p.add(new OptFeat(game, 0, 1, "FeatDice 2", 3));
-        add(p);
-        add(okButton);
-                    okButton.addMouseListener(new MouseAdapter() {
+        Text= new JLabel("Want to feat?");
+        yesButton = new JButton("Yes");
+        noButton = new JButton("No");
+        p.add(Text);
+        p.add(yesButton);
+                    yesButton.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent ev) {
-                    if(game.getState() instanceof IAwaitFeat){
-                        System.out.println("Await Spells");
-                        game.DoFeat();
+                    if(game.getState() instanceof ICombat){
+                        game.commitopt(1);
                     }
                 }
             });
-
+        p.add(noButton);
+                    noButton.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent ev) {
+                    if(game.getState() instanceof ICombat){
+                        game.commitopt(2);
+                    }
+                }
+            });
+        add(p);
         
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        setVisible(game.getState() instanceof IAwaitFeat);
+        
+        setVisible(game.getState() instanceof ICombat);
         repaint();
     }
     
 }
+    
+

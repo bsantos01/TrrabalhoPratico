@@ -81,6 +81,8 @@ public class Monster extends Card implements Serializable{
                     reward=3;
                     break;
             }
+      
+            
        return new ICombat(act, this);
     }
 

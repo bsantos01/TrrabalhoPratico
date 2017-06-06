@@ -66,9 +66,9 @@ class CardG extends JPanel implements Observer{
                                 if((game.getState() instanceof IAwaitAction)){
                                     System.out.println("cabron2");
                                     if(game.isClickable(i))
-                                        if(i==0 || i== 3)
+                                           if(i==1 || i==4)                                        
                                             game.commitopt(1);
-                                        else
+                                           else if(i==2 || i==5)
                                             game.commitopt(2);
                                     
                                 }
@@ -92,12 +92,17 @@ class CardG extends JPanel implements Observer{
         setBackground(Color.LIGHT_GRAY);
         
         try {
-            
-            if (game.getCard(i)==null){ //se carta for virada para baixo
-                g.drawImage(images.get("NULL"), 0, 0, getWidth() - 1, getHeight() - 1, null);
-            }else{ //senao
-                //vai buscar a descricao da carta para atribuir a imagem
-                 g.drawImage(images.get(game.getCard(i).GetDesc()), 0, 0, getWidth() - 1, getHeight() - 1, null); 
+            if (i != 6 || game.haveBoss()){
+                    if (game.getCard(i)==null){ //se carta for virada para baixo
+                        g.drawImage(images.get("NULL"), 0, 0, getWidth() - 1, getHeight() - 1, null);
+                    }else{ //senao
+                        //vai buscar a descricao da carta para atribuir a imagem
+                         g.drawImage(images.get(game.getCard(i).GetDesc()), 0, 0, getWidth() - 1, getHeight() - 1, null); 
+                    }
+                }else{
+                    if(i==6)
+                        g.drawImage(images.get("BossMonster"), 0, 0, getWidth() - 1, getHeight() - 1, null);
+                    
             }
         } catch (IndexOutOfBoundsException e) {
         }
@@ -111,7 +116,12 @@ class CardG extends JPanel implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        if(game.getState() instanceof IAwaitAction && game.getCard(i)!=null)
-            repaint();
+        if(i!=6 || (i==6 && game.haveBoss()))
+            if(game.getState() instanceof IAwaitAction && game.getCard(i)!=null)
+                repaint();
+        if(game.haveBoss() && i==6)
+            setVisible(true);
+        else if(i==6)
+            setVisible(false);
     }
  }

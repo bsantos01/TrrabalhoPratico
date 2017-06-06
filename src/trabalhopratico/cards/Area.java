@@ -28,7 +28,8 @@ public class Area implements Serializable{
                 
        /* long seed=System.nanoTime();
         Collections.shuffle(area, new Random(seed));*/
-        if(gamedata.haveBoss())area.add(new BossMonster(gamedata, false));
+        if(gamedata.haveBoss())
+            area.add(new BossMonster(gamedata, false));
     }
     public void rmBoss(){
         area.remove(6);

@@ -16,7 +16,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import trabalhopratico.Data.ObservableGame;
+import trabalhopratico.IEstates.IAwaitAction;
+import trabalhopratico.IEstates.IAwaitSpells;
 import trabalhopratico.IEstates.IBeginning;
+import trabalhopratico.IEstates.ICombat;
 
 /**
  *
@@ -46,7 +49,7 @@ class GamePanel extends JPanel implements Observer{
     
     @Override
     public void update(Observable o, Object o1) {
-       
+        if(game.getState() instanceof IAwaitSpells) System.out.println("Await Spells");
         setVisible(!(game.getState() instanceof IBeginning));
         repaint();
     }
@@ -55,7 +58,7 @@ class GamePanel extends JPanel implements Observer{
         charP = new CharPanel(game);
         dugP = new DugeonPanel(game);
         cardP = new CardPanel(game);
-        //diceP = new DicePanel(game);
+        diceP = new DicePanel(game);
         optP = new OptionsPanel(game);
         logP = new LogPanel(game);
     }
@@ -64,7 +67,7 @@ class GamePanel extends JPanel implements Observer{
         JPanel pLeft, pRight,pRightCenter,pRightNorth, pRightCenterEast;
 
         setLayout(new BorderLayout());
-        
+
         //------->LEFT - CHARSTATS & DUGEONSTATS<-------
         pLeft = new JPanel();
         pLeft.setLayout(new BorderLayout());
@@ -102,7 +105,7 @@ class GamePanel extends JPanel implements Observer{
         //color
         pRightCenter.setBackground(Color.BLUE);
         pRightCenterEast.setBackground(Color.PINK);
-        
+        pRightCenterEast.add(diceP);
         //add
         pRightCenter.add(optP);
         

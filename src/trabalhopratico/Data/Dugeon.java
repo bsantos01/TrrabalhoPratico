@@ -35,6 +35,7 @@ public class Dugeon implements Serializable{
         this.lvl=1;
         this.player = new Player();
         this.log = "";
+        dices= new int[this.player.getRank()];
     }
 
 // FIM CONSTRUTORES */
@@ -73,12 +74,14 @@ public class Dugeon implements Serializable{
     }
     public void update(){
         this.checkNextRank();
-        if(cards.isEnd()){
+        
+        if(cards.isEnd()){          
             if (this.haveBoss())
                 lvl++;
             area++;
             cards = new Area(this);
             player.consumeFood();
+            System.out.println("Passou para a area "+area + " de jogo! Muito bem!\n");
             this.setLog("Passou para a area "+area + " de jogo! Muito bem!\n");
         }
     }
@@ -354,6 +357,14 @@ public class Dugeon implements Serializable{
             }
         }
        return false;
+    }
+
+    String getDice(int i) {
+        
+        if(i < dices.length)
+            return Integer.toString(dices[i]);
+        else
+            return "0";
     }
     
 }

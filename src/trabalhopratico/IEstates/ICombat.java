@@ -20,6 +20,7 @@ public class ICombat extends StateAdapter{
         super(dataGame);
         this.getDataGame().RDices();
         npc=m;
+        
     }
     @Override
     public Monster GetMonster(){
@@ -27,11 +28,12 @@ public class ICombat extends StateAdapter{
     };
     @Override
     public IStates comitOpt(int opt){
-        if (opt==1)
+        if (opt==1){
+            
            return new IAwaitFeat(this.getDataGame(), this.npc);
-        else
+        }else{
            return new IAwaitSpells(this.getDataGame(), this.npc);
-    
+        }
     }     
     @Override
     public IStates Do(){

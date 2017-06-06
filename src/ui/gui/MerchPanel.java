@@ -8,7 +8,7 @@ package ui.gui;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
-import trabalhopratico.IEstates.IMerchAwait;
+
 
 /**
  *

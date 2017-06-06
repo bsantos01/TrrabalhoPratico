@@ -67,11 +67,11 @@ class CardPanel extends JPanel implements Observer {
         CardBox3.add(Box.createVerticalGlue());
         CardBox4.add(area.get(4));
         CardBox4.add(area.get(5));
-        if(game.haveBoss()){
+      
             CardBox5.add(Box.createVerticalGlue());
             CardBox5.add(area.get(6));     
             CardBox5.add(Box.createVerticalGlue());
-        }
+       
         
        add(MainBox);
 
@@ -86,10 +86,8 @@ class CardPanel extends JPanel implements Observer {
         area.add(new CardG(game,3));
         area.add(new CardG(game,4));
         area.add(new CardG(game,5));
+        area.add(new CardG(game,6));     
         
-        if(game.haveBoss()){
-            area.add(new CardG(game,6));     
-        }
         
     }
 

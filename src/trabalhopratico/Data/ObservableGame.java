@@ -69,5 +69,20 @@ public class ObservableGame extends Observable{
         return game.isClickable(i);
     }
 
+    public String getDice(int i) {
+        return game.getDice(i);
+    }
+    
+    public void feat(int opt, int i){
+        game.feat(opt, i);
+        setChanged();
+        notifyObservers();
+    }
+    public void DoFeat(){
+        game.DoFeat();
+        setChanged();
+        notifyObservers();
+    }
+
            
 }

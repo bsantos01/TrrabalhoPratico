@@ -9,6 +9,7 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
 import trabalhopratico.Data.ObservableGame;
+import trabalhopratico.IEstates.ICombat;
 
 /**
  *
@@ -23,6 +24,7 @@ class OptionsPanel extends JPanel implements Observer {
     SpellPanel SpellP;
     FeatPanel FeatP;
     ChoseCardPanel CcardP;
+    CombatPanel combatP;
     
 
     public OptionsPanel(ObservableGame game) {
@@ -43,8 +45,9 @@ class OptionsPanel extends JPanel implements Observer {
         
         merchP = new MerchPanel(game);
         restP = new RestPanel(game);
-    /*    SpellP = new SpellPanel(game);
         FeatP = new FeatPanel(game);
+        combatP = new CombatPanel(game);
+        /*  SpellP = new SpellPanel(game);
         CcardP = new ChoseCardPanel(game);*/
     }
 
@@ -52,8 +55,9 @@ class OptionsPanel extends JPanel implements Observer {
         
         add(merchP);
         add(restP);
-        /*add(SpellP);
         add(FeatP);
+        add(combatP);
+        /*add(SpellP);
         add(CcardP);
         */
     }

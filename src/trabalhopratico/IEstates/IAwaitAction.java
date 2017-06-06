@@ -21,14 +21,18 @@ public class IAwaitAction extends StateAdapter{
     @Override
     public IStates comitOpt(int i){
 
+        
         if(getDataGame().getIndex()==0 ||getDataGame().getIndex()==3)
                 {   
                     getDataGame().addIndex(i);
                 }else{
-                    if(getDataGame().getIndex()==1 ||getDataGame().getIndex()==4)getDataGame().addIndex(2);
-                    else getDataGame().addIndex(1);
+                    if(getDataGame().getIndex()==1 ||getDataGame().getIndex()==4)
+                        getDataGame().addIndex(2);
+                    else 
+                        getDataGame().addIndex(1);
                 }
-       this.getDataGame().update();
+ 
+        this.getDataGame().update();
         if (this.getDataGame().getPlayerHP()<=0)
             return new IGameOver(this.getDataGame());
         if(this.getDataGame().getIndex()<0)

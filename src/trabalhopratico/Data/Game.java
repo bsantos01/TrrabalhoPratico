@@ -155,4 +155,8 @@ public class Game implements Serializable{
     public boolean isClickable(int i) {
         return gamedata.isClickable(i);
     }
+
+    String getDice(int i) {
+        return gamedata.getDice(i);
+    }
 }
