@@ -107,6 +107,8 @@ public class Game implements Serializable{
     }
     
     public Card getCard(int i){
+        if(gamedata.getIndex()<i && !(state instanceof IAwaitAction))
+            return null;
         return gamedata.getCard(i);
     }
 
