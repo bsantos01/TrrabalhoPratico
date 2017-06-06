@@ -54,7 +54,9 @@ public class Game implements Serializable{
     public String SpellToString(){
         return gamedata.SpellToString();
     }
-    
+    public String SpellToStringI(int i){
+        return gamedata.SpellToStringI(i);
+    }
     public int[] getDices(){
         return gamedata.getDices();
     }

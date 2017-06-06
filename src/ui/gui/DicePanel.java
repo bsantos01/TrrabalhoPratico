@@ -62,7 +62,6 @@ class DicePanel extends JPanel implements Observer{
                 
         if(!(game.getState() instanceof IBeginning)){
             setVisible(true);
-            System.out.println("cabron");
             dices.setText(game.getDice(0) +game.getDice(1) + game.getDice(2)+ game.getDice(3));
         }else
             setVisible(false);

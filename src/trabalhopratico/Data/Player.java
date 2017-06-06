@@ -76,6 +76,12 @@ public class Player implements Serializable{
         
         return s.toString();
     }
+    public String SpellToStringI(int i){
+        if(spells.size()>i)
+            return spells.get(i).GetNome();
+        else
+            return "No spell in this slot";  
+    }
     public void rmSpell(int i){
         spells.remove(i);
     }

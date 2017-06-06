@@ -47,8 +47,8 @@ class OptionsPanel extends JPanel implements Observer {
         restP = new RestPanel(game);
         FeatP = new FeatPanel(game);
         combatP = new CombatPanel(game);
-        /*  SpellP = new SpellPanel(game);
-        CcardP = new ChoseCardPanel(game);*/
+        SpellP = new SpellPanel(game);
+        /*  CcardP = new ChoseCardPanel(game);*/
     }
 
     private void setupLayout() {    
@@ -57,8 +57,8 @@ class OptionsPanel extends JPanel implements Observer {
         add(restP);
         add(FeatP);
         add(combatP);
-        /*add(SpellP);
-        add(CcardP);
+        add(SpellP);
+        /*add(CcardP);
         */
     }
     

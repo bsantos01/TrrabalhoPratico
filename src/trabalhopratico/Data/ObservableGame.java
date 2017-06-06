@@ -21,7 +21,9 @@ public class ObservableGame extends Observable{
         game= new Game();
     }
     
-    
+    public String SpellToStringI(int i){
+        return game.SpellToStringI(i);
+    }
     public boolean haveBoss(){
         return game.haveBoss();
     }

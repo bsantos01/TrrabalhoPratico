@@ -81,7 +81,6 @@ public class Dugeon implements Serializable{
             area++;
             cards = new Area(this);
             player.consumeFood();
-            System.out.println("Passou para a area "+area + " de jogo! Muito bem!\n");
             this.setLog("Passou para a area "+area + " de jogo! Muito bem!\n");
         }
     }
@@ -165,6 +164,10 @@ public class Dugeon implements Serializable{
             if (dices[i]!=1)
                 dmg+=dices[i];        
         return dmg;
+    }
+    
+    public String SpellToStringI(int i){
+        return player.SpellToStringI(i);
     }
     public String SpellToString(){
         return player.SpellToString();

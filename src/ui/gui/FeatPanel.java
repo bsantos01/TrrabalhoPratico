@@ -51,7 +51,6 @@ ObservableGame game;
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        System.out.println("Await Spells");
                         game.DoFeat();
                     }
                 }

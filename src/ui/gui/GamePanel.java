@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import trabalhopratico.Data.ObservableGame;
 import trabalhopratico.IEstates.IAwaitAction;
+import trabalhopratico.IEstates.IAwaitFeat;
 import trabalhopratico.IEstates.IAwaitSpells;
 import trabalhopratico.IEstates.IBeginning;
 import trabalhopratico.IEstates.ICombat;
@@ -50,6 +51,9 @@ class GamePanel extends JPanel implements Observer{
     @Override
     public void update(Observable o, Object o1) {
         if(game.getState() instanceof IAwaitSpells) System.out.println("Await Spells");
+        if(game.getState() instanceof ICombat) System.out.println("ICombat");
+        if(game.getState() instanceof IAwaitAction) System.out.println("IAwaitAction");
+        if(game.getState() instanceof IAwaitFeat) System.out.println("IAwaitFeat");
         setVisible(!(game.getState() instanceof IBeginning));
         repaint();
     }

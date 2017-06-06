@@ -36,7 +36,7 @@ class CardG extends JPanel implements Observer{
     static{    
         images = new HashMap<>();
         try{
-        images.put("Merchant", ImageIO.read(Resources.getResourceFile("Images/Merch.jpg")));
+        images.put("Merchant", ImageIO.read(Resources.getResourceFile("Images/merch.png")));
         images.put("BossMonster", ImageIO.read(Resources.getResourceFile("Images/bossM.jpg")));
         images.put("Event", ImageIO.read(Resources.getResourceFile("Images/event.jpg")));
         images.put("Monster", ImageIO.read(Resources.getResourceFile("Images/Monster.jpg")));
@@ -60,11 +60,9 @@ class CardG extends JPanel implements Observer{
                         @Override
                         public void mousePressed(MouseEvent ev) {
                             
-                            if(!(game.getState() instanceof IBeginning)){
-                                    System.out.println("cabron1");                        
+                            if(!(game.getState() instanceof IBeginning)){                       
 
                                 if((game.getState() instanceof IAwaitAction)){
-                                    System.out.println("cabron2");
                                     if(game.isClickable(i))
                                            if(i==1 || i==4)                                        
                                             game.commitopt(1);
@@ -118,10 +116,11 @@ class CardG extends JPanel implements Observer{
     public void update(Observable o, Object arg) {
         if(i!=6 || (i==6 && game.haveBoss()))
             if(game.getState() instanceof IAwaitAction && game.getCard(i)!=null)
-                repaint();
+                setVisible(true);
         if(game.haveBoss() && i==6)
             setVisible(true);
         else if(i==6)
             setVisible(false);
+        repaint();
     }
  }
