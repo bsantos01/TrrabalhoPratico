@@ -108,6 +108,8 @@ public class Area implements Serializable{
                 return area.get(i);
             else
                 return null;
+        if(index==6)
+            return area.get(i);
        return null;
     }
 

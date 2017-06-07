@@ -92,21 +92,15 @@ class CardG extends JPanel implements Observer{
         setBackground(Color.LIGHT_GRAY);
         
         try {
-            System.out.println(i);
-            if (i != 6){
-                    if (game.getCard(i)==null){ //se carta for virada para baixo
-                        g.drawImage(images.get("NULL"), 0, 0, getWidth() - 1, getHeight() - 1, null);
-                    }else{ //senao
-                        //vai buscar a descricao da carta para atribuir a imagem
-                        g.drawImage(images.get(game.getCard(i).GetDesc()), 0, 0, getWidth() - 1, getHeight() - 1, null); 
-                        if(game.getCard(i) instanceof Merchant)g.drawImage(images.get("Merchant"), 0, 0, getWidth() - 1, getHeight() - 1, null);
-                        if(game.getCard(i) instanceof Resting)g.drawImage(images.get("Resting"), 0, 0, getWidth() - 1, getHeight() - 1, null);
-                    }
-                }else{
-                    if(i==6)
-                        g.drawImage(images.get("BossMonster"), 0, 0, getWidth() - 1, getHeight() - 1, null);
-                    
+            if (game.getCard(i)==null){ //se carta for virada para baixo
+                g.drawImage(images.get("NULL"), 0, 0, getWidth() - 1, getHeight() - 1, null);
+            }else{ //senao
+                //vai buscar a descricao da carta para atribuir a imagem
+                g.drawImage(images.get(game.getCard(i).GetDesc()), 0, 0, getWidth() - 1, getHeight() - 1, null); 
+                if(game.getCard(i) instanceof Merchant)g.drawImage(images.get("Merchant"), 0, 0, getWidth() - 1, getHeight() - 1, null);
+                if(game.getCard(i) instanceof Resting)g.drawImage(images.get("Resting"), 0, 0, getWidth() - 1, getHeight() - 1, null);
             }
+            if(i==6)g.drawImage(images.get("BossMonster"), 0, 0, getWidth() - 1, getHeight() - 1, null);
         } catch (IndexOutOfBoundsException e) {
         }
         
