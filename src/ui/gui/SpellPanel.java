@@ -5,20 +5,21 @@
  */
 package ui.gui;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import trabalhopratico.Data.ObservableGame;
-import trabalhopratico.IEstates.IAwaitFeat;
 import trabalhopratico.IEstates.IAwaitSpells;
-import trabalhopratico.IEstates.IMerchAwait;
 
 /**
  *
@@ -27,16 +28,16 @@ import trabalhopratico.IEstates.IMerchAwait;
 class SpellPanel  extends JPanel implements Observer{
     Box box;
     JButton okButton;
-    JLabel Spell1;
-    JLabel Spell2;
+    JButton Spell1;
+    JButton Spell2;
     ObservableGame game;
     
     SpellPanel(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
         setVisible(game.getState() instanceof IAwaitSpells);
-        Spell1 = new JLabel("Spell 1:" );
-        Spell2 = new JLabel("Spell 2:" );
+        Spell1 = new JButton(" Spell 1: " );
+        Spell2 = new JButton(" Spell 2: " );
         okButton = new JButton("Skip");
    
         setupLayout();
@@ -45,6 +46,7 @@ class SpellPanel  extends JPanel implements Observer{
     
     private void setupComponents() {
         
+
         okButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent ev) {
@@ -78,7 +80,9 @@ class SpellPanel  extends JPanel implements Observer{
         add(box);
         box.setAlignmentY(this.CENTER_ALIGNMENT);
         box.add(Spell1);
+        box.add(Box.createVerticalStrut(20));
         box.add(Spell2);
+        box.add(Box.createVerticalStrut(40));
         box.add(okButton);
         
     }   
