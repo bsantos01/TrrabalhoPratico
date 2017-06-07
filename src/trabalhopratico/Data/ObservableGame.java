@@ -86,7 +86,11 @@ public class ObservableGame extends Observable{
         notifyObservers();
     }
     public boolean reCritical(int i){
-        return game.rerollCrit(i);
+
+        boolean flag=game.rerollCrit(i);
+        setChanged();
+        notifyObservers();
+        return flag;
     }
           
 }

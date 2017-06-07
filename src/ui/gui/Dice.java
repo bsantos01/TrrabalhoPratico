@@ -54,10 +54,7 @@ class Dice extends JPanel implements Observer{
         this.game = gameo;
         this.i=i;
         this.game.addObserver(this);
-        setPreferredSize(new Dimension(50, 50));
-        
-        
-                
+        setPreferredSize(new Dimension(75,73));           
     }
     
     
@@ -78,6 +75,7 @@ class Dice extends JPanel implements Observer{
         });
       
        paintComponent(this.getGraphics());
+       repaint();
     }
     
     @Override
@@ -93,7 +91,10 @@ class Dice extends JPanel implements Observer{
         setBackground(Color.LIGHT_GRAY);
         
         try {
-            g.drawImage(images.get(game.getDice(i)), 0, 0, getWidth() - 1, getHeight() - 1, null);
+            if(game.getDice(i)>6)
+                g.drawImage(images.get(game.getDice(i)-6), 0, 0, getWidth() - 1, getHeight() - 1, null);
+            else
+                g.drawImage(images.get(game.getDice(i)), 0, 0, getWidth() - 1, getHeight() - 1, null);
         } catch (IndexOutOfBoundsException e) {
         }
         
