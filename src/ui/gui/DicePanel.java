@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 import trabalhopratico.IEstates.IAwaitFeat;
 import trabalhopratico.IEstates.IAwaitSpells;
-import trabalhopratico.IEstates.IBeginning;
 import trabalhopratico.IEstates.ICombat;
 
 /**

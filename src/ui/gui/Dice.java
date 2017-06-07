@@ -19,13 +19,9 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
-import trabalhopratico.IEstates.IAwaitAction;
 import trabalhopratico.IEstates.IAwaitFeat;
-import trabalhopratico.IEstates.IBeginning;
 import trabalhopratico.IEstates.ICombat;
-import trabalhopratico.cards.Merchant;
-import trabalhopratico.cards.Resting;
-import static ui.gui.CardG.images;
+
 
 /**
  *
@@ -33,6 +29,7 @@ import static ui.gui.CardG.images;
  */
 class Dice extends JPanel implements Observer{
     ObservableGame game = null;
+    boolean flag=false;
     int i;
     static Map<Integer, Image>images; 
     static{    
@@ -63,12 +60,13 @@ class Dice extends JPanel implements Observer{
         if((game.getState() instanceof ICombat)||(game.getState() instanceof IAwaitFeat)){
             setVisible(true);
         }
+      
        addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent ev) {
                 if((game.getState() instanceof ICombat)||(game.getState() instanceof IAwaitFeat)){
                     if(game.getDice(i)==6)
-                        game.reCritical(i);
+                        flag=game.reCritical(i);
                 }
             }
  
