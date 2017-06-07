@@ -93,7 +93,7 @@ class CardG extends JPanel implements Observer{
         
         try {
             System.out.println(i);
-            if (i != 6 || game.haveBoss()){
+            if (i != 6){
                     if (game.getCard(i)==null){ //se carta for virada para baixo
                         g.drawImage(images.get("NULL"), 0, 0, getWidth() - 1, getHeight() - 1, null);
                     }else{ //senao
