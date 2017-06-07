@@ -71,7 +71,7 @@ public class ObservableGame extends Observable{
         return game.isClickable(i);
     }
 
-    public String getDice(int i) {
+    public int getDice(int i) {
         return game.getDice(i);
     }
     
@@ -85,6 +85,8 @@ public class ObservableGame extends Observable{
         setChanged();
         notifyObservers();
     }
-
-           
+    public boolean reCritical(int i){
+        return game.rerollCrit(i);
+    }
+          
 }

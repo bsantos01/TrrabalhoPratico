@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
@@ -22,15 +23,16 @@ import trabalhopratico.IEstates.ICombat;
  *
  * @author Bruno Santos
  */
-class DicePanel extends JPanel implements Observer{
-        JLabel dices;
+class DicePanel extends JPanel{
+        Dice dices1;
+        Dice dices2;
+        Dice dices3;
+        Dice dices4;
         ObservableGame game;
 
     DicePanel(ObservableGame game) {
         this.game = game;
-        this.game.addObserver(this);
-        
-            setVisible(false);
+            //setVisible(false);
 
         setupComponents();
         setupLayout();
@@ -38,11 +40,20 @@ class DicePanel extends JPanel implements Observer{
     
     void setupComponents(){
     
-        dices = new JLabel(game.getDice(0) +game.getDice(1) + game.getDice(2)+ game.getDice(3));
+        dices1 = new Dice(game, 0);
+        dices2 = new Dice(game, 1);
+        dices3 = new Dice(game, 2);
+        dices4 = new Dice(game, 3);
+        
     }
     private void setupLayout() {
-        add(dices);
-
+         Box MainBox = Box.createVerticalBox();
+            MainBox.add(dices1); 
+            MainBox.add(dices2);
+            MainBox.add(dices3);
+            MainBox.add(dices4);
+            
+            add(MainBox);
     }
 
        @Override
@@ -57,16 +68,7 @@ class DicePanel extends JPanel implements Observer{
         setBackground(Color.WHITE);
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-                
-        if(!(game.getState() instanceof IBeginning)){
-            setVisible(true);
-            dices.setText(game.getDice(0) +game.getDice(1) + game.getDice(2)+ game.getDice(3));
-        }else
-            setVisible(false);
-        repaint();
-    }
+
 
 
 }

@@ -160,7 +160,8 @@ public class Game implements Serializable{
         return gamedata.isClickable(i);
     }
 
-    String getDice(int i) {
+    public int getDice(int i) {
         return gamedata.getDice(i);
     }
+
 }

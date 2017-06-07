@@ -362,12 +362,13 @@ public class Dugeon implements Serializable{
        return false;
     }
 
-    String getDice(int i) {
-        
+    public int getDice(int i) {
+        if(dices==null)
+            return 0;
         if(i < dices.length)
-            return Integer.toString(dices[i]);
+            return dices[i];
         else
-            return "0";
+            return 0;
     }
     
 }
