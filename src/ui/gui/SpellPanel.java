@@ -5,11 +5,13 @@
  */
 package ui.gui;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,7 +25,7 @@ import trabalhopratico.IEstates.IMerchAwait;
  * @author Bruno Santos
  */
 class SpellPanel  extends JPanel implements Observer{
-    
+    Box box;
     JButton okButton;
     JLabel Spell1;
     JLabel Spell2;
@@ -72,9 +74,12 @@ class SpellPanel  extends JPanel implements Observer{
     }
     
     private void setupLayout() {
-        add(Spell1);
-        add(Spell2);
-        add(okButton);
+        box = Box.createVerticalBox();
+        add(box);
+        box.setAlignmentY(this.CENTER_ALIGNMENT);
+        box.add(Spell1);
+        box.add(Spell2);
+        box.add(okButton);
         
     }   
     @Override

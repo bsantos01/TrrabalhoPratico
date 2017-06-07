@@ -77,7 +77,7 @@ public class Starting extends JPanel implements Observer {
 
         if (game.getState() instanceof IBeginning) {    
             
-            
+        
         AreaLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         DifLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         AreaLabel.setAlignmentY(Component.CENTER_ALIGNMENT);

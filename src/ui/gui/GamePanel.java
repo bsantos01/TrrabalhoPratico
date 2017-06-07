@@ -7,6 +7,7 @@ package ui.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Panel;
 import java.util.Observable;
@@ -103,7 +104,7 @@ class GamePanel extends JPanel implements Observer{
         pRightCenterEast=new JPanel();
         
         //size
-        pRightCenter.setPreferredSize(new Dimension(230,650));
+        pRightCenter.setPreferredSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
         pRightCenterEast.setPreferredSize(new Dimension(350,230));
         
         //color
@@ -112,6 +113,8 @@ class GamePanel extends JPanel implements Observer{
         pRightCenterEast.add(diceP);
         //add
         pRightCenter.add(optP);
+        optP.setAlignmentY(Component.CENTER_ALIGNMENT);
+        //optP.setMinimumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
         
         pRightCenter.add(pRightCenterEast, BorderLayout.EAST);
             

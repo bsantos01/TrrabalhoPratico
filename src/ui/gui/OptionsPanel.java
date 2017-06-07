@@ -5,18 +5,20 @@
  */
 package ui.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
 import trabalhopratico.Data.ObservableGame;
-import trabalhopratico.IEstates.ICombat;
+import trabalhopratico.IEstates.*;
 
 /**
  *
  * @author Bruno Santos
  */
 class OptionsPanel extends JPanel implements Observer {
-    
+    Box box;
     ObservableGame game;
     JLabel state;
     MerchPanel merchP;
@@ -38,11 +40,40 @@ class OptionsPanel extends JPanel implements Observer {
 
     @Override
     public void update(Observable o, Object o1) {
+        if(game.getState() instanceof IMerchAwait){
+            box.add(merchP, BorderLayout.CENTER);
+        }
+        else{
+            box.remove(merchP);
+        }
+        if(game.getState() instanceof ICombat){
+            box.add(combatP, BorderLayout.CENTER);
+        }
+        else{
+            box.remove(combatP);
+        }
+        if(game.getState() instanceof IRestAwait){
+            box.add(restP, BorderLayout.CENTER);
+        }
+        else{
+            box.remove(restP);
+        }
+        if(game.getState() instanceof IAwaitFeat){
+            box.add(FeatP, BorderLayout.CENTER);
+        }
+        else{
+            box.remove(FeatP);
+        }
+        if(game.getState() instanceof IAwaitSpells){
+            box.add(SpellP, BorderLayout.CENTER);
+        }
+        else{
+            box.remove(SpellP);
+        }
         repaint();
     }
 
     private void setupComponents() {
-        
         merchP = new MerchPanel(game);
         restP = new RestPanel(game);
         FeatP = new FeatPanel(game);
@@ -51,14 +82,17 @@ class OptionsPanel extends JPanel implements Observer {
         /*  CcardP = new ChoseCardPanel(game);*/
     }
 
-    private void setupLayout() {    
-        
-        add(merchP);
-        add(restP);
-        add(FeatP);
-        add(combatP);
-        add(SpellP);
-        /*add(CcardP);
+    private void setupLayout() {
+        box = Box.createVerticalBox();
+        add(box);
+        /*
+        Box box = Box.createHorizontalBox();
+        add(box);
+        box.add(merchP);
+        box.add(restP);
+        box.add(FeatP);
+        box.add(combatP);
+        box.add(SpellP);
         */
     }
     
