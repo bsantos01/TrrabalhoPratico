@@ -28,7 +28,7 @@ ObservableGame game;
     private void setupComponents() {
         JPanel p = new JPanel();
 
-        p.setLayout(new GridLayout(6, 2, 10, 10));
+        p.setLayout(new GridLayout(6, 2));
 
         p.add(new OptRest(game, 0, 0, "Reinforce Weapon", " +1 XP", 1));
         p.add(new OptRest(game, 0, 1, "Search for Ration", "+1 Food", 2));

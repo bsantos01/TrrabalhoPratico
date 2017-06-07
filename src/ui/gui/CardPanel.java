@@ -68,9 +68,9 @@ class CardPanel extends JPanel implements Observer {
         CardBox4.add(area.get(4));
         CardBox4.add(area.get(5));
       
-            CardBox5.add(Box.createVerticalGlue());
-            CardBox5.add(area.get(6));     
-            CardBox5.add(Box.createVerticalGlue());
+        CardBox5.add(Box.createVerticalGlue());
+        CardBox5.add(area.get(6));     
+        CardBox5.add(Box.createVerticalGlue());
        
         
        add(MainBox);

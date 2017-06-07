@@ -28,6 +28,7 @@ import trabalhopratico.IEstates.IRestAwait;
  */
 public class OptFeat extends JPanel implements Observer{
     int row, col;
+    int j;
     ObservableGame game;
     JLabel i;
     JLabel name;
@@ -37,6 +38,7 @@ public class OptFeat extends JPanel implements Observer{
     public OptFeat(ObservableGame game,int r,int c, String name, int i) {
         row = r;
         col = c;
+        j=i;
         this.game = game;
         this.game.addObserver(this);
         setPreferredSize(new Dimension(300, 50));
@@ -63,7 +65,10 @@ public class OptFeat extends JPanel implements Observer{
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        game.feat(1,Integer.parseInt(i.getText()));
+                        if(game.getDice(j)!=0){
+                            xpButton.setEnabled(true);
+                            game.feat(1,Integer.parseInt(i.getText()));
+                        }
                     }
                 }
             });
@@ -73,7 +78,9 @@ public class OptFeat extends JPanel implements Observer{
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        game.feat(2,Integer.parseInt(i.getText()));
+                        if(game.getDice(j)!=0){
+                            game.feat(2,Integer.parseInt(i.getText()));
+                        }
                     }
                 }
             });
@@ -94,8 +101,16 @@ public class OptFeat extends JPanel implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-     setVisible(game.getState() instanceof IAwaitFeat);
-     repaint();
+        if(game.getDice(j)!=0){
+            xpButton.setEnabled(true);
+            hpButton.setEnabled(true);
+        }
+        else{
+            xpButton.setEnabled(false);
+            hpButton.setEnabled(false);
+        }
+        setVisible(game.getState() instanceof IAwaitFeat);
+        repaint();
     }
     
 }

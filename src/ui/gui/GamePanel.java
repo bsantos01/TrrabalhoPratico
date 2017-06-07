@@ -113,8 +113,7 @@ class GamePanel extends JPanel implements Observer{
         pRightCenterEast.add(diceP);
         //add
         pRightCenter.add(optP);
-        optP.setAlignmentY(Component.CENTER_ALIGNMENT);
-        //optP.setMinimumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        
         
         pRightCenter.add(pRightCenterEast, BorderLayout.EAST);
             
@@ -123,12 +122,13 @@ class GamePanel extends JPanel implements Observer{
         //cardP.setLayout(new BoxLayout(cardP, BoxLayout.Y_AXIS));
         /* pCenter.add(cardsInUsePanel, BorderLayout.NORTH);
         pCenter.add(middlePanel, BorderLayout.CENTER);*/
+        pRight.add(cardP, BorderLayout.NORTH);
         
         //------>LOG
         //add
         pRight.add(logP, BorderLayout.SOUTH);
         pRight.add(pRightCenter, BorderLayout.CENTER);
-        pRight.add(cardP, BorderLayout.NORTH);
+        
         add(pRight, BorderLayout.CENTER);
 
         validate();

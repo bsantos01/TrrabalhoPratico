@@ -45,7 +45,7 @@ ObservableGame game;
         noButton = new JButton("No");
         p.add(Text);
         p.add(yesButton);
-                    yesButton.addMouseListener(new MouseAdapter() {
+        yesButton.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof ICombat){

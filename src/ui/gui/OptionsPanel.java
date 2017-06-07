@@ -6,6 +6,8 @@
 package ui.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
@@ -18,7 +20,7 @@ import trabalhopratico.IEstates.*;
  * @author Bruno Santos
  */
 class OptionsPanel extends JPanel implements Observer {
-    Box box;
+    
     ObservableGame game;
     JLabel state;
     MerchPanel merchP;
@@ -40,35 +42,21 @@ class OptionsPanel extends JPanel implements Observer {
 
     @Override
     public void update(Observable o, Object o1) {
+        removeAll();
         if(game.getState() instanceof IMerchAwait){
-            box.add(merchP, BorderLayout.CENTER);
-        }
-        else{
-            box.remove(merchP);
+            add(merchP, BorderLayout.CENTER);
         }
         if(game.getState() instanceof ICombat){
-            box.add(combatP, BorderLayout.CENTER);
-        }
-        else{
-            box.remove(combatP);
+            add(combatP, BorderLayout.CENTER);
         }
         if(game.getState() instanceof IRestAwait){
-            box.add(restP, BorderLayout.CENTER);
-        }
-        else{
-            box.remove(restP);
+            add(restP, BorderLayout.CENTER);
         }
         if(game.getState() instanceof IAwaitFeat){
-            box.add(FeatP, BorderLayout.CENTER);
-        }
-        else{
-            box.remove(FeatP);
+            add(FeatP, BorderLayout.CENTER);
         }
         if(game.getState() instanceof IAwaitSpells){
-            box.add(SpellP, BorderLayout.CENTER);
-        }
-        else{
-            box.remove(SpellP);
+            add(SpellP, BorderLayout.CENTER);
         }
         repaint();
     }
@@ -83,8 +71,7 @@ class OptionsPanel extends JPanel implements Observer {
     }
 
     private void setupLayout() {
-        box = Box.createVerticalBox();
-        add(box);
+        setBorder(BorderFactory.createLineBorder(Color.GREEN));
         /*
         Box box = Box.createHorizontalBox();
         add(box);

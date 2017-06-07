@@ -29,7 +29,7 @@ class MerchPanel extends JPanel {
     private void setupComponents() {
         JPanel p = new JPanel();
 
-        p.setLayout(new GridLayout(6, 2, 10, 10));
+        p.setLayout(new GridLayout(6, 2));
 
         p.add(new OptMerch(game, 0, 0, "Ration", "-1G", " +1 Food", 1));
         p.add(new OptMerch(game, 0, 1, "Health Potion", "-1G", "+1 HP", 2));
