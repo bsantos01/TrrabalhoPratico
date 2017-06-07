@@ -36,6 +36,7 @@ public class IAwaitSpells extends StateAdapter{
        Spell temp;        
        int damage=this.getDataGame().getDamage();
        
+       if(opt!=(-1))
        if(this.getDataGame().SpellToString()!=null){
         temp=this.getDataGame().GetSpell(opt);
         
