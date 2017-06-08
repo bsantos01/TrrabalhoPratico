@@ -39,7 +39,7 @@ public class UI {
         
     }
     public void Critical(int i){    
-            int opt; boolean flag;
+            int opt; int flag;
             do{
                 System.out.println("Critical damage on dice "+ (i+1) +". Want to re-roll? 1-YES 2-NO");
                 do
@@ -48,9 +48,9 @@ public class UI {
                 if (opt==1)
                     flag=game.rerollCrit(i);
                 else
-                    flag=false;
+                    flag=1;
                 printDice();
-            }while(flag==true);
+            }while(flag==6);
     }
     public void printDice(){
         int []dices=game.getDices();

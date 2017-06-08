@@ -22,7 +22,6 @@ ObservableGame game;
         
         setupComponents();
         this.setVisible(true);
-        repaint();
     }
 
     private void setupComponents() {

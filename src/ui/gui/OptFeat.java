@@ -20,7 +20,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 import trabalhopratico.IEstates.IAwaitFeat;
-import trabalhopratico.IEstates.IRestAwait;
 
 /**
  *
@@ -65,8 +64,7 @@ public class OptFeat extends JPanel implements Observer{
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        if(game.getDice(j)!=0){
-                            xpButton.setEnabled(true);
+                        if(xpButton.isEnabled()){
                             game.feat(1,Integer.parseInt(i.getText()));
                         }
                     }
@@ -78,7 +76,7 @@ public class OptFeat extends JPanel implements Observer{
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        if(game.getDice(j)!=0){
+                        if(hpButton.isEnabled()){
                             game.feat(2,Integer.parseInt(i.getText()));
                         }
                     }
@@ -102,8 +100,14 @@ public class OptFeat extends JPanel implements Observer{
     @Override
     public void update(Observable o, Object arg) {
         if(game.getDice(j)!=0){
-            xpButton.setEnabled(true);
-            hpButton.setEnabled(true);
+            if(game.getXP()>1)
+                xpButton.setEnabled(true);
+            else
+                xpButton.setEnabled(false);
+            if(game.getHP()>2)   
+                hpButton.setEnabled(true);
+            else
+                hpButton.setEnabled(false);
         }
         else{
             xpButton.setEnabled(false);

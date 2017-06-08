@@ -22,7 +22,7 @@ public interface IStates
 
     public Dugeon doFeat(int opt, int i);
 
-    boolean rerollCrit(int i);
+    int rerollCrit(int i);
     IStates Do();
     IStates doFeat();
     IStates setupGame(int d, int a);

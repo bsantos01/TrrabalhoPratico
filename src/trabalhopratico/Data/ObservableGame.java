@@ -20,7 +20,12 @@ public class ObservableGame extends Observable{
     public ObservableGame() {
         game= new Game();
     }
-    
+    public int getXP(){
+        return game.getXP();
+    }
+    public int getHP(){
+        return game.getHP();
+    }
     public String SpellToStringI(int i){
         return game.SpellToStringI(i);
     }
@@ -85,9 +90,9 @@ public class ObservableGame extends Observable{
         setChanged();
         notifyObservers();
     }
-    public boolean reCritical(int i){
+    public int reCritical(int i){
 
-        boolean flag=game.rerollCrit(i);
+        int flag=game.rerollCrit(i);
         setChanged();
         notifyObservers();
         return flag;

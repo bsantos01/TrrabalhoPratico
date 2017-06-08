@@ -7,6 +7,7 @@ package trabalhopratico.Data;
 
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Random;
 import trabalhopratico.Spells.*;
 import trabalhopratico.Spells.Spell;
@@ -29,6 +30,7 @@ public class Dugeon implements Serializable{
     private Area cards;
     private int[] dices;
     private String log;
+   
     
     public Dugeon() {
         this.area=1;
@@ -98,15 +100,12 @@ public class Dugeon implements Serializable{
     }
     
     public void WinRandSpell(){
-        Spell temp=new Spell();
         Random ran = new Random();
         int x = ran.nextInt(4)+1;
         WinSpell(x);
-        if(player.spells.size()==2){
-            this.LoseRandSpell();
-        }
-        player.addSpell(temp);
     }
+    
+    
     public void WinSpell(int opt){
         Spell temp=new Spell();
 
@@ -134,17 +133,10 @@ public class Dugeon implements Serializable{
     }
     public boolean LoseRandSpell(){
         Random ran = new Random();
-        int x = ran.nextInt(2);
+        int x = ran.nextInt(1);
         if(player.spells.isEmpty())
             return false; 
-        if(player.spells.size()==1){
-            this.log += "Perdeu o Spell "+ player.spells.get(0).GetNome() + "!\n";
-            player.rmSpell(0);
-        }
-        else{
-            this.log += "Perdeu o Spell "+ player.spells.get(x).GetNome() + "!\n";
-            player.rmSpell(x);
-        }
+        player.rmSpell(1);
         return true;
     }
     public void setDices(int []i){
@@ -179,17 +171,15 @@ public class Dugeon implements Serializable{
         player.rmSpell(i);
     }
 
-    public boolean rerollCrit(int i){
+    public int rerollCrit(int i){
         int temp=this.rolldice();
         
         if (temp!=1){
             dices[i]+=temp;
-            if (temp==6)
-                return true;
         }else{
             dices[i]=temp;
         }
-        return false;
+        return temp;
     }
     public int GetRank(){
         return player.getRank();
@@ -291,10 +281,6 @@ public class Dugeon implements Serializable{
     public void rmHP(int v){
         this.log += "Perdeu " + v + " de HP !\n";
         player.setHp(player.getHp()-v);
-        if (this.player.getHp()<=0){
-            
-            //DIEEEEEEEEE
-        }
     }
     
     public boolean rmGold(int v){
@@ -369,6 +355,13 @@ public class Dugeon implements Serializable{
             return dices[i];
         else
             return 0;
+    }
+
+    public int getHP() {
+        return player.getHp();
+    }
+    public int getXP(){
+        return player.getXp();
     }
     
 }

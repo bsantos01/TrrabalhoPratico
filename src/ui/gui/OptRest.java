@@ -38,7 +38,13 @@ public class OptRest extends JPanel implements Observer{
 
         setupComponents(name, des, i);
         setupLayout();
-        setVisible(true);
+        
+    }
+
+    private void setupComponents(String name, String des, int i) {
+        this.i= new JLabel("  " +i);
+        this.name = new JLabel(" " + name);
+        this.description = new JLabel(des);
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent ev) {
@@ -47,12 +53,6 @@ public class OptRest extends JPanel implements Observer{
                 }
             }
         });
-    }
-
-    private void setupComponents(String name, String des, int i) {
-        this.i= new JLabel("  " +i);
-        this.name = new JLabel(" " + name);
-        this.description = new JLabel(des);
     }
 
     private void setupLayout() {
@@ -77,7 +77,6 @@ public class OptRest extends JPanel implements Observer{
     @Override
     public void update(Observable o, Object arg) {
      setVisible(game.getState() instanceof IRestAwait);
-     repaint();
     }
     
 }

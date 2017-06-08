@@ -29,7 +29,7 @@ import trabalhopratico.IEstates.ICombat;
  */
 class Dice extends JPanel implements Observer{
     ObservableGame game = null;
-    boolean flag=false;
+    int flag;
     int i;
     static Map<Integer, Image>images; 
     static{    
@@ -51,27 +51,29 @@ class Dice extends JPanel implements Observer{
         this.game = gameo;
         this.i=i;
         this.game.addObserver(this);
+        setupComponent();
         setPreferredSize(new Dimension(75,73));           
     }
     
+    void setupComponent(){
+
+        addMouseListener(new MouseAdapter() {
+        @Override
+        public void mousePressed(MouseEvent ev) {
+                if((game.getState() instanceof ICombat)||(game.getState() instanceof IAwaitFeat)){
+                    if(game.getDice(i)==6 || flag==6)
+                        flag=game.reCritical(i);            
+                }   
+            }
+        });
+    }
     
     @Override
     public void update(Observable o, Object arg) {
         if((game.getState() instanceof ICombat)||(game.getState() instanceof IAwaitFeat)){
             setVisible(true);
         }
-      
-       addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent ev) {
-                if((game.getState() instanceof ICombat)||(game.getState() instanceof IAwaitFeat)){
-                    if(game.getDice(i)==6)
-                        flag=game.reCritical(i);
-                }
-            }
- 
-        });
-      
+     
        paintComponent(this.getGraphics());
        repaint();
     }
@@ -89,8 +91,8 @@ class Dice extends JPanel implements Observer{
         setBackground(Color.LIGHT_GRAY);
         
         try {
-            if(game.getDice(i)>6)
-                g.drawImage(images.get(game.getDice(i)-6), 0, 0, getWidth() - 1, getHeight() - 1, null);
+            if(game.getDice(i)>6)//se eventualmente tiver vindo de um critical, vai imprimir a ultima pontuacao a sair naquele dado
+                g.drawImage(images.get(flag), 0, 0, getWidth() - 1, getHeight() - 1, null);
             else
                 g.drawImage(images.get(game.getDice(i)), 0, 0, getWidth() - 1, getHeight() - 1, null);
         } catch (IndexOutOfBoundsException e) {

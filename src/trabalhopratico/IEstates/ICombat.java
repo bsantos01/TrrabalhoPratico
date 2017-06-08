@@ -40,7 +40,7 @@ public class ICombat extends StateAdapter{
         return new IAwaitFeat(getDataGame(),this.npc);    
      }
     @Override
-    public boolean rerollCrit(int i){
+    public int rerollCrit(int i){
         return this.getDataGame().rerollCrit(i);        
     }
 

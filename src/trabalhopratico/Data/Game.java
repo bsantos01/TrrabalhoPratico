@@ -60,7 +60,13 @@ public class Game implements Serializable{
     public int[] getDices(){
         return gamedata.getDices();
     }
-    public boolean rerollCrit(int i){
+    public int getHP(){
+        return gamedata.getHP();
+    }
+    public int getXP(){
+        return gamedata.getXP();
+    }
+    public int rerollCrit(int i){
         return state.rerollCrit(i);
     }
     public void rerollSingle(int i){

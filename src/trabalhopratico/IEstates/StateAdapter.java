@@ -66,7 +66,7 @@ public class StateAdapter implements IStates, Serializable {
     }
 
     @Override
-    public boolean rerollCrit(int i) {
+    public int rerollCrit(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

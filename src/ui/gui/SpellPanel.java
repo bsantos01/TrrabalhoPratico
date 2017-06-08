@@ -56,19 +56,27 @@ class SpellPanel  extends JPanel implements Observer{
             }
         });
         Spell1.setText("Spell 1:" + game.SpellToStringI(0));
+        if(game.SpellToStringI(0)=="No spell in this slot")
+            Spell1.setEnabled(false);
+         else
+            Spell1.setEnabled(true);
         Spell1.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent ev) {
-                if(game.getState() instanceof IAwaitSpells){
+                if((game.getState() instanceof IAwaitSpells) && Spell1.isEnabled()){
                    game.commitopt(0);
                 }
             }
         });
         Spell2.setText("Spell 2:" + game.SpellToStringI(1));
+        if(game.SpellToStringI(1)=="No spell in this slot")
+            Spell2.setEnabled(false);
+        else
+            Spell2.setEnabled(true);
         Spell2.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent ev) {
-                if(game.getState() instanceof IAwaitSpells){
+                if(game.getState() instanceof IAwaitSpells && Spell2.isEnabled()){
                    game.commitopt(1);
                 }
             }
