@@ -10,6 +10,7 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.util.Observable;
 import java.util.Observer;
@@ -20,6 +21,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 import trabalhopratico.Data.ObservableGame;
 
 /**
@@ -31,7 +33,8 @@ public class GameView extends JFrame implements Observer{
     ObservableGame game;
     GamePanel panel;
     Starting start;
-    //ScorePanel scorePanel;
+    JFrame topFrame = this;
+
     
     public GameView(){
         super("Mini Rogue");
@@ -95,10 +98,11 @@ public class GameView extends JFrame implements Observer{
     }
 
     private class NewGameMenuBarListener implements ActionListener {
-
+         
         @Override
         public void actionPerformed(ActionEvent ae) {
             new GameView();
+            topFrame.dispose();        
         }
     }
 
@@ -109,7 +113,7 @@ public class GameView extends JFrame implements Observer{
             try {
                 game.LoadGame();
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(GameView.class.getName()).log(Level.SEVERE, null, ex);
+                
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(GameView.class.getName()).log(Level.SEVERE, null, ex);
             }

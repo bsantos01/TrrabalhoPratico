@@ -171,6 +171,10 @@ public class Game implements Serializable{
     public int getDice(int i) {
         return gamedata.getDice(i);
     }
+
+    int getArmor() {
+        return gamedata.getArmor();
+    }
    
 
 }

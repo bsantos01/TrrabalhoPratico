@@ -15,8 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Box;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import trabalhopratico.Data.ObservableGame;
 
 /**
@@ -41,12 +43,13 @@ class GameOverPanel extends JPanel implements Observer{
     
     private void setupComponents() {
        
-  
+   
         newGame= new JButton("New Game");
             newGame.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     new GameView();
+                   
                       
                 }
             });

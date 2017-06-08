@@ -139,5 +139,23 @@ public class ObservableGame extends Observable{
             return false;
         }
     }
+
+    public int getArmor() {
+        return game.getArmor();
+    }
+
+    public int getMonsteHP() {
+        if(game.GetMonster()==null)
+            return 0;
+        else  return game.GetMonster().getHp();
+    }
+
+    public int getLevel() {
+        return game.getLvl();
+    }
+
+    public int getArea() {
+        return game.getArea();
+    }
           
 }
