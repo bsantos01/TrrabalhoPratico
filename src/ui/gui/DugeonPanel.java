@@ -21,6 +21,7 @@ class DugeonPanel extends JPanel{
 
    static private BufferedImage dugeon= null;
    static private BufferedImage button= null;
+   static private BufferedImage button2= null;
     
     ObservableGame game;
     public static BufferedImage getdugeon(){
@@ -31,6 +32,7 @@ class DugeonPanel extends JPanel{
         try{
             dugeon=ImageIO.read(Resources.getResourceFile("Images/dugeon.png"));
             button=ImageIO.read(Resources.getResourceFile("Images/button.png"));
+            button2=ImageIO.read(Resources.getResourceFile("Images/button.png"));
         } catch(IOException e){
             System.out.println("ERROR LOADING IMAGE");
         }
@@ -59,7 +61,16 @@ class DugeonPanel extends JPanel{
         int y = (int) (getHeight()*(0.91-y1*0.081));
         g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.95)), (int) (getHeight() - (getHeight()*0.95)), null);
         
-        
+        int b = 5;//game.getLevel();
+        int x2= 14;//game.getArea();
+        int y2=b-1;
+        if(b==2)x2 -= 3;
+        if(b==3)x2 -= 5;
+        if(b==4)x2 -= 8;
+        if(b==5)x2 -= 11;
+        int xb = (int) (getWidth()*(0.10 + x2*0.115));
+        int yb = (int) (getHeight()*(0.39+y2*0.125));
+        g.drawImage(button2, xb,  yb, (int) (getWidth() - (getWidth()*0.95)), (int) (getHeight() - (getHeight()*0.95)), null);
     }
     
 }
