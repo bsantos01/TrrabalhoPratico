@@ -62,12 +62,12 @@ class DugeonPanel extends JPanel{
         g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.95)), (int) (getHeight() - (getHeight()*0.95)), null);
         
         int b = game.getLevel();
-        int x2= game.getArea();
+        int x2= game.getArea() -1;
         int y2=b-1;
-        if(b==2)x2 -= 3;
-        if(b==3)x2 -= 5;
-        if(b==4)x2 -= 8;
-        if(b==5)x2 -= 11;
+        if(b==2)x2 -= 2;
+        if(b==3)x2 -= 4;
+        if(b==4)x2 -= 7;
+        if(b==5)x2 -= 10;
         int xb = (int) (getWidth()*(0.10 + x2*0.115));
         int yb = (int) (getHeight()*(0.39+y2*0.125));
         g.drawImage(button2, xb,  yb, (int) (getWidth() - (getWidth()*0.95)), (int) (getHeight() - (getHeight()*0.95)), null);

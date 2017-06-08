@@ -161,5 +161,13 @@ public class ObservableGame extends Observable{
     public int getFood() {
        return game.getFood();
     }
+
+    public int getGold() {
+        return game.getGold();
+    }
+
+    public int getRank() {
+        return game.GetRankPlayer();
+    }
           
 }

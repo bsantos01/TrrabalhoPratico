@@ -67,6 +67,27 @@ class CharPanel extends JPanel implements Observer{
         int xhp = (int) (getWidth()*(0.09+x2*0.20));
         int yhp = (int) (getHeight()*(0.07+y2*0.0435));
         g.drawImage(button, xhp,  yhp, (int) (getWidth() - (getWidth()*0.90)), (int) (getHeight() - (getHeight()*0.97)), null);
+        //Gold
+        int gold =game.getGold();
+        x1=2;
+        y1=gold;
+        x = (int) (getWidth()*(0.09+x1*0.20));
+        y = (int) (getHeight()*(0.07+y1*0.0435));
+        g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.90)), (int) (getHeight() - (getHeight()*0.97)), null);
+        //XP
+        int xp =game.getXP();
+        if(game.getRank()==2)xp+=6;
+        if(game.getRank()==3)xp+=18;
+        if(game.getRank()==4)xp+=36;
+        x1=0;
+        y1=xp;
+        if(gold>20){
+            x1=1;
+            y1-=20;
+        }
+        x = (int) (getWidth()*(0.82-x1*0.12));
+        y = (int) (getHeight()*(0.07+y1*0.0435));
+        g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.90)), (int) (getHeight() - (getHeight()*0.97)), null);
     }
 
     @Override

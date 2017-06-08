@@ -179,6 +179,9 @@ public class Game implements Serializable{
     int getFood() {
         return gamedata.getFood();
     }
-   
+
+    int getGold() {
+        return gamedata.getGold();
+    }
 
 }
