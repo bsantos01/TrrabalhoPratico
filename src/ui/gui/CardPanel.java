@@ -6,6 +6,7 @@
 package ui.gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import trabalhopratico.Data.ObservableGame;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -27,6 +28,7 @@ class CardPanel extends JPanel implements Observer {
 
     ObservableGame game;
     ArrayList<CardG> area;
+    DugeonPanel dugP;
 
     CardPanel(ObservableGame game) {
         this.game = game;
@@ -55,6 +57,7 @@ class CardPanel extends JPanel implements Observer {
         MainBox.add(CardBox4);
         MainBox.add(Box.createHorizontalGlue());
         MainBox.add(CardBox5);
+        MainBox.add(dugP);
         
         CardBox1.add(Box.createVerticalGlue());
         CardBox1.add(area.get(0));
@@ -71,7 +74,7 @@ class CardPanel extends JPanel implements Observer {
         CardBox5.add(Box.createVerticalGlue());
         CardBox5.add(area.get(6));     
         CardBox5.add(Box.createVerticalGlue());
-       
+        
         
        add(MainBox);
 
@@ -87,8 +90,8 @@ class CardPanel extends JPanel implements Observer {
         area.add(new CardG(game,4));
         area.add(new CardG(game,5));
         area.add(new CardG(game,6));     
-        
-        
+        //dugP.setPreferredSize(this.getSize());
+        dugP = new DugeonPanel(game);
     }
 
     @Override

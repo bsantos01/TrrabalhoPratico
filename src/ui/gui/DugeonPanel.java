@@ -5,6 +5,7 @@
  */
 package ui.gui;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -35,11 +36,12 @@ class DugeonPanel extends JPanel{
     
     DugeonPanel(ObservableGame game) {
         this.game=game;
+        setPreferredSize(new Dimension(250, 300));
     }
     
     @Override
     public void paintComponent(Graphics g){
-        g.drawImage(getdugeon(), 0, 0,230,320, this);
+        g.drawImage(getdugeon(), 0, 0, getWidth() - 1, getHeight() - 1, null);
     
     }
     
