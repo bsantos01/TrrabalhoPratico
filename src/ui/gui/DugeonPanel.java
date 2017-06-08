@@ -44,7 +44,7 @@ class DugeonPanel extends JPanel{
     @Override
     public void paintComponent(Graphics g){
         g.drawImage(getdugeon(), 0, 0, getWidth() - 1, getHeight() - 1, null);
-        int a = game.getMonsteHP();
+        int a = 30;//game.getMonsteHP();
         int x1=0;
         int y1=a;
         if(a>10){
@@ -56,7 +56,7 @@ class DugeonPanel extends JPanel{
             y1-=10;
         }
         int x = (int) (getWidth()*(0.88-x1*0.12));
-        int y = (int) (getHeight()*(0.91-y1*0.08));
+        int y = (int) (getHeight()*(0.91-y1*0.081));
         g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.95)), (int) (getHeight() - (getHeight()*0.95)), null);
         
         
