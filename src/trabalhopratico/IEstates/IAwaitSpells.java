@@ -58,6 +58,7 @@ public class IAwaitSpells extends StateAdapter{
            if (npc instanceof BossMonster){
                if(this.getDataGame().getarea()==14)//se derrotar o ultimo boss há vitoria
                    return new IGameOver(this.getDataGame());
+               
                this.getDataGame().BossReward();
                this.getDataGame().WinRandSpell();
                this.getDataGame().setLog("Monster died! Keep going!");

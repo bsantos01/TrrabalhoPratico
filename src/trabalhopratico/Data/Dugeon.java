@@ -38,6 +38,7 @@ public class Dugeon implements Serializable{
         this.player = new Player();
         this.log = "";
         dices= new int[this.player.getRank()];
+        newArena();
     }
 
 // FIM CONSTRUTORES */

@@ -340,7 +340,7 @@ public class UI {
                 opt=s.nextInt();
                while(opt<1 || opt>3);
                if(opt==2)
-                       game=new Game(); 
+                   game=new Game(); 
                if(opt==1)
                    LoadGame();
                cls();

@@ -35,7 +35,7 @@ public class Player implements Serializable{
         this.mKill=false;
         switch (difficulty){
             case 0:
-                this.hp = 100;
+                this.hp = 300;
                 this.armor = 1;
                 this.food = 6;
                 this.gold = 5;

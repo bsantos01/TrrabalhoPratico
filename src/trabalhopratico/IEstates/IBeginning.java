@@ -51,5 +51,10 @@ public class IBeginning extends StateAdapter{
         this.getDataGame().newArena();
         return new IAwaitAction(this.getDataGame());
         }
-
+        @Override
+        public IStates comitOpt(int opt){
+            this.getDataGame().setDifPlayer(1);
+            return(new IAwaitAction(this.getDataGame()));
+        }
+        
 }

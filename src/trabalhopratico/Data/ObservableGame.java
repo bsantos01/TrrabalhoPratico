@@ -20,6 +20,11 @@ public class ObservableGame extends Observable{
     public ObservableGame() {
         game= new Game();
     }
+    public void newgame() {
+        game= new Game();
+                    setChanged();
+                    notifyObservers();
+    }
     public int getXP(){
         return game.getXP();
     }

@@ -29,6 +29,7 @@ class OptionsPanel extends JPanel implements Observer {
     FeatPanel FeatP;
     ChoseCardPanel CcardP;
     CombatPanel combatP;
+    GameOverPanel overP;
     
 
     public OptionsPanel(ObservableGame game) {
@@ -36,7 +37,6 @@ class OptionsPanel extends JPanel implements Observer {
         game.addObserver(this);
 
         setupComponents();
-        setupLayout();
         setVisible(true);
     }
 
@@ -51,6 +51,9 @@ class OptionsPanel extends JPanel implements Observer {
         }
         if(game.getState() instanceof IRestAwait){
             add(restP, BorderLayout.CENTER);
+        }
+        if(game.getState() instanceof IGameOver){
+            add(overP, BorderLayout.CENTER);
         }
         if(game.getState() instanceof IAwaitFeat){
             add(FeatP, BorderLayout.CENTER);
@@ -67,20 +70,8 @@ class OptionsPanel extends JPanel implements Observer {
         FeatP = new FeatPanel(game);
         combatP = new CombatPanel(game);
         SpellP = new SpellPanel(game);
-        /*  CcardP = new ChoseCardPanel(game);*/
+        overP = new GameOverPanel(game);
     }
 
-    private void setupLayout() {
-        setBorder(BorderFactory.createLineBorder(Color.GREEN));
-        /*
-        Box box = Box.createHorizontalBox();
-        add(box);
-        box.add(merchP);
-        box.add(restP);
-        box.add(FeatP);
-        box.add(combatP);
-        box.add(SpellP);
-        */
-    }
     
 }
