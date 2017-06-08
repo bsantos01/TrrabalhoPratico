@@ -157,5 +157,9 @@ public class ObservableGame extends Observable{
     public int getArea() {
         return game.getArea();
     }
+
+    public int getFood() {
+       return game.getFood();
+    }
           
 }

@@ -45,6 +45,7 @@ class CharPanel extends JPanel implements Observer{
     
     @Override
     public void paintComponent(Graphics g){
+        //Armor
         g.drawImage(getCharstats(), 0, 0,230,649, this);
         int a =game.getArmor();
         int x1=0;
@@ -52,6 +53,14 @@ class CharPanel extends JPanel implements Observer{
         int x = (int) (getWidth()*(0.09+x1*0.20));
         int y = (int) (getHeight()*(0.07+y1*0.0435));
         g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.90)), (int) (getHeight() - (getHeight()*0.97)), null);
+        //Food
+        int food =game.getFood();
+        x1=0;
+        y1=food + 14;
+        x = (int) (getWidth()*(0.09+x1*0.20));
+        y = (int) (getHeight()*(0.07+y1*0.0435));
+        g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.90)), (int) (getHeight() - (getHeight()*0.97)), null);
+        //HP
         int hp =game.getHP();
         int x2=1;
         int y2=hp;

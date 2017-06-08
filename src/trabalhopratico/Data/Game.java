@@ -175,6 +175,10 @@ public class Game implements Serializable{
     int getArmor() {
         return gamedata.getArmor();
     }
+
+    int getFood() {
+        return gamedata.getFood();
+    }
    
 
 }

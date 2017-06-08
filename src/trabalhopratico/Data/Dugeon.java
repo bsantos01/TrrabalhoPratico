@@ -364,5 +364,9 @@ public class Dugeon implements Serializable{
     public int getXP(){
         return player.getXp();
     }
+
+    int getFood() {
+        return player.getFood();
+    }
     
 }
