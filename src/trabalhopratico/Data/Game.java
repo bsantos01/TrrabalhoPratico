@@ -5,10 +5,12 @@
  */
 package trabalhopratico.Data;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -169,5 +171,6 @@ public class Game implements Serializable{
     public int getDice(int i) {
         return gamedata.getDice(i);
     }
+   
 
 }

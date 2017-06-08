@@ -5,7 +5,12 @@
  */
 package trabalhopratico.Data;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Observable;
+import static trabalhopratico.Data.Game.loadGame;
 import trabalhopratico.IEstates.IStates;
 import trabalhopratico.cards.Card;
 
@@ -101,6 +106,40 @@ public class ObservableGame extends Observable{
         setChanged();
         notifyObservers();
         return flag;
+    }
+        public boolean SaveGame(){
+        BufferedReader bin= new BufferedReader(new InputStreamReader(System.in));
+        String opt, name= "MiniRogue.txt";
+
+        try{
+            game.saveGame(name);
+            System.out.println("Game Saved\n");
+            return true;
+        } catch(IOException e){
+            System.out.println("Error trying to save game in file: "+ name);
+            System.out.println(e);
+            return false;
+        }
+    }
+        public boolean LoadGame() throws FileNotFoundException, ClassNotFoundException{
+        BufferedReader bin= new BufferedReader(new InputStreamReader(System.in));
+        String opt, name= "MiniRogue.txt";
+
+                if (!new java.io.File(name).exists()){
+                    System.out.println("File "+name+" does not exist.");
+                    return false;
+                }
+                   
+
+        try{
+            game=loadGame(name);
+            System.out.println("Load completed\n");
+            return true;
+        }catch(IOException e){
+            System.out.println("Error trying to load game from: "+ name);
+            System.out.println(e);
+            return false;
+        }
     }
           
 }

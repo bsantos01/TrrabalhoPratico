@@ -15,8 +15,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
-import trabalhopratico.IEstates.IAwaitSpells;
-import trabalhopratico.IEstates.IGameOver;
 
 /**
  *
@@ -45,22 +43,26 @@ class GameOverPanel extends JPanel implements Observer{
             newGame.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent ev) {
-                       game.newgame();
-                        //game.commitopt(0);
-
+                    new GameView();
+                      
                 }
             });
         loadGame= new JButton("Load Game");
             loadGame.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent ev) {
-                    
+                         System.exit(0);
                         game= new ObservableGame();
                     
                 }
             });
         exitGame = new JButton("Exit");
-     
+            loadGame.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent ev) {
+                         System.exit(0);        
+                }
+            });
      }
     
      private void setupLayout() {
