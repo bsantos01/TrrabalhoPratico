@@ -8,8 +8,11 @@ package ui.gui;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -51,8 +54,13 @@ class GameOverPanel extends JPanel implements Observer{
             loadGame.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent ev) {
-                         System.exit(0);
-                        game= new ObservableGame();
+                    try {
+                        game.LoadGame();
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(GameOverPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(GameOverPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     
                 }
             });

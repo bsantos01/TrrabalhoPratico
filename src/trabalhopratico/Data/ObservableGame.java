@@ -108,12 +108,11 @@ public class ObservableGame extends Observable{
         return flag;
     }
         public boolean SaveGame(){
-        BufferedReader bin= new BufferedReader(new InputStreamReader(System.in));
-        String opt, name= "MiniRogue.txt";
+        String name= "MiniRogue.txt";
 
         try{
             game.saveGame(name);
-            System.out.println("Game Saved\n");
+            
             return true;
         } catch(IOException e){
             System.out.println("Error trying to save game in file: "+ name);
@@ -122,9 +121,7 @@ public class ObservableGame extends Observable{
         }
     }
         public boolean LoadGame() throws FileNotFoundException, ClassNotFoundException{
-        BufferedReader bin= new BufferedReader(new InputStreamReader(System.in));
-        String opt, name= "MiniRogue.txt";
-
+        String  name= "MiniRogue.txt";
                 if (!new java.io.File(name).exists()){
                     System.out.println("File "+name+" does not exist.");
                     return false;
@@ -133,7 +130,8 @@ public class ObservableGame extends Observable{
 
         try{
             game=loadGame(name);
-            System.out.println("Load completed\n");
+            setChanged();
+            notifyObservers();
             return true;
         }catch(IOException e){
             System.out.println("Error trying to load game from: "+ name);
