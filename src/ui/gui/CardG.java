@@ -7,7 +7,6 @@ package ui.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
-
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;

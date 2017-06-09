@@ -8,7 +8,6 @@ package ui.gui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.PopupMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
@@ -28,6 +27,7 @@ import trabalhopratico.IEstates.IAwaitFeat;
 public class OptFeat extends JPanel implements Observer{
     int row, col;
     int j;
+    boolean flag;
     ObservableGame game;
     JLabel i;
     JLabel name;
@@ -64,8 +64,10 @@ public class OptFeat extends JPanel implements Observer{
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        if(xpButton.isEnabled()){
+                        if(xpButton.isEnabled() && flag!=true){
                             game.feat(1,Integer.parseInt(i.getText()));
+                            flag=true;
+                            
                         }
                     }
                 }
@@ -76,8 +78,9 @@ public class OptFeat extends JPanel implements Observer{
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        if(hpButton.isEnabled()){
+                        if(hpButton.isEnabled() && flag!=true){
                             game.feat(2,Integer.parseInt(i.getText()));
+                            flag=true;
                         }
                     }
                 }
@@ -113,6 +116,12 @@ public class OptFeat extends JPanel implements Observer{
             xpButton.setEnabled(false);
             hpButton.setEnabled(false);
         }
+        
+       /* if(flag==true){
+            System.out.println("cabron");
+            xpButton.setEnabled(false);
+            hpButton.setEnabled(false);
+        }*/
         setVisible(game.getState() instanceof IAwaitFeat);
         repaint();
     }

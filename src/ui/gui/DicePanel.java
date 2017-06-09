@@ -47,11 +47,16 @@ class DicePanel extends JPanel implements Observer{
         
     }
     private void setupLayout() {
-         Box MainBox = Box.createVerticalBox();
+        damage.setForeground(Color.white);
+        Box MainBox = Box.createVerticalBox();
         MainBox.setPreferredSize(new Dimension(120,320));
+            MainBox.add(Box.createVerticalStrut(5));
             MainBox.add(dices1); 
+            MainBox.add(Box.createVerticalStrut(10));
             MainBox.add(dices2);
+            MainBox.add(Box.createVerticalStrut(10));
             MainBox.add(dices3);
+            MainBox.add(Box.createVerticalStrut(10));
             MainBox.add(dices4);
             MainBox.add(Box.createVerticalGlue());
             MainBox.add(damage);
@@ -61,13 +66,13 @@ class DicePanel extends JPanel implements Observer{
        @Override
     public void paintBorder(Graphics g) {
         super.paintBorder(g);
-        g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+        
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        setBackground(Color.WHITE);
+        setBackground(Color.DARK_GRAY);
     }
 
     @Override

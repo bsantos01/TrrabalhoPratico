@@ -7,7 +7,6 @@ package trabalhopratico.Data;
 
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.Random;
 import trabalhopratico.Spells.*;
 import trabalhopratico.Spells.Spell;
@@ -272,12 +271,17 @@ public class Dugeon implements Serializable{
         player.setFood(player.getFood()-1);
     }
     public void addfood(){
-        this.log += "Ganhou 1 de Food !\n";
-        player.setFood(player.getFood()+1);
+        if(player.getFood()<6){
+            this.log += "Ganhou 1 de Food !\n";
+            player.setFood(player.getFood()+1);
+        }
     }
     public void addHP(int v){
-        this.log += "Ganhou " + v + " de HP !\n";
-        player.setHp(player.getHp()+v);
+        if (player.getHp()==19)
+            player.setHp(player.getHp()+1);
+        else if(player.getHp()<19){
+            player.setHp(player.getHp()+v);
+        }
     }
     public void rmHP(int v){
         this.log += "Perdeu " + v + " de HP !\n";
@@ -292,12 +296,16 @@ public class Dugeon implements Serializable{
         return false;
     }
     public void addGold(int v){
-        this.log += "Ganhou " + v + " de Gold !\n";
-        this.player.addGold(v);
+        if(player.getGold()<20){
+            this.log += "Ganhou " + v + " de Gold !\n";
+            this.player.addGold(v);
+        }
     }
     public void addArmor(int v){
-        this.log += "Ganhou " + v + " de Armor !\n";
-        this.player.addArmor(v);
+        if(player.getArmor()<5){
+            this.log += "Ganhou " + v + " de Armor !\n";
+            this.player.addArmor(v);
+        }
     }
     public boolean rmArmor(int v){
         this.log += "Perdeu " + v + " de Armor !\n";

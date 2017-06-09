@@ -7,21 +7,12 @@ package ui.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Panel;
 import java.util.Observable;
 import java.util.Observer;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
 import trabalhopratico.Data.ObservableGame;
-import trabalhopratico.IEstates.IAwaitAction;
-import trabalhopratico.IEstates.IAwaitFeat;
-import trabalhopratico.IEstates.IAwaitSpells;
 import trabalhopratico.IEstates.IBeginning;
-import trabalhopratico.IEstates.ICombat;
 
 /**
  *
@@ -103,7 +94,7 @@ class GamePanel extends JPanel implements Observer{
         
         //color
         pRightCenter.setBackground(Color.BLUE);
-        pRightCenterEast.setBackground(Color.PINK);
+        pRightCenterEast.setBackground(Color.DARK_GRAY);
         pRightCenterEast.add(diceP);
         //add
         pRightCenter.add(optP);

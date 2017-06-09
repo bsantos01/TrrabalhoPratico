@@ -5,7 +5,6 @@
  */
 package ui.gui;
 
-import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
@@ -14,7 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
-import trabalhopratico.IEstates.IAwaitFeat;
 import trabalhopratico.IEstates.ICombat;
 
 /**

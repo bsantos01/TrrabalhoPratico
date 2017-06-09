@@ -6,15 +6,9 @@
 package ui.gui;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import trabalhopratico.Data.ObservableGame;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import trabalhopratico.Data.ObservableGame;
 import trabalhopratico.IEstates.IAwaitAction;
@@ -47,7 +41,7 @@ class CardPanel extends JPanel implements Observer {
         Box CardBox3 = Box.createVerticalBox();
         Box CardBox4 = Box.createVerticalBox();
         Box CardBox5 = Box.createVerticalBox();
-        
+        MainBox.add(Box.createHorizontalStrut(5));
         MainBox.add(CardBox1);
         MainBox.add(Box.createHorizontalGlue());
         MainBox.add(CardBox2);
@@ -90,7 +84,6 @@ class CardPanel extends JPanel implements Observer {
         area.add(new CardG(game,4));
         area.add(new CardG(game,5));
         area.add(new CardG(game,6));     
-        //dugP.setPreferredSize(this.getSize());
         dugP = new DugeonPanel(game);
     }
 

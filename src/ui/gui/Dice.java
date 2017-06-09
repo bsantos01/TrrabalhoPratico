@@ -20,6 +20,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 import trabalhopratico.IEstates.IAwaitFeat;
+import trabalhopratico.IEstates.IAwaitSpells;
 import trabalhopratico.IEstates.ICombat;
 
 
@@ -60,7 +61,7 @@ class Dice extends JPanel implements Observer{
         addMouseListener(new MouseAdapter() {
         @Override
         public void mousePressed(MouseEvent ev) {
-                if((game.getState() instanceof ICombat)||(game.getState() instanceof IAwaitFeat)){
+                if((game.getState() instanceof ICombat)||(game.getState() instanceof IAwaitFeat)|| (game.getState() instanceof IAwaitSpells)){
                     if(game.getDice(i)==6 || flag==6)
                         flag=game.reCritical(i);            
                 }   
@@ -87,7 +88,7 @@ class Dice extends JPanel implements Observer{
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-
+        
         setBackground(Color.LIGHT_GRAY);
         
         try {

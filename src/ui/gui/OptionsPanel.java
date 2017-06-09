@@ -6,9 +6,6 @@
 package ui.gui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
@@ -27,7 +24,6 @@ class OptionsPanel extends JPanel implements Observer {
     RestPanel restP;
     SpellPanel SpellP;
     FeatPanel FeatP;
-    ChoseCardPanel CcardP;
     CombatPanel combatP;
     GameOverPanel overP;
     
@@ -35,14 +31,15 @@ class OptionsPanel extends JPanel implements Observer {
     public OptionsPanel(ObservableGame game) {
         this.game = game;
         game.addObserver(this);
-
         setupComponents();
         setVisible(true);
     }
 
     @Override
     public void update(Observable o, Object o1) {
+        
         removeAll();
+
         if(game.getState() instanceof IMerchAwait){
             add(merchP, BorderLayout.CENTER);
         }

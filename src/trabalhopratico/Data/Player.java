@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package trabalhopratico.Data;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import trabalhopratico.Spells.Spell;
 
 /**

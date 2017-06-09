@@ -5,11 +5,13 @@
  */
 package ui.gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 
@@ -41,10 +43,12 @@ class DugeonPanel extends JPanel{
     DugeonPanel(ObservableGame game) {
         this.game=game;
         setPreferredSize(new Dimension(250, 300));
+        setBorder(BorderFactory.createLineBorder(Color.black));
     }
     
     @Override
     public void paintComponent(Graphics g){
+        
         g.drawImage(getdugeon(), 0, 0, getWidth() - 1, getHeight() - 1, null);
         int a = game.getMonsteHP();
         int x1=0;

@@ -5,12 +5,14 @@
  */
 package ui.gui;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
 import trabalhopratico.Spells.*;
@@ -47,6 +49,7 @@ class CharPanel extends JPanel implements Observer{
     @Override
     public void paintComponent(Graphics g){
         //Armor
+        setBorder(BorderFactory.createLineBorder(Color.black));
         g.drawImage(getCharstats(), 0, 0,230,649, this);
         int a =game.getArmor();
         int x1=0;
