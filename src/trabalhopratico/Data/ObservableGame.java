@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.util.Observable;
 import static trabalhopratico.Data.Game.loadGame;
 import trabalhopratico.IEstates.IStates;
+import trabalhopratico.Spells.Spell;
 import trabalhopratico.cards.Card;
 
 /**
@@ -168,6 +169,10 @@ public class ObservableGame extends Observable{
 
     public int getRank() {
         return game.GetRankPlayer();
+    }
+
+    public Spell getSpell(int i) {
+        return game.getSpell(i);
     }
           
 }

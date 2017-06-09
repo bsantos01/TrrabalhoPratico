@@ -87,7 +87,9 @@ public class Player implements Serializable{
         spells.remove(i);
     }
     public Spell GetSpell(int i){
-        return spells.get(i);
+        if(spells.size()>i)
+            return spells.get(i);
+        return null;
     }
     public void addSpell(Spell e){
         spells.add(e);

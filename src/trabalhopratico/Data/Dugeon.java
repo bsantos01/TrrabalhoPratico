@@ -166,7 +166,7 @@ public class Dugeon implements Serializable{
         return player.SpellToString();
     }
     public Spell GetSpell(int i){
-     return player.GetSpell(i);
+        return player.GetSpell(i);
     }
     public void rmSpell(int i){
         player.rmSpell(i);

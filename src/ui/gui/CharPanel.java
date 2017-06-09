@@ -13,6 +13,7 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import trabalhopratico.Data.ObservableGame;
+import trabalhopratico.Spells.*;
 
 /**
  *
@@ -53,7 +54,30 @@ class CharPanel extends JPanel implements Observer{
         int x = (int) (getWidth()*(0.09+x1*0.20));
         int y = (int) (getHeight()*(0.07+y1*0.0435));
         g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.90)), (int) (getHeight() - (getHeight()*0.97)), null);
-        //Food
+        
+//Spells
+        Spell spell1 =game.getSpell(0);
+        Spell spell2 =game.getSpell(1);
+        int yo=0;
+        if(spell1 instanceof Fireball)y1=6;
+        if(spell1 instanceof Ice)y1=8;
+        if(spell1 instanceof Poison)y1=10;
+        if(spell1 instanceof Healing)y1=12;
+        if(spell2 instanceof Fireball)yo=6;
+        if(spell2 instanceof Ice)yo=8;
+        if(spell2 instanceof Poison)yo=10;
+        if(spell2 instanceof Healing)yo=12;
+        if(yo==y1)yo++;
+        if(spell1!=null){
+            y = (int) (getHeight()*(0.07+y1*0.0435));
+            g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.90)), (int) (getHeight() - (getHeight()*0.97)), null);
+        }
+        if(spell2!=null){
+            y = (int) (getHeight()*(0.07+yo*0.0435));
+            g.drawImage(button, x,  y, (int) (getWidth() - (getWidth()*0.90)), (int) (getHeight() - (getHeight()*0.97)), null);
+        }
+        
+//Food
         int food =game.getFood();
         x1=0;
         y1=food + 14;
@@ -81,7 +105,7 @@ class CharPanel extends JPanel implements Observer{
         if(game.getRank()==4)xp+=36;
         x1=0;
         y1=xp;
-        if(gold>20){
+        if(xp>20){
             x1=1;
             y1-=20;
         }

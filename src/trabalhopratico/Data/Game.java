@@ -16,6 +16,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import trabalhopratico.IEstates.*;
 import java.util.Random;
+import trabalhopratico.Spells.Spell;
 import trabalhopratico.cards.Card;
 import trabalhopratico.cards.Monster;
 
@@ -182,6 +183,10 @@ public class Game implements Serializable{
 
     int getGold() {
         return gamedata.getGold();
+    }
+
+    Spell getSpell(int i) {
+        return gamedata.GetSpell(i);
     }
 
 }
