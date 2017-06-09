@@ -29,7 +29,7 @@ public class ICombat extends StateAdapter{
     @Override
     public IStates comitOpt(int opt){
         if (opt==1){
-            
+           this.getDataGame().unlockDices();
            return new IAwaitFeat(this.getDataGame(), this.npc);
         }else{
            return new IAwaitSpells(this.getDataGame(), this.npc);
