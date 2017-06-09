@@ -102,20 +102,15 @@ public class OptFeat extends JPanel implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        if(game.getDice(j)!=0){
-            if(game.getXP()>1)
-                xpButton.setEnabled(true);
-            else
-                xpButton.setEnabled(!game.isLockDice(j));---------------------------------->DEVE SER AQUI!!!!!!<-----------------------------
-            if(game.getHP()>2)   
-                hpButton.setEnabled(true);
-            else
-                hpButton.setEnabled(!game.isLockDice(j));---------------------------------->DEVE SER AQUI!!!!!!<-----------------------------
-        }
-        else{
-            xpButton.setEnabled(!game.isLockDice(j));
-            hpButton.setEnabled(!game.isLockDice(j));
-        }
+        
+        if(game.getXP()>1)
+            xpButton.setEnabled(true);
+        if(game.getHP()>2)
+            hpButton.setEnabled(true);
+
+        xpButton.setEnabled(!game.isLockDice(j));
+        hpButton.setEnabled(!game.isLockDice(j));
+        
         
         
         /*if(flag==true){
