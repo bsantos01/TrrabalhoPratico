@@ -171,5 +171,13 @@ public class ObservableGame extends Observable{
     public Spell getSpell(int i) {
         return game.getSpell(i);
     }
+
+    public boolean isLockDice(int j) {
+        return game.isLockDice(j);
+    }
+
+    public void setLock(int j) {
+        game.setLock(j);
+    }
           
 }

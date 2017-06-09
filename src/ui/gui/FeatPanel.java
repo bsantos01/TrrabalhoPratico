@@ -43,8 +43,8 @@ ObservableGame game;
         
         p.add(new OptFeat(game, 0, 0, "FeatDice 1", 0));
         p.add(new OptFeat(game, 0, 1, "FeatDice 2", 1));
-        p.add(new OptFeat(game, 0, 1, "FeatDice 2", 2));
-        p.add(new OptFeat(game, 0, 1, "FeatDice 2", 3));
+        p.add(new OptFeat(game, 0, 1, "FeatDice 3", 2));
+        p.add(new OptFeat(game, 0, 1, "FeatDice 4", 3));
         add(p);
         add(okButton);
                     okButton.addMouseListener(new MouseAdapter() {

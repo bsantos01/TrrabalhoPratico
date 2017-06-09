@@ -5,9 +5,15 @@
         <group>
             <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/DugeonPanel.java</file>
             <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/GamePanel.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/Data/Dugeon.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/IEstates/IAwaitFeat.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/Data/Game.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/FeatPanel.java</file>
             <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/CardG.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/Data/ObservableGame.java</file>
             <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/CardPanel.java</file>
             <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/Main.java</file>
+            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/OptFeat.java</file>
         </group>
     </open-files>
 </project-private>

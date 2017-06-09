@@ -28,6 +28,7 @@ public class Dugeon implements Serializable{
     private final Player player;
     private Area cards;
     private int[] dices;
+    private boolean[] dicesLock;
     private String log;
    
     
@@ -37,7 +38,9 @@ public class Dugeon implements Serializable{
         this.player = new Player();
         this.log = "";
         dices= new int[this.player.getRank()];
+        dicesLock= new boolean[4];
         newArena();
+        unlockDices();
     }
 
 // FIM CONSTRUTORES */
@@ -380,5 +383,21 @@ public class Dugeon implements Serializable{
     int getGold() {
         return player.getGold();
     }
+
+    public void unlockDices() {
+        for(int i = 0; i <4;i++){
+            if(i>=dices.length)
+                this.dicesLock[i]=true;
+            else 
+                this.dicesLock[i]=false;
+        }
+    }
     
+    public void lockDice(int i){
+        this.dicesLock[i]=true;
+    }
+    
+    public boolean isLockDice(int i){
+        return this.dicesLock[i];
+    }
 }

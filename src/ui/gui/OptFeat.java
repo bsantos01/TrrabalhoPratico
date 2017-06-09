@@ -64,9 +64,9 @@ public class OptFeat extends JPanel implements Observer{
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        if(xpButton.isEnabled() && flag!=true){
+                        if(xpButton.isEnabled()){
                             game.feat(1,Integer.parseInt(i.getText()));
-                            flag=true;
+                            game.setLock(j);
                             
                         }
                     }
@@ -78,9 +78,9 @@ public class OptFeat extends JPanel implements Observer{
                 @Override
                 public void mousePressed(MouseEvent ev) {
                     if(game.getState() instanceof IAwaitFeat){
-                        if(hpButton.isEnabled() && flag!=true){
+                        if(hpButton.isEnabled()){
                             game.feat(2,Integer.parseInt(i.getText()));
-                            flag=true;
+                            game.setLock(j);
                         }
                     }
                 }
@@ -106,21 +106,22 @@ public class OptFeat extends JPanel implements Observer{
             if(game.getXP()>1)
                 xpButton.setEnabled(true);
             else
-                xpButton.setEnabled(false);
+                xpButton.setEnabled(game.isLockDice(j));
             if(game.getHP()>2)   
                 hpButton.setEnabled(true);
             else
-                hpButton.setEnabled(false);
+                hpButton.setEnabled(game.isLockDice(j));
         }
         else{
-            xpButton.setEnabled(false);
-            hpButton.setEnabled(false);
+            xpButton.setEnabled(!game.isLockDice(j));
+            hpButton.setEnabled(!game.isLockDice(j));
         }
         
-       /* if(flag==true){
+        
+        /*if(flag==true){
             System.out.println("cabron");
-            xpButton.setEnabled(false);
-            hpButton.setEnabled(false);
+            xpButton.setEnabled(game.isLockDice(j));
+            hpButton.setEnabled(game.isLockDice(j));
         }*/
         setVisible(game.getState() instanceof IAwaitFeat);
         repaint();

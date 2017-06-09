@@ -187,4 +187,12 @@ public class Game implements Serializable{
         return gamedata.GetSpell(i);
     }
 
+    boolean isLockDice(int j) {
+        return gamedata.isLockDice(j);
+    }
+
+    void setLock(int j) {
+        gamedata.lockDice(j);
+    }
+
 }
