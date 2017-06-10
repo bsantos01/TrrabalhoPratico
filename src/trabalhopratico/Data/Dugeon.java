@@ -404,4 +404,25 @@ public class Dugeon implements Serializable{
     boolean isEnd() {
         return cards.isEnd();
     }
+
+    public boolean maxfood() {
+        if(getFood()>=6)
+            return true;
+        else 
+            return false;
+    }
+
+    public boolean maxHP() {
+        if(getHP()>=20)
+            return true;
+        else 
+            return false;
+    }
+
+    public boolean maxArmor() {
+        if(getArmor()>=5)
+            return true;
+        else 
+            return false;
+    }
 }
