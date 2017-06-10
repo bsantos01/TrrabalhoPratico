@@ -402,6 +402,7 @@ public class Dugeon implements Serializable{
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     boolean isEnd() {
         return cards.isEnd();
@@ -427,6 +428,8 @@ public class Dugeon implements Serializable{
         else 
             return false;
     }
+=======
+>>>>>>> parent of 71469d7... V1.0.1
 =======
 >>>>>>> parent of 71469d7... V1.0.1
 =======

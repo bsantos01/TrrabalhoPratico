@@ -195,8 +195,4 @@ public class Game implements Serializable{
         gamedata.lockDice(j);
     }
 
-    boolean isEnd() {
-        return gamedata.isEnd();
-    }
-
 }

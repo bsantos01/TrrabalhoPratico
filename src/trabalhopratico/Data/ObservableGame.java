@@ -179,13 +179,5 @@ public class ObservableGame extends Observable{
     public void setLock(int j) {
         game.setLock(j);
     }
-
-    public int getIndex() {
-        return game.getIndex();
-    }
-
-    public boolean isEnd() {
-        return game.isEnd();
-    }
           
 }
