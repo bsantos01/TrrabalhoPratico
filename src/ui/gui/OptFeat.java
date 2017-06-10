@@ -66,6 +66,7 @@ public class OptFeat extends JPanel implements Observer{
                     if(game.getState() instanceof IAwaitFeat){
                         if(xpButton.isEnabled()){
                             game.feat(1,Integer.parseInt(i.getText()));
+                            game.setLock(j);
                             
                         }
                     }
@@ -79,6 +80,7 @@ public class OptFeat extends JPanel implements Observer{
                     if(game.getState() instanceof IAwaitFeat){
                         if(hpButton.isEnabled()){
                             game.feat(2,Integer.parseInt(i.getText()));
+                            game.setLock(j);
                         }
                     }
                 }
