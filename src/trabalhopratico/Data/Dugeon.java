@@ -280,11 +280,10 @@ public class Dugeon implements Serializable{
         }
     }
     public void addHP(int v){
-        if (player.getHp()==19)
-            player.setHp(player.getHp()+1);
-        else if(player.getHp()<19){
+        if(player.getHp()+v>20)
+            player.setHp(20);
+        else
             player.setHp(player.getHp()+v);
-        }
     }
     public void rmHP(int v){
         this.log += "Perdeu " + v + " de HP !\n";

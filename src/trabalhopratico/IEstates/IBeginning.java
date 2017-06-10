@@ -6,7 +6,6 @@
 package trabalhopratico.IEstates;
 
 import trabalhopratico.Data.Dugeon;
-import trabalhopratico.cards.Area;
 
 /**
  *

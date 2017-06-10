@@ -16,7 +16,7 @@ import trabalhopratico.IEstates.IBeginning;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class CardPanel extends JPanel implements Observer {
 

@@ -18,7 +18,7 @@ import trabalhopratico.IEstates.IAwaitSpells;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class SpellPanel  extends JPanel implements Observer{
     Box box;

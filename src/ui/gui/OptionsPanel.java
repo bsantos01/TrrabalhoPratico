@@ -14,7 +14,7 @@ import trabalhopratico.IEstates.*;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class OptionsPanel extends JPanel implements Observer {
     

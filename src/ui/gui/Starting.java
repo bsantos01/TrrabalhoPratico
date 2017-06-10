@@ -17,7 +17,7 @@ import trabalhopratico.IEstates.IBeginning;
 
 /**
  *
- * @author migue
+ * @author Bruno Santos & Miguel Almeida
  */
 public class Starting extends JPanel implements Observer {
     ObservableGame game;

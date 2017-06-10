@@ -22,7 +22,7 @@ import trabalhopratico.IEstates.IAwaitFeat;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class OptFeat extends JPanel implements Observer{
     int row, col;
@@ -108,14 +108,7 @@ public class OptFeat extends JPanel implements Observer{
 
         xpButton.setEnabled(!game.isLockDice(j));
         hpButton.setEnabled(!game.isLockDice(j));
-        
-        
-        
-        /*if(flag==true){
-            System.out.println("cabron");
-            xpButton.setEnabled(game.isLockDice(j));
-            hpButton.setEnabled(game.isLockDice(j));
-        }*/
+       
         setVisible(game.getState() instanceof IAwaitFeat);
         repaint();
     }

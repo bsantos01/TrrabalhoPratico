@@ -18,7 +18,7 @@ import trabalhopratico.IEstates.IAwaitFeat;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class FeatPanel extends JPanel implements Observer{
 

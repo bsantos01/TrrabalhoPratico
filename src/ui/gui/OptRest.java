@@ -20,7 +20,7 @@ import trabalhopratico.IEstates.IRestAwait;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class OptRest extends JPanel implements Observer{
     int row, col;

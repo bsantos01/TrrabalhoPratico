@@ -6,7 +6,10 @@
 package ui.gui;
 
 import java.net.URL;
-
+/**
+ *
+ * @author Bruno Santos & Miguel Almeida
+ */
 public class Resources {
 	
 	public static final URL getResourceFile(String name){

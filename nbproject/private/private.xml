@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/cards/Area.java</file>
-            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/Data/Dugeon.java</file>
-            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/Data/Game.java</file>
-            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/CardG.java</file>
-            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/Data/ObservableGame.java</file>
-            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/trabalhopratico/IEstates/IAwaitAction.java</file>
-            <file>file:/C:/Users/migue/Desktop/TrrabalhoPratico/src/ui/gui/CardPanel.java</file>
+            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/ui/gui/CharPanel.java</file>
+            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/cards/Merchant.java</file>
+            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/Data/Player.java</file>
+            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/Main.java</file>
+            <file>file:/C:/Users/Bruno%20Santos/Documents/NetBeansProjects/TrrabalhoPratico/src/trabalhopratico/Data/Dugeon.java</file>
         </group>
     </open-files>
 </project-private>

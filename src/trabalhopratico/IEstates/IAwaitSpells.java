@@ -76,4 +76,9 @@ public class IAwaitSpells extends StateAdapter{
         return new ICombat(this.getDataGame(), this.npc);
     }
     
+    @Override
+    public int rerollCrit(int i){
+        return this.getDataGame().rerollCrit(i);        
+    }
+    
 }

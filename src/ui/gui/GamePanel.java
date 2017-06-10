@@ -16,7 +16,7 @@ import trabalhopratico.IEstates.IBeginning;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class GamePanel extends JPanel implements Observer{
     
@@ -54,7 +54,7 @@ class GamePanel extends JPanel implements Observer{
     }
 
     private void setupLayout() {
-        JPanel pLeft, pRight,pRightCenter,pRightNorth, pRightCenterEast;
+        JPanel pLeft, pRight,pRightCenter, pRightCenterEast;
 
         setLayout(new BorderLayout());
 
@@ -72,16 +72,13 @@ class GamePanel extends JPanel implements Observer{
         
         //add
         pLeft.add(charP, BorderLayout.NORTH);
-        //pLeft.add(dugP, BorderLayout.SOUTH);
         add(pLeft, BorderLayout.WEST);
-        //add(charP, BorderLayout.WEST);
-        //add(dugP, BorderLayout.WEST);
+
 
         //------>Right - CARDS(TOP) OPTIONS(CENTER)+DICES(CENTER EAST) + LOG(SOUTH) <-------
         pRight = new JPanel();
         pRight.setLayout(new BorderLayout());
         
-        //pRight.setBackground(Color.RED);
         
         //------>OPTIONS(CENTER)+DICES(CENTER EAST)
         pRightCenter=new JPanel();
@@ -102,11 +99,6 @@ class GamePanel extends JPanel implements Observer{
         
         pRightCenter.add(pRightCenterEast, BorderLayout.EAST);
             
-        //------>CARDS(TOP)
-        //cardP.setPreferredSize(new Dimension(pRight.getPreferredSize().width,500));
-        //cardP.setLayout(new BoxLayout(cardP, BoxLayout.Y_AXIS));
-        /* pCenter.add(cardsInUsePanel, BorderLayout.NORTH);
-        pCenter.add(middlePanel, BorderLayout.CENTER);*/
         pRight.add(cardP, BorderLayout.NORTH);
         //------>LOG
         //add

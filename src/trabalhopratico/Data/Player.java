@@ -33,7 +33,7 @@ public class Player implements Serializable{
         this.mKill=false;
         switch (difficulty){
             case 0:
-                this.hp = 300;
+                this.hp = 5;
                 this.armor = 1;
                 this.food = 6;
                 this.gold = 5;
@@ -117,6 +117,9 @@ public class Player implements Serializable{
     }
 
     public void setFood(int food) {
+        if(food>6)
+            this.food=6;
+        else
         this.food = food;
     }
 

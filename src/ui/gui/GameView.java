@@ -24,7 +24,7 @@ import trabalhopratico.Data.ObservableGame;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class GameView extends JFrame implements Observer{
 

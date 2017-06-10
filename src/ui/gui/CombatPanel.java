@@ -17,7 +17,7 @@ import trabalhopratico.IEstates.ICombat;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class CombatPanel extends JPanel implements Observer{
 

@@ -17,7 +17,7 @@ import trabalhopratico.Data.ObservableGame;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class DugeonPanel extends JPanel{
 

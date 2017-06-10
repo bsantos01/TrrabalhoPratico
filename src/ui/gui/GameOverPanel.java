@@ -21,7 +21,7 @@ import trabalhopratico.Data.ObservableGame;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class GameOverPanel extends JPanel implements Observer{
     Box box;
@@ -66,7 +66,7 @@ class GameOverPanel extends JPanel implements Observer{
                 }
             });
         exitGame = new JButton("Exit");
-            loadGame.addMouseListener(new MouseAdapter() {
+            exitGame.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent ev) {
                          System.exit(0);        

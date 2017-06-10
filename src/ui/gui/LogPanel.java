@@ -16,7 +16,7 @@ import trabalhopratico.Data.ObservableGame;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class LogPanel extends JPanel implements Observer{
      ObservableGame game;

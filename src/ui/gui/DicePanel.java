@@ -20,7 +20,7 @@ import trabalhopratico.IEstates.ICombat;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class DicePanel extends JPanel implements Observer{
         Dice dices1;

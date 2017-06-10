@@ -19,7 +19,7 @@ import trabalhopratico.Spells.*;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 class CharPanel extends JPanel implements Observer{
     
