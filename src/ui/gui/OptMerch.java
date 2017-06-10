@@ -20,7 +20,7 @@ import trabalhopratico.IEstates.IMerchAwait;
 
 /**
  *
- * @author Bruno Santos
+ * @author Bruno Santos & Miguel Almeida
  */
 public class OptMerch extends JPanel implements Observer{
 
@@ -52,15 +52,15 @@ int row, col;
     }
 
     private void setupComponents(String name, String cost, String des, int i) {
-        this.i= new JLabel("  " +i);
         this.name = new JLabel(" " + name);
         this.cost = new JLabel(" Cost: " + cost);
         this.description = new JLabel(des);
+        if(i==8)
+            this.cost.setText("");
     }
 
     private void setupLayout() {
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-        add(i);
         add(name);
         add(description);
         add(cost);

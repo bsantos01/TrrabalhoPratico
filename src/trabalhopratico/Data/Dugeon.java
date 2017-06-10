@@ -139,7 +139,7 @@ public class Dugeon implements Serializable{
         int x = ran.nextInt(1);
         if(player.spells.isEmpty())
             return false; 
-        player.rmSpell(1);
+        player.rmSpell(x);
         return true;
     }
     public void setDices(int []i){
