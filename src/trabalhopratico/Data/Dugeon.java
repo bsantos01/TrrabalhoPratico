@@ -400,9 +400,6 @@ public class Dugeon implements Serializable{
     public boolean isLockDice(int i){
         return this.dicesLock[i];
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     boolean isEnd() {
         return cards.isEnd();
@@ -428,10 +425,4 @@ public class Dugeon implements Serializable{
         else 
             return false;
     }
-=======
->>>>>>> parent of 71469d7... V1.0.1
-=======
->>>>>>> parent of 71469d7... V1.0.1
-=======
->>>>>>> parent of 71469d7... V1.0.1
 }
