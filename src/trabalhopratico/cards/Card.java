@@ -21,6 +21,7 @@ public abstract class Card implements Serializable{
     
     public String GetDesc(){return descricao;}
     
+    
 }
 
 

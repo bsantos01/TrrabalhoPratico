@@ -42,7 +42,7 @@ public class Monster extends Card implements Serializable{
     }
 
     public Monster(Dugeon act, boolean event){
-  
+        this.descricao="Monster";
        dmg = act.getlvl()*2;
        hp=act.getarea()+act.rolldice();
         if(event)
@@ -81,6 +81,8 @@ public class Monster extends Card implements Serializable{
                     reward=3;
                     break;
             }
+      
+            
        return new ICombat(act, this);
     }
 

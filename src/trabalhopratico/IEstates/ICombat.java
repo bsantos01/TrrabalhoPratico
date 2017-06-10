@@ -20,20 +20,27 @@ public class ICombat extends StateAdapter{
         super(dataGame);
         this.getDataGame().RDices();
         npc=m;
+        
     }
     @Override
     public Monster GetMonster(){
         return npc;
     };
-    
- 
-    
+    @Override
+    public IStates comitOpt(int opt){
+        if (opt==1){
+           this.getDataGame().unlockDices();
+           return new IAwaitFeat(this.getDataGame(), this.npc);
+        }else{
+           return new IAwaitSpells(this.getDataGame(), this.npc);
+        }
+    }     
     @Override
     public IStates Do(){
         return new IAwaitFeat(getDataGame(),this.npc);    
      }
     @Override
-    public boolean rerollCrit(int i){
+    public int rerollCrit(int i){
         return this.getDataGame().rerollCrit(i);        
     }
 

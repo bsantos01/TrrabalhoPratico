@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package trabalhopratico.Data;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import trabalhopratico.Spells.Spell;
@@ -34,7 +33,7 @@ public class Player implements Serializable{
         this.mKill=false;
         switch (difficulty){
             case 0:
-                this.hp = 100;
+                this.hp = 5;
                 this.armor = 1;
                 this.food = 6;
                 this.gold = 5;
@@ -76,11 +75,19 @@ public class Player implements Serializable{
         
         return s.toString();
     }
+    public String SpellToStringI(int i){
+        if(spells.size()>i)
+            return spells.get(i).GetNome();
+        else
+            return "No spell in this slot";  
+    }
     public void rmSpell(int i){
         spells.remove(i);
     }
     public Spell GetSpell(int i){
-        return spells.get(i);
+        if(spells.size()>i)
+            return spells.get(i);
+        return null;
     }
     public void addSpell(Spell e){
         spells.add(e);
@@ -110,6 +117,9 @@ public class Player implements Serializable{
     }
 
     public void setFood(int food) {
+        if(food>6)
+            this.food=6;
+        else
         this.food = food;
     }
 

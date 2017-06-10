@@ -23,12 +23,13 @@ public class Area implements Serializable{
     public Area(Dugeon gamedata){
 
         index = -1;
-        Card [] temp= {new Event(), new Monster(gamedata, false), new Merchant(), new Resting(), new Treasure(), new Trap()};
+        Card [] temp= {new Resting(),new Merchant(), new Trap(), new Treasure(),new Event(),new Monster(gamedata, false) };
         area= new ArrayList<Card>(Arrays.asList(temp));
                 
         long seed=System.nanoTime();
         Collections.shuffle(area, new Random(seed));
-        if(gamedata.haveBoss())area.add(new BossMonster(gamedata, false));
+        if(gamedata.haveBoss())
+            area.add(new BossMonster(gamedata, false));
     }
     public void rmBoss(){
         area.remove(6);
@@ -80,4 +81,37 @@ public class Area implements Serializable{
                 return "\t\t";
        return "\t\t";
     }
+
+    public Card getCard(int i) {
+        if(index<0)
+            if(i==0)
+                return area.get(i);
+            else
+                return null;
+        if(index==0)
+            if(i<3)
+                return area.get(i);
+            else
+                return null;
+       if(index==2 || index==1)
+            if(i<4)
+                return area.get(i);
+            else
+                return null;
+       if(index==3)
+            if(i<6)
+                return area.get(i);
+            else
+                return null;
+        if(index==4||index==5)
+            if(i<=6)
+                return area.get(i);
+            else
+                return null;
+        if(index==6)
+            return area.get(i);
+       return null;
+    }
+
+
 }

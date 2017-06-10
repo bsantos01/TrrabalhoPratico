@@ -32,9 +32,12 @@ public class IAwaitSpells extends StateAdapter{
     }
     @Override
     public IStates comitOpt(int opt){
+        
        Spell temp;        
        int damage=this.getDataGame().getDamage();
-       if(opt!=(-1)){
+       
+       if(opt!=(-1))
+       if(this.getDataGame().SpellToString()!=null){
         temp=this.getDataGame().GetSpell(opt);
         
         if (temp instanceof Fireball)
@@ -47,6 +50,7 @@ public class IAwaitSpells extends StateAdapter{
            this.getDataGame().addHP(8);
 
         this.getDataGame().rmSpell(opt);
+        
 
        }
        npc.setHp(damage);
@@ -54,6 +58,7 @@ public class IAwaitSpells extends StateAdapter{
            if (npc instanceof BossMonster){
                if(this.getDataGame().getarea()==14)//se derrotar o ultimo boss há vitoria
                    return new IGameOver(this.getDataGame());
+               
                this.getDataGame().BossReward();
                this.getDataGame().WinRandSpell();
                this.getDataGame().setLog("Monster died! Keep going!");
@@ -69,6 +74,11 @@ public class IAwaitSpells extends StateAdapter{
         if(this.getDataGame().getPlayerHP()<=0) //se player morto
             return new IGameOver(this.getDataGame());
         return new ICombat(this.getDataGame(), this.npc);
+    }
+    
+    @Override
+    public int rerollCrit(int i){
+        return this.getDataGame().rerollCrit(i);        
     }
     
 }

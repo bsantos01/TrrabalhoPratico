@@ -14,6 +14,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import trabalhopratico.IEstates.*;
 import java.util.Random;
+import trabalhopratico.Spells.Spell;
+import trabalhopratico.cards.Card;
 import trabalhopratico.cards.Monster;
 
 /**
@@ -32,14 +34,14 @@ public class Game implements Serializable{
         gamedata = new Dugeon();
         state = new IBeginning(gamedata);
     }
-    public IStates commitopt(int i){
-        return state.comitOpt(i);
+    public void commitopt(int i){
+        state=state.comitOpt(i);
     }
-    public IStates Do(){
-        return state.Do();
+    public void Do(){
+        state=state.Do();
     }
-    public IStates DoFeat(int [] i){
-            return state.doFeat(i);
+    public void DoFeat(){
+        state=state.doFeat();
     }
     public int getDamage(){ 
         return gamedata.getDamage();
@@ -53,11 +55,19 @@ public class Game implements Serializable{
     public String SpellToString(){
         return gamedata.SpellToString();
     }
-    
+    public String SpellToStringI(int i){
+        return gamedata.SpellToStringI(i);
+    }
     public int[] getDices(){
         return gamedata.getDices();
     }
-    public boolean rerollCrit(int i){
+    public int getHP(){
+        return gamedata.getHP();
+    }
+    public int getXP(){
+        return gamedata.getXP();
+    }
+    public int rerollCrit(int i){
         return state.rerollCrit(i);
     }
     public void rerollSingle(int i){
@@ -86,17 +96,12 @@ public class Game implements Serializable{
     public int getArea(){
         return gamedata.getarea();
     }
-    public void addIndex(int i){
-        gamedata.addIndex(i);
+
+    
+    public void setupGame(int d, int a){
+            state=state.setupGame(d, a);
     }
     
-    public IStates setupGame(int d, int a){
-        return state.setupGame(d, a);
-    }
-    
-    public void setState(IStates s){
-        state = s;
-    }
     
     public int rolldice(){
         Random randomGenerator= new Random();
@@ -106,6 +111,12 @@ public class Game implements Serializable{
 
     public String getNameCard(int i) {
         return gamedata.getNameCard(i);
+    }
+    
+    public Card getCard(int i){
+        if(gamedata.getIndex()<i && !(state instanceof IAwaitAction))
+            return null;
+        return gamedata.getCard(i);
     }
 
     public String getDataPlayer() {
@@ -138,7 +149,10 @@ public class Game implements Serializable{
     }
 
     public String getLog() {
-        return gamedata.getLog();
+        String aux=gamedata.getLog();
+        refreshLog();
+        
+        return aux;
     }
     
     public void refreshLog() {
@@ -148,4 +162,41 @@ public class Game implements Serializable{
     public void feat(int opt, int i) {
         gamedata=state.doFeat(opt, i);
     }
+
+    public boolean isClickable(int i) {
+        return gamedata.isClickable(i);
+    }
+
+    public int getDice(int i) {
+        return gamedata.getDice(i);
+    }
+
+    int getArmor() {
+        return gamedata.getArmor();
+    }
+
+    int getFood() {
+        return gamedata.getFood();
+    }
+
+    int getGold() {
+        return gamedata.getGold();
+    }
+
+    Spell getSpell(int i) {
+        return gamedata.GetSpell(i);
+    }
+
+    boolean isLockDice(int j) {
+        return gamedata.isLockDice(j);
+    }
+
+    void setLock(int j) {
+        gamedata.lockDice(j);
+    }
+
+    boolean isEnd() {
+        return gamedata.isEnd();
+    }
+
 }

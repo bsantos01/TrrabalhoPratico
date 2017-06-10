@@ -16,6 +16,10 @@ import trabalhopratico.IEstates.IStates;
  * @author Bruno Santos & Miguel Almeida
  */
 public class Event extends Card implements Serializable{
+
+    public Event() {
+        this.descricao="Event";
+    }
     
      @Override
      public IStates accao(int opt, Dugeon act)
@@ -47,6 +51,7 @@ public class Event extends Card implements Serializable{
      @Override
      public IStates inicia(Dugeon act)
      {
+         
         return accao(0,act);
      }
      

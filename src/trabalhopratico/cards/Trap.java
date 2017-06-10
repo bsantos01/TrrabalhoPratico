@@ -15,6 +15,10 @@ import trabalhopratico.IEstates.IStates;
  * @author Bruno Santos & Miguel Almeida
  */
 public class Trap extends Card implements Serializable{
+
+    public Trap() {
+        this.descricao="Trap";
+    }
     
      @Override
      public IStates accao(int opt, Dugeon act)

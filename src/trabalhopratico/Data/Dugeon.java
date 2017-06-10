@@ -28,13 +28,19 @@ public class Dugeon implements Serializable{
     private final Player player;
     private Area cards;
     private int[] dices;
+    private boolean[] dicesLock;
     private String log;
+   
     
     public Dugeon() {
         this.area=1;
         this.lvl=1;
         this.player = new Player();
         this.log = "";
+        dices= new int[this.player.getRank()];
+        dicesLock= new boolean[4];
+        newArena();
+        unlockDices();
     }
 
 // FIM CONSTRUTORES */
@@ -73,7 +79,8 @@ public class Dugeon implements Serializable{
     }
     public void update(){
         this.checkNextRank();
-        if(cards.isEnd()){
+        
+        if(cards.isEnd()){          
             if (this.haveBoss())
                 lvl++;
             area++;
@@ -96,15 +103,12 @@ public class Dugeon implements Serializable{
     }
     
     public void WinRandSpell(){
-        Spell temp=new Spell();
         Random ran = new Random();
         int x = ran.nextInt(4)+1;
         WinSpell(x);
-        if(player.spells.size()==2){
-            this.LoseRandSpell();
-        }
-        player.addSpell(temp);
     }
+    
+    
     public void WinSpell(int opt){
         Spell temp=new Spell();
 
@@ -132,17 +136,10 @@ public class Dugeon implements Serializable{
     }
     public boolean LoseRandSpell(){
         Random ran = new Random();
-        int x = ran.nextInt(2);
+        int x = ran.nextInt(1);
         if(player.spells.isEmpty())
             return false; 
-        if(player.spells.size()==1){
-            this.log += "Perdeu o Spell "+ player.spells.get(0).GetNome() + "!\n";
-            player.rmSpell(0);
-        }
-        else{
-            this.log += "Perdeu o Spell "+ player.spells.get(x).GetNome() + "!\n";
-            player.rmSpell(x);
-        }
+        player.rmSpell(x);
         return true;
     }
     public void setDices(int []i){
@@ -163,27 +160,29 @@ public class Dugeon implements Serializable{
                 dmg+=dices[i];        
         return dmg;
     }
+    
+    public String SpellToStringI(int i){
+        return player.SpellToStringI(i);
+    }
     public String SpellToString(){
         return player.SpellToString();
     }
     public Spell GetSpell(int i){
-     return player.GetSpell(i);
+        return player.GetSpell(i);
     }
     public void rmSpell(int i){
         player.rmSpell(i);
     }
 
-    public boolean rerollCrit(int i){
+    public int rerollCrit(int i){
         int temp=this.rolldice();
         
         if (temp!=1){
             dices[i]+=temp;
-            if (temp==6)
-                return true;
         }else{
             dices[i]=temp;
         }
-        return false;
+        return temp;
     }
     public int GetRank(){
         return player.getRank();
@@ -232,8 +231,8 @@ public class Dugeon implements Serializable{
         this.cards= new Area(this);
     }
     public void setarea(int area) {
-        this.log += "Passou para a area " + lvl + " !\n";
         this.area = area;
+        this.log += "Passou para a area " + area + " !\n";
     }
     public int getlvl() {
         return lvl;
@@ -275,33 +274,40 @@ public class Dugeon implements Serializable{
         player.setFood(player.getFood()-1);
     }
     public void addfood(){
-        this.log += "Ganhou 1 de Food !\n";
-        player.setFood(player.getFood()+1);
+        if(player.getFood()<6){
+            this.log += "Ganhou 1 de Food !\n";
+            player.setFood(player.getFood()+1);
+        }
     }
     public void addHP(int v){
-        this.log += "Ganhou " + v + " de HP !\n";
-        player.setHp(player.getHp()+v);
+        if(player.getHp()+v>20)
+            player.setHp(20);
+        else
+            player.setHp(player.getHp()+v);
     }
     public void rmHP(int v){
         this.log += "Perdeu " + v + " de HP !\n";
         player.setHp(player.getHp()-v);
-        if (this.player.getHp()<=0){
-            
-            //DIEEEEEEEEE
-        }
     }
     
     public boolean rmGold(int v){
-        this.log += "Perdeu " + v + " de Gold !\n";
-        return player.rmGold(v);
+        if(player.rmGold(v)){
+            this.log += "Perdeu " + v + " de Gold !\n";
+            return true;
+        }
+        return false;
     }
     public void addGold(int v){
-        this.log += "Ganhou " + v + " de Gold !\n";
-        this.player.addGold(v);
+        if(player.getGold()<20){
+            this.log += "Ganhou " + v + " de Gold !\n";
+            this.player.addGold(v);
+        }
     }
     public void addArmor(int v){
-        this.log += "Ganhou " + v + " de Armor !\n";
-        this.player.addArmor(v);
+        if(player.getArmor()<5){
+            this.log += "Ganhou " + v + " de Armor !\n";
+            this.player.addArmor(v);
+        }
     }
     public boolean rmArmor(int v){
         this.log += "Perdeu " + v + " de Armor !\n";
@@ -334,5 +340,88 @@ public class Dugeon implements Serializable{
     public void setDice(int i) {
         this.dices[i]=rolldice();
     }
+
+    public Card getCard(int i) {
+        return cards.getCard(i);
+    }
+
+    public boolean isClickable(int i) {
+        if(cards.getIndex()==0){
+            if(i==1||i==2){
+                return true;
+            }
+        }
+        if(cards.getIndex() == 3){
+            if(i==4||i==5){
+                return true;
+            }
+        }
+       return false;
+    }
+
+    public int getDice(int i) {
+        if(dices==null)
+            return 0;
+        if(i < dices.length)
+            return dices[i];
+        else
+            return 0;
+    }
+
+    public int getHP() {
+        return player.getHp();
+    }
+    public int getXP(){
+        return player.getXp();
+    }
+
+    int getFood() {
+        return player.getFood();
+    }
+
+    int getGold() {
+        return player.getGold();
+    }
+
+    public void unlockDices() {
+        for(int i = 0; i <4;i++){
+            if(i>=dices.length)
+                this.dicesLock[i]=true;
+            else 
+                this.dicesLock[i]=false;
+        }
+    }
     
+    public void lockDice(int i){
+        this.dicesLock[i]=true;
+    }
+    
+    public boolean isLockDice(int i){
+        return this.dicesLock[i];
+    }
+
+    boolean isEnd() {
+        return cards.isEnd();
+    }
+
+    public boolean maxfood() {
+        if(getFood()>=6)
+            return true;
+        else 
+            return false;
+    }
+
+    public boolean maxHP() {
+        if(getHP()>=20)
+            return true;
+        else 
+            return false;
+    }
+
+    public boolean maxArmor() {
+        if(getArmor()>=5)
+            return true;
+        else 
+            return false;
+    }
 }
