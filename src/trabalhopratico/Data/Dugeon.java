@@ -400,4 +400,8 @@ public class Dugeon implements Serializable{
     public boolean isLockDice(int i){
         return this.dicesLock[i];
     }
+
+    boolean isEnd() {
+        return cards.isEnd();
+    }
 }

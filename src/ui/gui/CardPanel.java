@@ -91,7 +91,7 @@ class CardPanel extends JPanel implements Observer {
     public void update(Observable o, Object arg) {
         setVisible(!(game.getState() instanceof IBeginning));
         if(game.getState() instanceof IAwaitAction)
-            if(this.game.GetDataGame().getIndex()!= 0 && this.game.GetDataGame().getIndex()!= 3){
+            if(this.game.GetDataGame().getIndex()> 3){
                 game.commitopt(0);
             }
         repaint();
