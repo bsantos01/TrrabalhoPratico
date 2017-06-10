@@ -77,6 +77,7 @@ public class OptRest extends JPanel implements Observer{
     @Override
     public void update(Observable o, Object arg) {
      setVisible(game.getState() instanceof IRestAwait);
+     repaint();
     }
     
 }

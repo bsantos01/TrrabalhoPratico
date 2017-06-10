@@ -37,9 +37,9 @@ class OptionsPanel extends JPanel implements Observer {
 
     @Override
     public void update(Observable o, Object o1) {
-        
+                
         removeAll();
-
+        repaint();
         if(game.getState() instanceof IMerchAwait){
             add(merchP, BorderLayout.CENTER);
         }
