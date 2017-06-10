@@ -31,24 +31,20 @@ public class Merchant extends Card implements Serializable {
       
         switch(opt){
             case 1:
-                if(!act.maxfood())
-                    if(act.rmGold(1))
-                        act.addfood();   
+                if(act.rmGold(1))
+                    act.addfood();   
             break;
             case 2:
-                if(!act.maxHP())
-                    if(act.rmGold(1))
-                        act.addHP(1);
+                if(act.rmGold(1))
+                    act.addHP(1);
             break;
             case 3:
-                if(!act.maxHP())
-                    if(act.rmGold(3))
-                        act.addHP(4);
+                if(act.rmGold(3))
+                    act.addHP(4);
             break;       
             case 4:
-                if(!act.maxArmor())
-                    if(act.rmGold(6))
-                        act.addArmor(1);
+                if(act.rmGold(6))
+                    act.addArmor(1);
             break;
          
             case 5:
